@@ -6,6 +6,10 @@ import { ChevronRight, ChevronLeft, ExternalLink, Tag, CheckCircle2 } from "luci
 import { aiTools } from "@/data/aiTools";
 import { Metadata } from "next";
 import ChatGPTReviewPage from "@/components/ai-hub/ChatGPTReviewPage";
+import ClaudeReviewPage from "@/components/ai-hub/ClaudeReviewPage";
+import GeminiReviewPage from "@/components/ai-hub/GeminiReviewPage";
+import PerplexityReviewPage from "@/components/ai-hub/PerplexityReviewPage";
+import CanvaReviewPage from "@/components/ai-hub/CanvaReviewPage";
 
 export async function generateStaticParams() {
   return aiTools.map((tool) => ({
@@ -32,6 +36,70 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     };
   }
 
+  if (slug === 'claude') {
+    return {
+      title: "Claude Review & Guide: Features, Uses, Pros & Cons",
+      description: "Explore Claude's features, writing, coding, research, document analysis, Projects, Artifacts, pros, cons, pricing and beginner tips.",
+      alternates: {
+        canonical: "https://contentian-ai.vercel.app/ai-hub/tools/claude",
+      },
+      openGraph: {
+        title: "Claude Review & Guide: Features, Uses, Pros & Cons",
+        description: "Explore Claude's features, writing, coding, research, document analysis, Projects, Artifacts, pros, cons, pricing and beginner tips.",
+        url: "https://contentian-ai.vercel.app/ai-hub/tools/claude",
+        type: "article",
+      }
+    };
+  }
+
+  if (slug === 'gemini') {
+    return {
+      title: "Gemini Review & Guide: Features, Uses, Pros & Cons",
+      description: "Explore Google Gemini's features, multimodal capabilities, research, Google integrations, Canvas, Gems, pros, cons and beginner tips.",
+      alternates: {
+        canonical: "https://contentian-ai.vercel.app/ai-hub/tools/gemini",
+      },
+      openGraph: {
+        title: "Gemini Review & Guide: Features, Uses, Pros & Cons",
+        description: "Explore Google Gemini's features, multimodal capabilities, research, Google integrations, Canvas, Gems, pros, cons and beginner tips.",
+        url: "https://contentian-ai.vercel.app/ai-hub/tools/gemini",
+        type: "article",
+      }
+    };
+  }
+
+  if (slug === 'perplexity') {
+    return {
+      title: "Perplexity Review & Guide: AI Search, Research, Features & Pros",
+      description: "Learn how Perplexity works, how its AI search and citations work, Deep Research, Pro Search, file analysis, Projects, pricing, use cases, pros and cons.",
+      alternates: {
+        canonical: "https://contentian-ai.vercel.app/ai-hub/tools/perplexity",
+      },
+      openGraph: {
+        title: "Perplexity Review & Guide: AI Search, Research, Features & Pros",
+        description: "Learn how Perplexity works, how its AI search and citations work, Deep Research, Pro Search, file analysis, Projects, pricing, use cases, pros and cons.",
+        url: "https://contentian-ai.vercel.app/ai-hub/tools/perplexity",
+        type: "article",
+      }
+    };
+  }
+
+  if (slug === 'canva') {
+    return {
+      title: "Canva AI Review & Guide: Features, Magic Studio, Uses & Pros",
+      description: "Explore Canva AI, Magic Studio, AI design, image generation, Magic Write, Canva Code, social media workflows, pricing, pros, cons and beginner tips.",
+      alternates: {
+        canonical: "https://contentian-ai.vercel.app/ai-hub/tools/canva",
+      },
+      openGraph: {
+        title: "Canva AI Review & Guide: Features, Magic Studio, Uses & Pros",
+        description: "Explore Canva AI, Magic Studio, AI design, image generation, Magic Write, Canva Code, social media workflows, pricing, pros, cons and beginner tips.",
+        url: "https://contentian-ai.vercel.app/ai-hub/tools/canva",
+        type: "article",
+      }
+    };
+  }
+
   const tool = aiTools.find(t => t.slug === slug);
   if (!tool) return {};
   return {
@@ -50,6 +118,22 @@ export default async function AIToolPage({ params }: { params: Promise<{ slug: s
 
   if (slug === 'chatgpt') {
     return <ChatGPTReviewPage />;
+  }
+
+  if (slug === 'claude') {
+    return <ClaudeReviewPage />;
+  }
+
+  if (slug === 'gemini') {
+    return <GeminiReviewPage />;
+  }
+
+  if (slug === 'perplexity') {
+    return <PerplexityReviewPage />;
+  }
+
+  if (slug === 'canva') {
+    return <CanvaReviewPage />;
   }
 
   return (
