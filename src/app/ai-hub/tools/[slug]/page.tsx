@@ -5,6 +5,7 @@ import Footer from "@/components/layout/Footer";
 import { ChevronRight, ChevronLeft, ExternalLink, Tag, CheckCircle2 } from "lucide-react";
 import { aiTools } from "@/data/aiTools";
 import { Metadata } from "next";
+import ChatGPTReviewPage from "@/components/ai-hub/ChatGPTReviewPage";
 
 export async function generateStaticParams() {
   return aiTools.map((tool) => ({
@@ -14,6 +15,23 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
+  
+  if (slug === 'chatgpt') {
+    return {
+      title: "ChatGPT Review & Guide: Features, Uses, Pros & Cons",
+      description: "Explore ChatGPT's features, real-world use cases, pros and cons, pricing, Projects, Deep Research, coding, writing, research, and beginner tips.",
+      alternates: {
+        canonical: "https://contentian-ai.vercel.app/ai-hub/tools/chatgpt",
+      },
+      openGraph: {
+        title: "ChatGPT Review & Guide: Features, Uses, Pros & Cons",
+        description: "Explore ChatGPT's features, real-world use cases, pros and cons, pricing, Projects, Deep Research, coding, writing, research, and beginner tips.",
+        url: "https://contentian-ai.vercel.app/ai-hub/tools/chatgpt",
+        type: "article",
+      }
+    };
+  }
+
   const tool = aiTools.find(t => t.slug === slug);
   if (!tool) return {};
   return {
@@ -28,6 +46,10 @@ export default async function AIToolPage({ params }: { params: Promise<{ slug: s
   
   if (!tool) {
     notFound();
+  }
+
+  if (slug === 'chatgpt') {
+    return <ChatGPTReviewPage />;
   }
 
   return (
