@@ -10,6 +10,8 @@ import ClaudeReviewPage from "@/components/ai-hub/ClaudeReviewPage";
 import GeminiReviewPage from "@/components/ai-hub/GeminiReviewPage";
 import PerplexityReviewPage from "@/components/ai-hub/PerplexityReviewPage";
 import CanvaReviewPage from "@/components/ai-hub/CanvaReviewPage";
+import CursorReviewPage from "@/components/ai-hub/CursorReviewPage";
+import GammaReviewPage from "@/components/ai-hub/GammaReviewPage";
 
 export async function generateStaticParams() {
   return aiTools.map((tool) => ({
@@ -100,6 +102,38 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     };
   }
 
+  if (slug === 'cursor') {
+    return {
+      title: "Cursor AI Review: Features, Agent Mode, Coding & Beginner Guide",
+      description: "Explore Cursor AI, Agent mode, agentic coding, codebase understanding, debugging, Cloud Agents, real use cases, pros, cons and beginner tips.",
+      alternates: {
+        canonical: "https://contentian-ai.vercel.app/ai-hub/tools/cursor",
+      },
+      openGraph: {
+        title: "Cursor AI Review: Features, Agent Mode, Coding & Beginner Guide",
+        description: "Explore Cursor AI, Agent mode, agentic coding, codebase understanding, debugging, Cloud Agents, real use cases, pros, cons and beginner tips.",
+        url: "https://contentian-ai.vercel.app/ai-hub/tools/cursor",
+        type: "article",
+      }
+    };
+  }
+
+  if (slug === 'gamma') {
+    return {
+      title: "Gamma AI Review: Presentations, Websites, Documents & Features",
+      description: "Explore Gamma AI for presentations, documents, websites, social content and visual storytelling. Learn its features, AI Agent, pricing, use cases, pros, cons and beginner tips.",
+      alternates: {
+        canonical: "https://contentian-ai.vercel.app/ai-hub/tools/gamma",
+      },
+      openGraph: {
+        title: "Gamma AI Review: Presentations, Websites, Documents & Features",
+        description: "Explore Gamma AI for presentations, documents, websites, social content and visual storytelling. Learn its features, AI Agent, pricing, use cases, pros, cons and beginner tips.",
+        url: "https://contentian-ai.vercel.app/ai-hub/tools/gamma",
+        type: "article",
+      }
+    };
+  }
+
   const tool = aiTools.find(t => t.slug === slug);
   if (!tool) return {};
   return {
@@ -134,6 +168,14 @@ export default async function AIToolPage({ params }: { params: Promise<{ slug: s
 
   if (slug === 'canva') {
     return <CanvaReviewPage />;
+  }
+
+  if (slug === 'cursor') {
+    return <CursorReviewPage />;
+  }
+
+  if (slug === 'gamma') {
+    return <GammaReviewPage />;
   }
 
   return (
