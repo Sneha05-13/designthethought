@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import Navbar from "@/components/ai-hub/AIHubNavbar";
+import Footer from "@/components/ai-hub/AIHubFooter";
 import { 
   ChevronRight, ChevronLeft, ExternalLink, Star, CheckCircle2, XCircle, 
   Info, PenTool, GraduationCap, Code, Search, Image as ImageIcon, 
@@ -535,7 +535,7 @@ export default function GeminiReviewPage() {
                 </div>
 
                 <div className="pt-6 border-t border-zinc-100 dark:border-zinc-800">
-                  <div className="text-xs text-zinc-500 uppercase font-bold tracking-wider mb-2">Contentian Editorial Score</div>
+                  <div className="text-xs text-zinc-500 uppercase font-bold tracking-wider mb-2">The Design Tech Editorial Score</div>
                   <div className="flex text-amber-400 mb-1">
                     <Star className="w-6 h-6 fill-current" />
                     <Star className="w-6 h-6 fill-current" />
@@ -543,13 +543,13 @@ export default function GeminiReviewPage() {
                     <Star className="w-6 h-6 fill-current" />
                     <Star className="w-6 h-6" />
                   </div>
-                  <p className="text-xs text-zinc-500 italic">This is Contentian&apos;s editorial assessment.</p>
+                  <p className="text-xs text-zinc-500 italic">This is The Design Tech&apos;s editorial assessment.</p>
                 </div>
               </div>
 
-              {/* CONTENTIAN'S TAKE */}
+              {/* EDITORIAL TAKE */}
               <div className="bg-blue-50 dark:bg-blue-900/10 p-6 rounded-3xl border border-blue-100 dark:border-blue-800/30">
-                <h3 className="text-lg font-bold text-blue-900 dark:text-blue-200 mb-4">Contentian&apos;s Take</h3>
+                <h3 className="text-lg font-bold text-blue-900 dark:text-blue-200 mb-4">The Design Tech Take</h3>
                 <div className="space-y-4 text-sm text-blue-800 dark:text-blue-300">
                   <div>
                     <strong className="block mb-1">What stands out:</strong>
@@ -652,7 +652,7 @@ export default function GeminiReviewPage() {
                     <div className="flex text-amber-400"><Star className="w-4 h-4 fill-current"/><Star className="w-4 h-4 fill-current"/><Star className="w-4 h-4 fill-current"/><Star className="w-4 h-4 fill-current"/><Star className="w-4 h-4"/></div>
                   </div>
                 </div>
-                <p className="text-xs text-zinc-500 mt-4 text-center italic">These are Contentian editorial scores.</p>
+                <p className="text-xs text-zinc-500 mt-4 text-center italic">These are The Design Tech editorial scores.</p>
               </div>
 
             </div>

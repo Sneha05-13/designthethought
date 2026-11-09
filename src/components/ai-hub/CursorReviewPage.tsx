@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import Navbar from "@/components/ai-hub/AIHubNavbar";
+import Footer from "@/components/ai-hub/AIHubFooter";
 import { 
   ChevronRight, ChevronLeft, ExternalLink, Star, CheckCircle2, XCircle, 
   Info, Zap, AlertTriangle, Layers, MessageSquare, BookOpen, 
@@ -605,11 +605,11 @@ export default function CursorReviewPage() {
                 </div>
               </section>
 
-              {/* CONTENTIAN CONNECTION */}
+              {/* THE DESIGN TECH WORKFLOW */}
               <section className="bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/10 dark:to-indigo-900/10 p-6 rounded-2xl border border-indigo-100 dark:border-indigo-800/30">
                 <h3 className="font-bold text-indigo-900 dark:text-indigo-300 mb-2">From Learning AI to Building With AI</h3>
                 <p className="text-sm text-indigo-800 dark:text-indigo-400 mb-4">
-                  Contentian AI Hub is designed to help beginners learn core concepts like <Link href="/ai-hub/basics/what-are-ai-agents" className="underline hover:text-indigo-600">Agents</Link> and <Link href="/ai-hub/basics/what-are-large-language-models" className="underline hover:text-indigo-600">LLMs</Link>. Cursor is the perfect example of taking those concepts out of the browser and putting them directly into a practical software development workflow.
+                  The Design Tech AI Hub is designed to help beginners learn core concepts like <Link href="/ai-hub/basics/what-are-ai-agents" className="underline hover:text-indigo-600">Agents</Link> and <Link href="/ai-hub/basics/what-are-large-language-models" className="underline hover:text-indigo-600">LLMs</Link>. Cursor is the perfect example of taking those concepts out of the browser and putting them directly into a practical software development workflow.
                 </p>
               </section>
 
@@ -708,7 +708,7 @@ export default function CursorReviewPage() {
                 </div>
 
                 <div className="pt-6 border-t border-zinc-100 dark:border-zinc-800">
-                  <div className="text-xs text-zinc-500 uppercase font-bold tracking-wider mb-2">Contentian Editorial Score</div>
+                  <div className="text-xs text-zinc-500 uppercase font-bold tracking-wider mb-2">The Design Tech Editorial Score</div>
                   <div className="flex text-amber-400 mb-1">
                     <Star className="w-6 h-6 fill-current" />
                     <Star className="w-6 h-6 fill-current" />
@@ -720,9 +720,9 @@ export default function CursorReviewPage() {
                 </div>
               </div>
 
-              {/* CONTENTIAN'S TAKE */}
+              {/* EDITORIAL TAKE */}
               <div className="bg-indigo-50 dark:bg-indigo-900/10 p-6 rounded-3xl border border-indigo-100 dark:border-indigo-800/30">
-                <h3 className="text-lg font-bold text-indigo-900 dark:text-indigo-200 mb-4">Contentian&apos;s Take</h3>
+                <h3 className="text-lg font-bold text-indigo-900 dark:text-indigo-200 mb-4">The Design Tech Take</h3>
                 <p className="text-sm text-indigo-800 dark:text-indigo-300 mb-4 italic">
                   Cursor is particularly interesting because it moves AI from a chat window directly into the development workflow.
                 </p>
@@ -745,7 +745,7 @@ export default function CursorReviewPage() {
                     </ul>
                   </div>
                 </div>
-                <p className="text-xs text-indigo-400 mt-4 text-center">Contentian Editorial Take</p>
+                <p className="text-xs text-indigo-400 mt-4 text-center">The Design Tech Editorial Take</p>
               </div>
 
               {/* PROS & CONS */}
@@ -841,7 +841,7 @@ export default function CursorReviewPage() {
                     <div className="flex text-amber-400"><Star className="w-4 h-4 fill-current"/><Star className="w-4 h-4 fill-current"/><Star className="w-4 h-4 fill-current"/><Star className="w-4 h-4 fill-current"/><Star className="w-4 h-4 fill-current"/></div>
                   </div>
                 </div>
-                <p className="text-xs text-zinc-500 mt-4 text-center italic">Contentian Editorial Scores. NOT official ratings.</p>
+                <p className="text-xs text-zinc-500 mt-4 text-center italic">The Design Tech Editorial Scores. NOT official ratings.</p>
               </div>
 
             </div>

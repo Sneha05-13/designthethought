@@ -1,61 +1,70 @@
+import React from "react";
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
+import AIHubSubnav from "@/components/ai-hub/AIHubSubnav";
 import Footer from "@/components/layout/Footer";
 import { ChevronRight } from "lucide-react";
 import AIToolGrid from "@/components/ai-hub/AIToolGrid";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Tools Directory | Contentian",
-  description: "Discover the best AI tools for writing, design, productivity, and coding.",
+  title: "AI Tools Directory | The Design Tech AI Hub",
+  description: "Discover and compare top AI tools for writing, software development, design, research, and workflows.",
 };
 
 export default function AIToolsPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-zinc-50 dark:bg-[#0a0a0a]">
+    <div className="min-h-screen flex flex-col bg-zinc-50 dark:bg-[#0B0F19] text-[#111827] dark:text-[#F9FAFB] transition-colors">
       <Navbar />
+      <AIHubSubnav />
+      
       <main className="flex-1">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
-          <nav className="flex items-center text-sm text-zinc-500 dark:text-zinc-400 font-medium">
+          <nav className="flex items-center text-sm text-gray-500 dark:text-gray-400 font-medium">
+            <Link href="/" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+              The Design Tech
+            </Link>
+            <ChevronRight className="w-4 h-4 mx-2 text-gray-400" />
             <Link href="/ai-hub" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
               AI Hub
             </Link>
-            <ChevronRight className="w-4 h-4 mx-2 text-zinc-400" />
-            <span className="text-zinc-900 dark:text-white">AI Tools</span>
+            <ChevronRight className="w-4 h-4 mx-2 text-gray-400" />
+            <span className="text-gray-900 dark:text-white font-semibold">AI Tools</span>
           </nav>
         </div>
 
-        <section className="py-16 lg:py-24 text-center">
+        <section className="py-16 lg:py-20 text-center">
           <div className="max-w-3xl mx-auto px-4">
-            <span className="inline-block mb-4 px-3 py-1 rounded-full text-xs font-bold border border-indigo-200 dark:border-indigo-500/30 text-indigo-600 dark:text-indigo-400 bg-white dark:bg-indigo-500/10">
-              AI Tools
+            <span className="inline-block mb-4 px-3 py-1 rounded-full text-xs font-bold border border-indigo-200 dark:border-indigo-800 text-indigo-600 dark:text-indigo-400 bg-white dark:bg-indigo-950/40">
+              Curated Directory &amp; In-Depth Reviews
             </span>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-zinc-900 dark:text-white mb-6">
-              Discover AI Tools That Actually Help
+            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+              Discover AI Tools That Actually Deliver
             </h1>
-            <p className="text-xl text-zinc-600 dark:text-zinc-400">
-              Explore useful AI tools for work, creativity, learning and productivity.
+            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400">
+              Honest editorial assessments, feature breakdowns, and real-world workflows for modern creators and builders.
             </p>
           </div>
         </section>
 
-        <section className="py-12">
+        <section className="py-8 pb-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <AIToolGrid />
             
             <div className="mt-12 text-center">
-              <Link href="/ai-hub" className="inline-flex px-6 py-3 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white font-medium hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors">
-                Back to AI Hub
+              <Link href="/ai-hub" className="inline-flex px-6 py-2.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-sm">
+                &larr; Back to AI Hub Overview
               </Link>
             </div>
           </div>
         </section>
 
-        <section className="py-20 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950/20 dark:to-purple-950/20 border-t border-zinc-200/50 dark:border-white/5">
+        <section className="py-16 bg-gradient-to-br from-indigo-50/60 to-sky-50/60 dark:from-indigo-950/20 dark:to-sky-950/20 border-t border-gray-200 dark:border-gray-800">
           <div className="max-w-4xl mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold text-zinc-900 dark:text-white mb-6">Looking for an AI content creator?</h2>
-            <Link href="/generator" className="px-8 py-3 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold shadow-lg transition-all">
-              Try Contentian
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Want to Master AI Prompting?</h2>
+            <p className="text-gray-600 dark:text-gray-400 mb-6">Learn prompt engineering techniques to get the highest quality outputs from any AI tool.</p>
+            <Link href="/ai-hub/guides/prompt-engineering" className="inline-flex px-8 py-3 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold shadow-md shadow-indigo-500/25 transition-all">
+              Read Prompting Guide
             </Link>
           </div>
         </section>

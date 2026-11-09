@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import Navbar from "@/components/ai-hub/AIHubNavbar";
+import Footer from "@/components/ai-hub/AIHubFooter";
 import { 
   ChevronRight, ChevronLeft, ExternalLink, Star, CheckCircle2, XCircle, 
   Info, PenTool, GraduationCap, Code, Search, BarChart3, Image as ImageIcon, 
@@ -245,10 +245,10 @@ export default function ChatGPTReviewPage() {
 
                 <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-5 rounded-2xl shadow-sm text-center">
                   <p className="text-zinc-700 dark:text-zinc-300 mb-4">
-                    Contentian is designed specifically for creators who want a more focused, seamless workflow for social content without writing complex prompts.
+                    The Design Tech AI Hub curates focused tools and workflows for creators who want structured prompts without trial and error.
                   </p>
-                  <Link href="/generator" className="inline-flex items-center text-indigo-600 dark:text-indigo-400 font-bold hover:underline">
-                    Try the Contentian Generator <ChevronRight className="w-4 h-4 ml-1" />
+                  <Link href="/ai-hub/tools" className="inline-flex items-center text-indigo-600 dark:text-indigo-400 font-bold hover:underline">
+                    Explore Curated AI Tools <ChevronRight className="w-4 h-4 ml-1" />
                   </Link>
                 </div>
               </section>
@@ -522,7 +522,7 @@ export default function ChatGPTReviewPage() {
                 </div>
 
                 <div className="pt-6 border-t border-zinc-100 dark:border-zinc-800">
-                  <div className="text-xs text-zinc-500 uppercase font-bold tracking-wider mb-2">Contentian Verdict</div>
+                  <div className="text-xs text-zinc-500 uppercase font-bold tracking-wider mb-2">The Design Tech Verdict</div>
                   <div className="flex text-amber-400 mb-1">
                     <Star className="w-6 h-6 fill-current" />
                     <Star className="w-6 h-6 fill-current" />
@@ -530,13 +530,13 @@ export default function ChatGPTReviewPage() {
                     <Star className="w-6 h-6 fill-current" />
                     <Star className="w-6 h-6 fill-current" />
                   </div>
-                  <p className="text-xs text-zinc-500 italic">This is Contentian&apos;s editorial assessment, not an official OpenAI rating.</p>
+                  <p className="text-xs text-zinc-500 italic">This is The Design Tech&apos;s editorial assessment, not an official OpenAI rating.</p>
                 </div>
               </div>
 
-              {/* 15. PERSONAL EXPERIENCE ("Contentian's Take") */}
+              {/* 15. EDITORIAL TAKE */}
               <div className="bg-indigo-50 dark:bg-indigo-900/10 p-6 rounded-3xl border border-indigo-100 dark:border-indigo-800/30">
-                <h3 className="text-lg font-bold text-indigo-900 dark:text-indigo-200 mb-4">Contentian&apos;s Take</h3>
+                <h3 className="text-lg font-bold text-indigo-900 dark:text-indigo-200 mb-4">The Design Tech Take</h3>
                 <div className="space-y-4 text-sm text-indigo-800 dark:text-indigo-300">
                   <div>
                     <strong className="block mb-1">What stands out:</strong>

@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
+import AIHubSubnav from "@/components/ai-hub/AIHubSubnav";
 import Footer from "@/components/layout/Footer";
 import { ChevronRight, ChevronLeft, Clock } from "lucide-react";
 import { aiBasics } from "@/data/aiBasics";
@@ -21,12 +22,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: "What Is Artificial Intelligence? A Beginner-Friendly Guide",
       description: "Learn what artificial intelligence is, how AI works, machine learning, deep learning, real-world applications, limitations, and how beginners can start learning AI.",
       alternates: {
-        canonical: "https://contentian-ai.vercel.app/ai-hub/basics/what-is-artificial-intelligence",
+        canonical: "https://thedesigntech.com/ai-hub/basics/what-is-artificial-intelligence",
       },
       openGraph: {
         title: "What Is Artificial Intelligence? A Beginner-Friendly Guide",
         description: "Learn what artificial intelligence is, how AI works, machine learning, deep learning, real-world applications, limitations, and how beginners can start learning AI.",
-        url: "https://contentian-ai.vercel.app/ai-hub/basics/what-is-artificial-intelligence",
+        url: "https://thedesigntech.com/ai-hub/basics/what-is-artificial-intelligence",
         type: "article",
       }
     };
@@ -37,12 +38,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: "What Is Generative AI? A Beginner-Friendly Guide",
       description: "Learn what Generative AI is, how it works, what it can create, real-world uses, prompting basics, limitations, and how beginners can start using it.",
       alternates: {
-        canonical: "https://contentian-ai.vercel.app/ai-hub/basics/what-is-generative-ai",
+        canonical: "https://thedesigntech.com/ai-hub/basics/what-is-generative-ai",
       },
       openGraph: {
         title: "What Is Generative AI? A Beginner-Friendly Guide",
         description: "Learn what Generative AI is, how it works, what it can create, real-world uses, prompting basics, limitations, and how beginners can start using it.",
-        url: "https://contentian-ai.vercel.app/ai-hub/basics/what-is-generative-ai",
+        url: "https://thedesigntech.com/ai-hub/basics/what-is-generative-ai",
         type: "article",
       }
     };
@@ -53,12 +54,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: "What Are Large Language Models (LLMs)? A Beginner's Guide",
       description: "Learn what Large Language Models (LLMs) are, how they work, tokens, transformers, context windows, AI hallucinations, real-world uses, and how beginners can start learning LLMs.",
       alternates: {
-        canonical: "https://contentian-ai.vercel.app/ai-hub/basics/what-are-large-language-models",
+        canonical: "https://thedesigntech.com/ai-hub/basics/what-are-large-language-models",
       },
       openGraph: {
         title: "What Are Large Language Models (LLMs)? A Beginner's Guide",
         description: "Learn what Large Language Models (LLMs) are, how they work, tokens, transformers, context windows, AI hallucinations, real-world uses, and how beginners can start learning LLMs.",
-        url: "https://contentian-ai.vercel.app/ai-hub/basics/what-are-large-language-models",
+        url: "https://thedesigntech.com/ai-hub/basics/what-are-large-language-models",
         type: "article",
       }
     };
@@ -69,12 +70,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: "What Is Prompt Engineering? A Practical Beginner's Guide",
       description: "Learn what prompt engineering is, how to write better AI prompts, prompting techniques, examples, templates, common mistakes, and practical tips for beginners.",
       alternates: {
-        canonical: "https://contentian-ai.vercel.app/ai-hub/basics/what-is-prompt-engineering",
+        canonical: "https://thedesigntech.com/ai-hub/basics/what-is-prompt-engineering",
       },
       openGraph: {
         title: "What Is Prompt Engineering? A Practical Beginner's Guide",
         description: "Learn what prompt engineering is, how to write better AI prompts, prompting techniques, examples, templates, common mistakes, and practical tips for beginners.",
-        url: "https://contentian-ai.vercel.app/ai-hub/basics/what-is-prompt-engineering",
+        url: "https://thedesigntech.com/ai-hub/basics/what-is-prompt-engineering",
         type: "article",
       }
     };
@@ -85,12 +86,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: "What Is RAG? Retrieval-Augmented Generation Explained",
       description: "Learn what RAG is, how Retrieval-Augmented Generation works, embeddings, vector databases, retrieval, grounding, RAG vs fine-tuning, use cases, and how to build a simple RAG system.",
       alternates: {
-        canonical: "https://contentian-ai.vercel.app/ai-hub/basics/what-is-rag",
+        canonical: "https://thedesigntech.com/ai-hub/basics/what-is-rag",
       },
       openGraph: {
         title: "What Is RAG? Retrieval-Augmented Generation Explained",
         description: "Learn what RAG is, how Retrieval-Augmented Generation works, embeddings, vector databases, retrieval, grounding, RAG vs fine-tuning, use cases, and how to build a simple RAG system.",
-        url: "https://contentian-ai.vercel.app/ai-hub/basics/what-is-rag",
+        url: "https://thedesigntech.com/ai-hub/basics/what-is-rag",
         type: "article",
       }
     };
@@ -101,12 +102,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: "What Are AI Agents? How They Work, Examples & Use Cases",
       description: "Learn what AI agents are, how they work, agent loops, tools, memory, RAG, real-world examples, limitations, and how beginners can build an AI agent.",
       alternates: {
-        canonical: "https://contentian-ai.vercel.app/ai-hub/basics/what-are-ai-agents",
+        canonical: "https://thedesigntech.com/ai-hub/basics/what-are-ai-agents",
       },
       openGraph: {
         title: "What Are AI Agents? How They Work, Examples & Use Cases",
         description: "Learn what AI agents are, how they work, agent loops, tools, memory, RAG, real-world examples, limitations, and how beginners can build an AI agent.",
-        url: "https://contentian-ai.vercel.app/ai-hub/basics/what-are-ai-agents",
+        url: "https://thedesigntech.com/ai-hub/basics/what-are-ai-agents",
         type: "article",
       }
     };
@@ -117,12 +118,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: "What Is AI Automation? A Beginner-Friendly Guide",
       description: "Learn what AI automation is, how it works, real-world examples, benefits, limitations, and how beginners can start using AI automation.",
       alternates: {
-        canonical: "https://contentian-ai.vercel.app/ai-hub/basics/what-is-ai-automation",
+        canonical: "https://thedesigntech.com/ai-hub/basics/what-is-ai-automation",
       },
       openGraph: {
         title: "What Is AI Automation? A Beginner-Friendly Guide",
         description: "Learn what AI automation is, how it works, real-world examples, benefits, limitations, and how beginners can start using AI automation.",
-        url: "https://contentian-ai.vercel.app/ai-hub/basics/what-is-ai-automation",
+        url: "https://thedesigntech.com/ai-hub/basics/what-is-ai-automation",
         type: "article",
       }
     };
@@ -133,19 +134,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: "What Is AI Vision? A Beginner-Friendly Guide to Computer Vision",
       description: "Learn what AI Vision and computer vision are, how AI understands images, real-world applications, limitations, and how beginners can start learning.",
       alternates: {
-        canonical: "https://contentian-ai.vercel.app/ai-hub/basics/what-is-ai-vision",
+        canonical: "https://thedesigntech.com/ai-hub/basics/what-is-ai-vision",
       },
       openGraph: {
         title: "What Is AI Vision? A Beginner-Friendly Guide to Computer Vision",
         description: "Learn what AI Vision and computer vision are, how AI understands images, real-world applications, limitations, and how beginners can start learning.",
-        url: "https://contentian-ai.vercel.app/ai-hub/basics/what-is-ai-vision",
+        url: "https://thedesigntech.com/ai-hub/basics/what-is-ai-vision",
         type: "article",
       }
     };
   }
 
   return {
-    title: `${topic.title} | Contentian AI Basics`,
+    title: `${topic.title} | The Design Tech AI Hub`,
     description: topic.description,
   };
 }
@@ -330,7 +331,7 @@ const TopicContent = ({ slug }: { slug: string }) => {
             <li><strong>Content repurposing:</strong> Taking a long script and automatically turning it into a Twitter thread.</li>
           </ul>
           <p>
-            Tools designed specifically for creators, like <Link href="/generator" className="text-indigo-600 dark:text-indigo-400 hover:underline">Contentian</Link>, are built around these exact concepts, offering AI-assisted workflows to generate and manage high-quality content faster.
+            Tools designed specifically for creators, like <Link href="/ai-hub/tools" className="text-indigo-600 dark:text-indigo-400 hover:underline">The Design Tech AI Hub</Link>, are built around these exact concepts, offering AI-assisted workflows to generate and manage high-quality content faster.
           </p>
 
           <h2>How AI Can Help Businesses</h2>
@@ -742,7 +743,7 @@ const TopicContent = ({ slug }: { slug: string }) => {
             <li>Repurposing long-form content (like a podcast) into short-form content (like a Twitter thread).</li>
           </ul>
           <p>
-            Tools like <Link href="/generator" className="text-indigo-600 dark:text-indigo-400 hover:underline">Contentian&apos;s Generator</Link> are specifically designed for this workflow, helping creators easily turn a basic idea or image into structured, ready-to-use content elements without wrestling with complex prompts.
+            Tools like <Link href="/ai-hub/tools" className="text-indigo-600 dark:text-indigo-400 hover:underline">our curated AI directory</Link> are specifically designed for this workflow, helping creators easily turn a basic idea or image into structured, ready-to-use content elements without wrestling with complex prompts.
           </p>
 
           <h2>Generative AI for Developers</h2>
@@ -1281,7 +1282,7 @@ const TopicContent = ({ slug }: { slug: string }) => {
             For creators, LLMs are game-changers for avoiding the &quot;blank page.&quot; They are used to generate ideas, headlines, captions, blog outlines, and to repurpose long content into short-form formats.
           </p>
           <p>
-            At <Link href="/generator" className="text-indigo-600 dark:text-indigo-400 hover:underline">Contentian</Link>, we use AI-assisted generation specifically to help creators turn rough ideas or images into polished content elements like titles and descriptions, dramatically speeding up the workflow.
+            At <Link href="/ai-hub" className="text-indigo-600 dark:text-indigo-400 hover:underline">Contentian AI Hub</Link>, we use AI-assisted generation specifically to help creators turn rough ideas or images into polished content elements like titles and descriptions, dramatically speeding up the workflow.
           </p>
 
           <h2>How LLMs Are Used by Developers</h2>
@@ -1781,7 +1782,7 @@ const TopicContent = ({ slug }: { slug: string }) => {
             <p className="italic mb-0">&quot;I am creating a Pinterest pin about a minimalist digital planner. Give me 3 catchy, SEO-friendly titles and a 2-sentence description that includes relevant keywords. Make it inspiring.&quot;</p>
           </div>
           <p>
-            Tools like <Link href="/generator" className="text-indigo-600 dark:text-indigo-400 hover:underline">Contentian Generator</Link> are built to handle exactly this kind of structured generation, helping users turn raw ideas or uploaded images into polished content elements without needing to write complex manual prompts every time.
+            Tools like <Link href="/ai-hub/tools" className="text-indigo-600 dark:text-indigo-400 hover:underline">Contentian AI Tools</Link> are built to handle exactly this kind of structured generation, helping users turn raw ideas or uploaded images into polished content elements without needing to write complex manual prompts every time.
           </p>
 
           <h2>Prompt Engineering for Students</h2>
@@ -2161,7 +2162,7 @@ const TopicContent = ({ slug }: { slug: string }) => {
             Content creators can use AI Vision to dramatically speed up their workflow. AI can help creators understand images, identify the subject of a photo, extract text from screenshots, or automatically generate descriptive captions for accessibility.
           </p>
           <p>
-            For instance, if you have a folder of reference images, AI can help organize that visual content or suggest new ideas based on what it sees. Features like <Link href="/generator" className="text-indigo-600 dark:text-indigo-400 hover:underline">Contentian&apos;s content generation</Link> are closely related to these kinds of AI capabilities, making it easier to turn visual inspiration into structured content.
+            For instance, if you have a folder of reference images, AI can help organize that visual content or suggest new ideas based on what it sees. Features like <Link href="/ai-hub/tools" className="text-indigo-600 dark:text-indigo-400 hover:underline">Contentian&apos;s curated tools</Link> are closely related to these kinds of AI capabilities, making it easier to turn visual inspiration into structured content.
           </p>
 
           <h2>AI Vision for Students and Beginners</h2>
@@ -2398,7 +2399,7 @@ const TopicContent = ({ slug }: { slug: string }) => {
             <li><strong>Content planning:</strong> Organizing a content calendar for the month.</li>
           </ul>
           <p>
-            For example, <Link href="/generator" className="text-indigo-600 dark:text-indigo-400 hover:underline">Contentian's content generation feature</Link> allows creators to quickly generate structured, high-quality content without staring at a blank page. It acts as an AI-powered assistant to streamline the writing process.
+            For example, <Link href="/ai-hub/tools" className="text-indigo-600 dark:text-indigo-400 hover:underline">Contentian&apos;s curated tools</Link> allows creators to quickly generate structured, high-quality content without staring at a blank page. It acts as an AI-powered assistant to streamline the writing process.
           </p>
 
           <h2>Benefits of AI Automation</h2>
@@ -3734,26 +3735,31 @@ export default async function AIBasicsArticlePage({ params }: { params: Promise<
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-zinc-50 dark:bg-[#0a0a0a]">
+    <div className="min-h-screen flex flex-col bg-zinc-50 dark:bg-[#0B0F19] text-[#111827] dark:text-[#F9FAFB] transition-colors">
       <Navbar />
+      <AIHubSubnav />
       <main className="flex-1">
         
         {/* Navigation & Breadcrumb */}
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-6">
-          <Link href="/ai-hub/basics" className="inline-flex items-center gap-2 text-sm font-medium text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors mb-8">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-6">
+          <Link href="/ai-hub/basics" className="inline-flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors mb-6">
             <ChevronLeft className="w-4 h-4" /> Back to AI Basics
           </Link>
           
-          <nav className="flex flex-wrap items-center text-sm text-zinc-500 dark:text-zinc-400 font-medium mb-8">
+          <nav className="flex flex-wrap items-center text-sm text-gray-500 dark:text-gray-400 font-medium mb-8">
+            <Link href="/" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+              The Design Tech
+            </Link>
+            <ChevronRight className="w-4 h-4 mx-2 text-gray-400" />
             <Link href="/ai-hub" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
               AI Hub
             </Link>
-            <ChevronRight className="w-4 h-4 mx-2 text-zinc-400" />
+            <ChevronRight className="w-4 h-4 mx-2 text-gray-400" />
             <Link href="/ai-hub/basics" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-              Basics
+              AI Basics
             </Link>
-            <ChevronRight className="w-4 h-4 mx-2 text-zinc-400" />
-            <span className="text-zinc-900 dark:text-white truncate">{topic.title}</span>
+            <ChevronRight className="w-4 h-4 mx-2 text-gray-400" />
+            <span className="text-gray-900 dark:text-white truncate font-semibold">{topic.title}</span>
           </nav>
 
           {/* Article Header */}
@@ -3784,9 +3790,9 @@ export default async function AIBasicsArticlePage({ params }: { params: Promise<
         {/* CTA */}
         <section className="py-20 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950/20 dark:to-purple-950/20 border-y border-zinc-200/50 dark:border-white/5">
           <div className="max-w-4xl mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold text-zinc-900 dark:text-white mb-6">Ready to Create With AI?</h2>
-            <Link href="/generator" className="px-8 py-3 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold shadow-lg transition-all">
-              Start Creating
+            <h2 className="text-3xl font-bold text-zinc-900 dark:text-white mb-6">Ready to Explore AI Tools?</h2>
+            <Link href="/ai-hub/tools" className="px-8 py-3 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold shadow-lg transition-all">
+              Discover AI Tools
             </Link>
           </div>
         </section>

@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import Navbar from "@/components/ai-hub/AIHubNavbar";
+import Footer from "@/components/ai-hub/AIHubFooter";
 import { 
   ChevronRight, ChevronLeft, ExternalLink, Star, CheckCircle2, XCircle, 
   Info, Search, FileText, Folder, Zap, AlertTriangle, Layers, 
@@ -387,11 +387,11 @@ export default function PerplexityReviewPage() {
                   </p>
                   <div className="bg-indigo-50 dark:bg-indigo-900/10 p-4 rounded-xl border border-indigo-100 dark:border-indigo-800/30 text-sm flex flex-col sm:flex-row gap-4 items-center justify-between">
                     <div>
-                      <p className="mb-1"><strong>Perplexity:</strong> Research + sources</p>
-                      <p><strong>Contentian:</strong> Content creation + titles + descriptions + hashtags</p>
+                      <p className="mb-1"><strong>Perplexity:</strong> Research + citations</p>
+                      <p><strong>The Design Tech AI Tools:</strong> Curated editorial directory &amp; prompt strategies</p>
                     </div>
-                    <Link href="/generator" className="shrink-0 px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-medium transition-colors">
-                      Try Contentian Generator
+                    <Link href="/ai-hub/tools" className="shrink-0 px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-medium transition-colors">
+                      Explore AI Tools
                     </Link>
                   </div>
                 </div>
@@ -629,7 +629,7 @@ export default function PerplexityReviewPage() {
                 </div>
 
                 <div className="pt-6 border-t border-zinc-100 dark:border-zinc-800">
-                  <div className="text-xs text-zinc-500 uppercase font-bold tracking-wider mb-2">Contentian Editorial Score</div>
+                  <div className="text-xs text-zinc-500 uppercase font-bold tracking-wider mb-2">The Design Tech Editorial Score</div>
                   <div className="flex text-amber-400 mb-1">
                     <Star className="w-6 h-6 fill-current" />
                     <Star className="w-6 h-6 fill-current" />
@@ -641,9 +641,9 @@ export default function PerplexityReviewPage() {
                 </div>
               </div>
 
-              {/* CONTENTIAN'S TAKE */}
+              {/* EDITORIAL TAKE */}
               <div className="bg-teal-50 dark:bg-teal-900/10 p-6 rounded-3xl border border-teal-100 dark:border-teal-800/30">
-                <h3 className="text-lg font-bold text-teal-900 dark:text-teal-200 mb-4">Contentian&apos;s Take</h3>
+                <h3 className="text-lg font-bold text-teal-900 dark:text-teal-200 mb-4">The Design Tech Take</h3>
                 <div className="space-y-4 text-sm text-teal-800 dark:text-teal-300">
                   <div>
                     <strong className="block mb-1">What stands out:</strong>
@@ -777,7 +777,7 @@ export default function PerplexityReviewPage() {
                     <div className="flex text-amber-400"><Star className="w-4 h-4 fill-current"/><Star className="w-4 h-4 fill-current"/><Star className="w-4 h-4 fill-current"/><Star className="w-4 h-4 fill-current"/><Star className="w-4 h-4"/></div>
                   </div>
                 </div>
-                <p className="text-xs text-zinc-500 mt-4 text-center italic">Contentian Editorial Scores. NOT official ratings.</p>
+                <p className="text-xs text-zinc-500 mt-4 text-center italic">The Design Tech Editorial Scores. NOT official ratings.</p>
               </div>
 
             </div>

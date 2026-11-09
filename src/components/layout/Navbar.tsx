@@ -1,96 +1,162 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { siteConfig } from "@/lib/siteConfig";
+import ThemeToggle from "@/components/theme/ThemeToggle";
+import SearchModal from "@/components/search/SearchModal";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
+  };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-zinc-200/20 bg-white/50 dark:bg-black/40 backdrop-blur-md transition-all">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Logo */}
-        <div className="flex items-center gap-2">
-          {/* Sparkle SVG */}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="text-indigo-500 dark:text-indigo-400"
-          >
-            <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" />
-          </svg>
-          <Link href="/" className="text-xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500 dark:from-indigo-300 dark:via-white dark:to-indigo-100">
-            Contentian
-          </Link>
-        </div>
+    <>
+      <header className="sticky top-0 z-40 w-full bg-white/90 dark:bg-[#0B0F19]/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800/80 transition-colors">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex h-18 items-center justify-between">
+            
+            {/* Brand Logo */}
+            <div className="flex items-center gap-3">
+              <Link 
+                href="/" 
+                className="flex items-center gap-2.5 text-xl sm:text-2xl font-black tracking-tight text-gray-900 dark:text-white group"
+              >
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-indigo-600 to-sky-500 flex items-center justify-center text-white font-bold text-sm shadow-xs shadow-indigo-500/30 group-hover:scale-105 transition-transform">
+                  DT
+                </div>
+                <span className="font-extrabold tracking-tight">
+                  The Design Tech
+                </span>
+              </Link>
+            </div>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-600 dark:text-zinc-300">
-          <Link href="/" className="hover:text-black dark:hover:text-white transition-colors">Home</Link>
-          <Link href="/#features" className="hover:text-black dark:hover:text-white transition-colors">Features</Link>
-          <Link href="/#how-it-works" className="hover:text-black dark:hover:text-white transition-colors">How It Works</Link>
-          <Link href="/ai-hub" className="hover:text-black dark:hover:text-white transition-colors">AI Hub</Link>
-          <Link href="/#about" className="hover:text-black dark:hover:text-white transition-colors">About</Link>
-        </nav>
+            {/* Desktop Navigation - Exact order specified */}
+            <nav className="hidden md:flex items-center gap-6 lg:gap-7 text-sm font-semibold text-gray-600 dark:text-gray-300">
+              {siteConfig.navLinks.map((link) => {
+                const active = isActive(link.href);
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`transition-colors py-1 relative ${
+                      active 
+                        ? "text-indigo-600 dark:text-indigo-400 font-bold" 
+                        : "hover:text-gray-900 dark:hover:text-white"
+                    }`}
+                  >
+                    {link.label}
+                    {active && (
+                      <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-indigo-600 dark:bg-indigo-400 rounded-full" />
+                    )}
+                  </Link>
+                );
+              })}
+            </nav>
 
-        {/* Desktop Actions */}
-        <div className="hidden md:flex items-center gap-4">
-          <Link href="/login" className="text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:text-black dark:hover:text-white transition-colors px-3 py-2">
-            Login
-          </Link>
-          <Link href="/generator" className="text-sm font-medium px-5 py-2 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white shadow-lg shadow-indigo-500/25 transition-all hover:scale-105 active:scale-95">
-            Start Creating
-          </Link>
-        </div>
+            {/* Right Desktop Utilities: Search & Theme Toggle */}
+            <div className="hidden md:flex items-center gap-3">
+              <button
+                type="button"
+                onClick={() => setIsSearchOpen(true)}
+                className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-50/80 dark:bg-gray-800/50 text-xs font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:border-gray-300 dark:hover:border-gray-700 transition-colors cursor-pointer"
+                aria-label="Search articles"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <span className="hidden lg:inline">Search...</span>
+                <kbd className="hidden lg:inline text-[10px] font-mono px-1.5 py-0.5 rounded-sm bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-300">⌘K</kbd>
+              </button>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden p-2 text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle mobile menu"
-        >
-          {isMobileMenuOpen ? (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
-            </svg>
-          ) : (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>
-            </svg>
-          )}
-        </button>
-      </div>
+              <ThemeToggle />
+            </div>
 
-      {/* Mobile Navigation Dropdown */}
-      <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        }`}
-      >
-        <div className="px-4 pb-6 pt-2 space-y-4 bg-white/95 dark:bg-black/95 backdrop-blur-xl border-b border-zinc-200/20 dark:border-white/5">
-          <Link href="/" className="block text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:text-black dark:hover:text-white transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
-          <Link href="/#features" className="block text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:text-black dark:hover:text-white transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Features</Link>
-          <Link href="/#how-it-works" className="block text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:text-black dark:hover:text-white transition-colors" onClick={() => setIsMobileMenuOpen(false)}>How It Works</Link>
-          <Link href="/ai-hub" className="block text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:text-black dark:hover:text-white transition-colors" onClick={() => setIsMobileMenuOpen(false)}>AI Hub</Link>
-          <Link href="/#about" className="block text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:text-black dark:hover:text-white transition-colors" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
-          
-          <div className="pt-4 flex flex-col gap-3 border-t border-zinc-200/20 dark:border-white/10">
-            <Link href="/login" className="text-center text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:text-black dark:hover:text-white transition-colors py-2" onClick={() => setIsMobileMenuOpen(false)}>
-              Login
-            </Link>
-            <Link href="/generator" className="text-center text-sm font-medium py-2 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white shadow-lg shadow-indigo-500/25 transition-all" onClick={() => setIsMobileMenuOpen(false)}>
-              Start Creating
-            </Link>
+            {/* Mobile Controls */}
+            <div className="flex md:hidden items-center gap-2">
+              <button
+                type="button"
+                onClick={() => setIsSearchOpen(true)}
+                className="p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+                aria-label="Search articles"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </button>
+
+              <ThemeToggle />
+
+              <button
+                type="button"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white focus:outline-hidden"
+                aria-label="Toggle navigation menu"
+                aria-expanded={isMobileMenuOpen}
+              >
+                {isMobileMenuOpen ? (
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                ) : (
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                )}
+              </button>
+            </div>
+
           </div>
         </div>
-      </div>
-    </header>
+
+        {/* Mobile Navigation Drawer */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-[#0B0F19] px-4 pt-3 pb-6 space-y-2">
+            <p className="text-[11px] uppercase tracking-wider text-gray-400 dark:text-gray-500 font-bold px-3 pb-1">
+              Navigation
+            </p>
+            {siteConfig.navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`block px-3 py-2 rounded-lg text-sm font-semibold ${
+                  isActive(link.href)
+                    ? "bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 font-bold"
+                    : "text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800/60"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+
+            <div className="pt-3 border-t border-gray-100 dark:border-gray-800">
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setIsSearchOpen(true);
+                }}
+                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-gray-100 dark:bg-gray-800 text-xs font-semibold text-gray-700 dark:text-gray-200"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                Search all articles...
+              </button>
+            </div>
+          </div>
+        )}
+      </header>
+
+      {/* Global Search Modal */}
+      <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+    </>
   );
 }

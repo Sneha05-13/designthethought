@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import Navbar from "@/components/ai-hub/AIHubNavbar";
+import Footer from "@/components/ai-hub/AIHubFooter";
 import { 
   ChevronRight, ChevronLeft, ExternalLink, Star, CheckCircle2, XCircle, 
   Info, FileText, Zap, AlertTriangle, Layers, 
@@ -244,13 +244,13 @@ export default function CanvaReviewPage() {
                   <p className="text-sm font-medium text-zinc-900 dark:text-white">&quot;Write 5 Instagram captions for a new digital planner. Tone: friendly, aesthetic and concise.&quot;</p>
                 </div>
                 
-                {/* CONTENTIAN CONNECTION */}
+                {/* EDITORIAL WORKFLOW */}
                 <div className="bg-indigo-50 dark:bg-indigo-900/10 p-5 rounded-2xl border border-indigo-100 dark:border-indigo-800/30 flex flex-col sm:flex-row gap-4 items-center justify-between">
                   <div className="text-sm text-indigo-900 dark:text-indigo-200">
-                    <strong>Contentian</strong> is highly useful when you specifically need platform-focused titles, descriptions and hashtags, while <strong>Canva</strong> is perfect for placing that generated text directly into visual designs.
+                    <strong>The Design Tech AI Hub</strong> curates tools that help you craft platform-focused copy, while <strong>Canva</strong> is perfect for placing that generated text directly into visual designs.
                   </div>
-                  <Link href="/generator" className="shrink-0 px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-medium transition-colors text-sm text-center">
-                    Try Contentian
+                  <Link href="/ai-hub/tools" className="shrink-0 px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-medium transition-colors text-sm text-center">
+                    Explore AI Tools
                   </Link>
                 </div>
               </section>
@@ -376,9 +376,9 @@ export default function CanvaReviewPage() {
                 </div>
               </section>
 
-              {/* CONTENTIAN + CANVA WORKFLOW */}
+              {/* AI + CANVA WORKFLOW */}
               <section className="bg-gradient-to-r from-indigo-50 to-cyan-50 dark:from-indigo-900/20 dark:to-cyan-900/20 p-8 rounded-3xl border border-indigo-100 dark:border-indigo-800/30 mt-12">
-                <h2 className="text-2xl font-bold text-indigo-900 dark:text-indigo-100 mb-6">Contentian + Canva: From Idea to Publish</h2>
+                <h2 className="text-2xl font-bold text-indigo-900 dark:text-indigo-100 mb-6">AI + Canva: From Idea to Publish</h2>
                 <div className="flex flex-col md:flex-row gap-6">
                   <div className="flex-1 space-y-4">
                     <div className="bg-white dark:bg-zinc-900 p-4 rounded-xl shadow-sm">
@@ -386,7 +386,7 @@ export default function CanvaReviewPage() {
                       <p className="text-sm font-medium text-zinc-800 dark:text-zinc-200">&quot;I want to create a Pinterest post about a cute strawberry picnic wallpaper.&quot;</p>
                     </div>
                     <div className="bg-white dark:bg-zinc-900 p-4 rounded-xl shadow-sm border-l-4 border-indigo-500">
-                      <div className="text-xs font-bold text-indigo-500 uppercase mb-1">2. Contentian</div>
+                      <div className="text-xs font-bold text-indigo-500 uppercase mb-1">2. AI Prompting</div>
                       <p className="text-sm text-zinc-700 dark:text-zinc-300">Generates optimized Title + Description + Hashtags perfectly formatted for the platform.</p>
                     </div>
                     <div className="bg-white dark:bg-zinc-900 p-4 rounded-xl shadow-sm border-l-4 border-cyan-500">
@@ -501,7 +501,7 @@ export default function CanvaReviewPage() {
                     <strong>Canva</strong> is great for turning those ideas into visual, publishable content.
                   </p>
                   <p className="text-zinc-700 dark:text-zinc-300">
-                    <strong>Together:</strong> Idea (ChatGPT) &rarr; Content (Contentian) &rarr; Design (Canva).
+                    <strong>Together:</strong> Idea (ChatGPT) &rarr; Copy (AI Tools) &rarr; Design (Canva).
                   </p>
                 </div>
               </section>
@@ -630,7 +630,7 @@ export default function CanvaReviewPage() {
                 </div>
 
                 <div className="pt-6 border-t border-zinc-100 dark:border-zinc-800">
-                  <div className="text-xs text-zinc-500 uppercase font-bold tracking-wider mb-2">Contentian Editorial Score</div>
+                  <div className="text-xs text-zinc-500 uppercase font-bold tracking-wider mb-2">The Design Tech Editorial Score</div>
                   <div className="flex text-amber-400 mb-1">
                     <Star className="w-6 h-6 fill-current" />
                     <Star className="w-6 h-6 fill-current" />
@@ -642,9 +642,9 @@ export default function CanvaReviewPage() {
                 </div>
               </div>
 
-              {/* CONTENTIAN'S TAKE */}
+              {/* EDITORIAL TAKE */}
               <div className="bg-cyan-50 dark:bg-cyan-900/10 p-6 rounded-3xl border border-cyan-100 dark:border-cyan-800/30">
-                <h3 className="text-lg font-bold text-cyan-900 dark:text-cyan-200 mb-4">Contentian&apos;s Take</h3>
+                <h3 className="text-lg font-bold text-cyan-900 dark:text-cyan-200 mb-4">The Design Tech Take</h3>
                 <div className="space-y-4 text-sm text-cyan-800 dark:text-cyan-300">
                   <div>
                     <strong className="block mb-1">What stands out:</strong>
@@ -756,7 +756,7 @@ export default function CanvaReviewPage() {
                     <div className="flex text-amber-400"><Star className="w-4 h-4 fill-current"/><Star className="w-4 h-4 fill-current"/><Star className="w-4 h-4 fill-current"/><Star className="w-4 h-4 fill-current"/><Star className="w-4 h-4"/></div>
                   </div>
                 </div>
-                <p className="text-xs text-zinc-500 mt-4 text-center italic">Contentian Editorial Scores. NOT official ratings.</p>
+                <p className="text-xs text-zinc-500 mt-4 text-center italic">The Design Tech Editorial Scores. NOT official ratings.</p>
               </div>
 
             </div>

@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
+import AIHubSubnav from "@/components/ai-hub/AIHubSubnav";
 import Footer from "@/components/layout/Footer";
 import { ChevronRight, ChevronLeft, ExternalLink, Tag, CheckCircle2 } from "lucide-react";
 import { aiTools } from "@/data/aiTools";
@@ -27,12 +28,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: "ChatGPT Review & Guide: Features, Uses, Pros & Cons",
       description: "Explore ChatGPT's features, real-world use cases, pros and cons, pricing, Projects, Deep Research, coding, writing, research, and beginner tips.",
       alternates: {
-        canonical: "https://contentian-ai.vercel.app/ai-hub/tools/chatgpt",
+        canonical: "https://thedesigntech.com/ai-hub/tools/chatgpt",
       },
       openGraph: {
         title: "ChatGPT Review & Guide: Features, Uses, Pros & Cons",
         description: "Explore ChatGPT's features, real-world use cases, pros and cons, pricing, Projects, Deep Research, coding, writing, research, and beginner tips.",
-        url: "https://contentian-ai.vercel.app/ai-hub/tools/chatgpt",
+        url: "https://thedesigntech.com/ai-hub/tools/chatgpt",
         type: "article",
       }
     };
@@ -43,12 +44,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: "Claude Review & Guide: Features, Uses, Pros & Cons",
       description: "Explore Claude's features, writing, coding, research, document analysis, Projects, Artifacts, pros, cons, pricing and beginner tips.",
       alternates: {
-        canonical: "https://contentian-ai.vercel.app/ai-hub/tools/claude",
+        canonical: "https://thedesigntech.com/ai-hub/tools/claude",
       },
       openGraph: {
         title: "Claude Review & Guide: Features, Uses, Pros & Cons",
         description: "Explore Claude's features, writing, coding, research, document analysis, Projects, Artifacts, pros, cons, pricing and beginner tips.",
-        url: "https://contentian-ai.vercel.app/ai-hub/tools/claude",
+        url: "https://thedesigntech.com/ai-hub/tools/claude",
         type: "article",
       }
     };
@@ -59,12 +60,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: "Gemini Review & Guide: Features, Uses, Pros & Cons",
       description: "Explore Google Gemini's features, multimodal capabilities, research, Google integrations, Canvas, Gems, pros, cons and beginner tips.",
       alternates: {
-        canonical: "https://contentian-ai.vercel.app/ai-hub/tools/gemini",
+        canonical: "https://thedesigntech.com/ai-hub/tools/gemini",
       },
       openGraph: {
         title: "Gemini Review & Guide: Features, Uses, Pros & Cons",
         description: "Explore Google Gemini's features, multimodal capabilities, research, Google integrations, Canvas, Gems, pros, cons and beginner tips.",
-        url: "https://contentian-ai.vercel.app/ai-hub/tools/gemini",
+        url: "https://thedesigntech.com/ai-hub/tools/gemini",
         type: "article",
       }
     };
@@ -75,12 +76,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: "Perplexity Review & Guide: AI Search, Research, Features & Pros",
       description: "Learn how Perplexity works, how its AI search and citations work, Deep Research, Pro Search, file analysis, Projects, pricing, use cases, pros and cons.",
       alternates: {
-        canonical: "https://contentian-ai.vercel.app/ai-hub/tools/perplexity",
+        canonical: "https://thedesigntech.com/ai-hub/tools/perplexity",
       },
       openGraph: {
         title: "Perplexity Review & Guide: AI Search, Research, Features & Pros",
         description: "Learn how Perplexity works, how its AI search and citations work, Deep Research, Pro Search, file analysis, Projects, pricing, use cases, pros and cons.",
-        url: "https://contentian-ai.vercel.app/ai-hub/tools/perplexity",
+        url: "https://thedesigntech.com/ai-hub/tools/perplexity",
         type: "article",
       }
     };
@@ -91,12 +92,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: "Canva AI Review & Guide: Features, Magic Studio, Uses & Pros",
       description: "Explore Canva AI, Magic Studio, AI design, image generation, Magic Write, Canva Code, social media workflows, pricing, pros, cons and beginner tips.",
       alternates: {
-        canonical: "https://contentian-ai.vercel.app/ai-hub/tools/canva",
+        canonical: "https://thedesigntech.com/ai-hub/tools/canva",
       },
       openGraph: {
         title: "Canva AI Review & Guide: Features, Magic Studio, Uses & Pros",
         description: "Explore Canva AI, Magic Studio, AI design, image generation, Magic Write, Canva Code, social media workflows, pricing, pros, cons and beginner tips.",
-        url: "https://contentian-ai.vercel.app/ai-hub/tools/canva",
+        url: "https://thedesigntech.com/ai-hub/tools/canva",
         type: "article",
       }
     };
@@ -107,12 +108,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: "Cursor AI Review: Features, Agent Mode, Coding & Beginner Guide",
       description: "Explore Cursor AI, Agent mode, agentic coding, codebase understanding, debugging, Cloud Agents, real use cases, pros, cons and beginner tips.",
       alternates: {
-        canonical: "https://contentian-ai.vercel.app/ai-hub/tools/cursor",
+        canonical: "https://thedesigntech.com/ai-hub/tools/cursor",
       },
       openGraph: {
         title: "Cursor AI Review: Features, Agent Mode, Coding & Beginner Guide",
         description: "Explore Cursor AI, Agent mode, agentic coding, codebase understanding, debugging, Cloud Agents, real use cases, pros, cons and beginner tips.",
-        url: "https://contentian-ai.vercel.app/ai-hub/tools/cursor",
+        url: "https://thedesigntech.com/ai-hub/tools/cursor",
         type: "article",
       }
     };
@@ -123,12 +124,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: "Gamma AI Review: Presentations, Websites, Documents & Features",
       description: "Explore Gamma AI for presentations, documents, websites, social content and visual storytelling. Learn its features, AI Agent, pricing, use cases, pros, cons and beginner tips.",
       alternates: {
-        canonical: "https://contentian-ai.vercel.app/ai-hub/tools/gamma",
+        canonical: "https://thedesigntech.com/ai-hub/tools/gamma",
       },
       openGraph: {
         title: "Gamma AI Review: Presentations, Websites, Documents & Features",
         description: "Explore Gamma AI for presentations, documents, websites, social content and visual storytelling. Learn its features, AI Agent, pricing, use cases, pros, cons and beginner tips.",
-        url: "https://contentian-ai.vercel.app/ai-hub/tools/gamma",
+        url: "https://thedesigntech.com/ai-hub/tools/gamma",
         type: "article",
       }
     };
@@ -137,7 +138,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const tool = aiTools.find(t => t.slug === slug);
   if (!tool) return {};
   return {
-    title: `${tool.name} | Contentian AI Tools`,
+    title: `${tool.name} | The Design Tech AI Hub`,
     description: tool.description,
   };
 }
@@ -179,26 +180,31 @@ export default async function AIToolPage({ params }: { params: Promise<{ slug: s
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-zinc-50 dark:bg-[#0a0a0a]">
+    <div className="min-h-screen flex flex-col bg-zinc-50 dark:bg-[#0B0F19] text-[#111827] dark:text-[#F9FAFB] transition-colors">
       <Navbar />
+      <AIHubSubnav />
       <main className="flex-1">
         
         {/* Navigation & Breadcrumb */}
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-6">
-          <Link href="/ai-hub/tools" className="inline-flex items-center gap-2 text-sm font-medium text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors mb-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-6">
+          <Link href="/ai-hub/tools" className="inline-flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors mb-6">
             <ChevronLeft className="w-4 h-4" /> Back to AI Tools
           </Link>
           
-          <nav className="flex flex-wrap items-center text-sm text-zinc-500 dark:text-zinc-400 font-medium mb-8">
+          <nav className="flex flex-wrap items-center text-sm text-gray-500 dark:text-gray-400 font-medium mb-8">
+            <Link href="/" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+              The Design Tech
+            </Link>
+            <ChevronRight className="w-4 h-4 mx-2 text-gray-400" />
             <Link href="/ai-hub" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
               AI Hub
             </Link>
-            <ChevronRight className="w-4 h-4 mx-2 text-zinc-400" />
+            <ChevronRight className="w-4 h-4 mx-2 text-gray-400" />
             <Link href="/ai-hub/tools" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-              Tools
+              AI Tools
             </Link>
-            <ChevronRight className="w-4 h-4 mx-2 text-zinc-400" />
-            <span className="text-zinc-900 dark:text-white truncate">{tool.name}</span>
+            <ChevronRight className="w-4 h-4 mx-2 text-gray-400" />
+            <span className="text-gray-900 dark:text-white truncate font-semibold">{tool.name}</span>
           </nav>
 
           {/* Tool Header */}
@@ -270,9 +276,9 @@ export default async function AIToolPage({ params }: { params: Promise<{ slug: s
         {/* CTA */}
         <section className="py-20 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950/20 dark:to-purple-950/20 border-y border-zinc-200/50 dark:border-white/5">
           <div className="max-w-4xl mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold text-zinc-900 dark:text-white mb-6">Looking for an AI content creator?</h2>
-            <Link href="/generator" className="px-8 py-3 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold shadow-lg transition-all">
-              Try Contentian
+            <h2 className="text-3xl font-bold text-zinc-900 dark:text-white mb-6">Want to Master AI Prompting?</h2>
+            <Link href="/ai-hub/guides/prompt-engineering" className="px-8 py-3 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold shadow-lg transition-all">
+              Read Prompting Guide
             </Link>
           </div>
         </section>

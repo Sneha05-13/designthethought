@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
+import AIHubSubnav from "@/components/ai-hub/AIHubSubnav";
 import Footer from "@/components/layout/Footer";
 import { ChevronRight, ChevronLeft, Clock, Calendar, Wrench, AlertCircle, Lightbulb, TrendingUp, XCircle, Rocket } from "lucide-react";
 import { aiExperiences } from "@/data/aiExperiences";
@@ -17,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const experience = aiExperiences.find(e => e.slug === slug);
   if (!experience) return {};
   return {
-    title: `${experience.title} | Contentian Experiences`,
+    title: `${experience.title} | The Design Tech AI Hub`,
     description: experience.description,
   };
 }
@@ -33,26 +34,31 @@ export default async function AIExperienceArticlePage({ params }: { params: Prom
   const { content } = exp;
 
   return (
-    <div className="min-h-screen flex flex-col bg-zinc-50 dark:bg-[#0a0a0a]">
+    <div className="min-h-screen flex flex-col bg-zinc-50 dark:bg-[#0B0F19] text-[#111827] dark:text-[#F9FAFB] transition-colors">
       <Navbar />
+      <AIHubSubnav />
       <main className="flex-1">
         
         {/* Navigation & Breadcrumb */}
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-6">
-          <Link href="/ai-hub/experiences" className="inline-flex items-center gap-2 text-sm font-medium text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors mb-8">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-6">
+          <Link href="/ai-hub/experiences" className="inline-flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors mb-6">
             <ChevronLeft className="w-4 h-4" /> Back to Experiences
           </Link>
           
-          <nav className="flex flex-wrap items-center text-sm text-zinc-500 dark:text-zinc-400 font-medium mb-8">
+          <nav className="flex flex-wrap items-center text-sm text-gray-500 dark:text-gray-400 font-medium mb-8">
+            <Link href="/" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+              The Design Tech
+            </Link>
+            <ChevronRight className="w-4 h-4 mx-2 text-gray-400" />
             <Link href="/ai-hub" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
               AI Hub
             </Link>
-            <ChevronRight className="w-4 h-4 mx-2 text-zinc-400" />
+            <ChevronRight className="w-4 h-4 mx-2 text-gray-400" />
             <Link href="/ai-hub/experiences" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-              Experiences
+              AI Experiences
             </Link>
-            <ChevronRight className="w-4 h-4 mx-2 text-zinc-400" />
-            <span className="text-zinc-900 dark:text-white truncate">{exp.title}</span>
+            <ChevronRight className="w-4 h-4 mx-2 text-gray-400" />
+            <span className="text-gray-900 dark:text-white truncate font-semibold">{exp.title}</span>
           </nav>
 
           {/* Article Header */}
@@ -167,12 +173,12 @@ export default async function AIExperienceArticlePage({ params }: { params: Prom
         {/* CTA */}
         <section className="py-20 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950/20 dark:to-purple-950/20 border-y border-zinc-200/50 dark:border-white/5">
           <div className="max-w-4xl mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold text-zinc-900 dark:text-white mb-6">Want to Try Contentian?</h2>
+            <h2 className="text-3xl font-bold text-zinc-900 dark:text-white mb-6">Explore AI Guides &amp; Tutorials</h2>
             <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-8">
-              Turn your ideas into platform-ready content with AI.
+              Step-by-step guides and practical workflows for using modern AI.
             </p>
-            <Link href="/generator" className="px-8 py-3 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold shadow-lg transition-all">
-              Start Creating
+            <Link href="/ai-hub/guides" className="px-8 py-3 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold shadow-lg transition-all">
+              Browse AI Guides
             </Link>
           </div>
         </section>
