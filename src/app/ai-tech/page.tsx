@@ -5,7 +5,6 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ArticleCard from "@/components/editorial/ArticleCard";
 import NewsletterSignup from "@/components/editorial/NewsletterSignup";
-import AdSlot from "@/components/ads/AdSlot";
 import JsonLd, { buildBreadcrumbSchema } from "@/components/seo/JsonLd";
 import { getArticlesByCategory } from "@/data/editorialArticles";
 import { siteConfig } from "@/lib/siteConfig";
@@ -67,11 +66,6 @@ export default function AITechPage() {
             </p>
           </div>
         </section>
-
-        {/* Top Ad Slot */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AdSlot type="adsense" format="leaderboard" />
-        </div>
 
         {/* Article Grid */}
         <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

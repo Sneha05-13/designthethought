@@ -6,7 +6,6 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ArticleCard from "@/components/editorial/ArticleCard";
 import NewsletterSignup from "@/components/editorial/NewsletterSignup";
-import AdSlot from "@/components/ads/AdSlot";
 import JsonLd, { buildArticleSchema, buildBreadcrumbSchema, buildFaqSchema } from "@/components/seo/JsonLd";
 import { 
   editorialArticles, 
@@ -248,11 +247,6 @@ export default async function ArticleDetailPage({
           </div>
         </header>
 
-        {/* Top Ad Slot below Header */}
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AdSlot type="adsense" format="banner" />
-        </div>
-
         {/* Content Body */}
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           
@@ -280,7 +274,7 @@ export default async function ArticleDetailPage({
 
           {/* Article Body */}
           <article className="prose prose-gray dark:prose-invert max-w-none">
-            {article.sections.map((section, idx) => (
+            {article.sections.map((section) => (
               <section key={section.id} id={section.id} className="mb-12 scroll-mt-24">
                 
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white tracking-tight mb-4 pb-2 border-b border-gray-100 dark:border-gray-800">
@@ -376,11 +370,6 @@ export default async function ArticleDetailPage({
                       {renderFormattedText(section.callout.text)}
                     </p>
                   </div>
-                )}
-
-                {/* In-article ad placement after section 1 */}
-                {idx === 0 && (
-                  <AdSlot type="adsense" format="in-article" />
                 )}
 
               </section>

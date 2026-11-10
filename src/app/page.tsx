@@ -4,7 +4,6 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ArticleCard from "@/components/editorial/ArticleCard";
 import NewsletterSignup from "@/components/editorial/NewsletterSignup";
-import AdSlot from "@/components/ads/AdSlot";
 import { 
   editorialArticles, 
   getArticlesByCategory, 
@@ -99,11 +98,6 @@ export default function Home() {
           </section>
         )}
 
-        {/* Responsive Ad Placement: Leaderboard */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AdSlot type="adsense" format="leaderboard" />
-        </div>
-
         {/* Section C: Latest Articles + Trending Stories Sidebar */}
         <section id="latest-articles" className="py-12 sm:py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
@@ -163,9 +157,6 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-
-              {/* Sidebar AdSlot */}
-              <AdSlot type="mediavine" format="sidebar" />
             </aside>
 
           </div>
@@ -202,20 +193,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        {/* Affiliate Placement Slot between categories */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AdSlot
-            type="affiliate"
-            affiliateData={{
-              badge: "Curated Resource",
-              title: "Explore Design The Thought AI Hub",
-              description: "Access our comprehensive directory of deep tool evaluations including ChatGPT, Claude, Cursor, Gamma, Canva, and Gemini.",
-              cta: "Open AI Hub",
-              href: "/ai-hub",
-            }}
-          />
-        </div>
 
         {/* Section D2: Startups & Biz Section */}
         <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
