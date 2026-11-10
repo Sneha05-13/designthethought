@@ -11,14 +11,14 @@ import { getArticlesByCategory } from "@/data/editorialArticles";
 import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
-  title: "AI & Tech",
-  description: "AI tools, machine learning breakthroughs, future tech, tutorials, and practical productivity systems.",
+  title: "AI & Tech — Systems Architecture & Frontier Intelligence",
+  description: "In-depth editorial analyses, technical frameworks, prompt engineering blueprints, autonomous agent loops, RAG architectures, and engineering lessons from real-world software deployments.",
   alternates: {
     canonical: `${siteConfig.url}/ai-tech`,
   },
   openGraph: {
     title: `AI & Tech | ${siteConfig.name}`,
-    description: "AI tools, machine learning breakthroughs, future tech, tutorials, and practical productivity systems.",
+    description: "In-depth editorial analyses, technical frameworks, prompt engineering blueprints, autonomous agent loops, RAG architectures, and engineering lessons from real-world software deployments.",
     url: `${siteConfig.url}/ai-tech`,
     siteName: siteConfig.name,
     type: "website",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `AI & Tech | ${siteConfig.name}`,
-    description: "AI tools, machine learning breakthroughs, future tech, tutorials, and practical productivity systems.",
+    description: "In-depth editorial analyses, technical frameworks, prompt engineering blueprints, autonomous agent loops, RAG architectures, and engineering lessons from real-world software deployments.",
   },
 };
 
@@ -62,8 +62,8 @@ export default function AITechPage() {
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white tracking-tight mb-4">
               AI &amp; Future Technology
             </h1>
-            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 font-normal max-w-2xl leading-relaxed">
-              Explore machine learning breakthroughs, prompt engineering frameworks, autonomous agent loops, and engineering lessons from real-world software deployments.
+            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 font-normal max-w-3xl leading-relaxed">
+              Simple, beginner-friendly guides and practical deep dives on artificial intelligence, machine learning, cloud computing, voice recognition, and everyday digital technology.
             </p>
           </div>
         </section>

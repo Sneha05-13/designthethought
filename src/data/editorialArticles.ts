@@ -1,3 +1,17 @@
+import { aiTechArticles } from "./articles/aiTechArticles";
+
+export interface ArticleSubsection {
+  heading: string;
+  body: string[];
+  list?: string[];
+}
+
+export interface ArticleTable {
+  caption?: string;
+  headers: string[];
+  rows: string[][];
+}
+
 export interface ArticleSection {
   heading: string;
   id: string;
@@ -8,6 +22,13 @@ export interface ArticleSection {
   };
   quote?: string;
   list?: string[];
+  subsections?: ArticleSubsection[];
+  table?: ArticleTable;
+}
+
+export interface ArticleFaq {
+  question: string;
+  answer: string;
 }
 
 export interface EditorialArticle {
@@ -28,189 +49,12 @@ export interface EditorialArticle {
   };
   sections: ArticleSection[];
   relatedSlugs: string[];
+  faqs?: ArticleFaq[];
 }
 
 export const editorialArticles: EditorialArticle[] = [
-  // AI & TECH
-  {
-    slug: "how-to-write-better-ai-prompts",
-    title: "How to Write Better AI Prompts: The Practical Framework",
-    subtitle: "A repeatable system for structuring prompts that generate thoughtful, nuanced outputs instead of generic answers.",
-    excerpt: "Most people ask AI vague questions and get robotic answers. By structuring context, constraints, and intent, you can unlock genuine clarity.",
-    category: "AI & Tech",
-    categorySlug: "ai-tech",
-    readTime: "6 min read",
-    publishedDate: "November 2026",
-    featured: true,
-    trending: true,
-    coverAlt: "Modern technical interface with structured prompts and AI system diagrams",
-    author: {
-      name: "Design The Thought",
-      role: "AI & Tech Desk",
-    },
-    relatedSlugs: ["building-your-first-ai-workflow", "future-of-ai-agents-productivity", "building-in-public-with-ai"],
-    sections: [
-      {
-        id: "the-context-gap",
-        heading: "The Context Gap in Modern AI",
-        body: [
-          "When users complain that large language models sound repetitive or superficial, the issue is almost never the model's vocabulary. It is almost always a lack of necessary boundary conditions.",
-          "Language models are trained on vast corpora of human expression. When you prompt with 'Write an article about productivity', the model computes the statistical middle ground of millions of generic productivity essays. The result is inevitably clichés about waking up early and drinking water.",
-          "To escape the statistical average, you must inject specificity. You must provide the exact parameters that make your situation unique."
-        ],
-        quote: "The quality of an AI's response is mathematically bound to the boundaries of the input.",
-      },
-      {
-        id: "the-rctcf-framework",
-        heading: "The R.C.T.C.F Framework",
-        body: [
-          "Through extensive testing across models like Claude, GPT-4, and Gemini, we recommend a five-element mental scaffold called R.C.T.C.F:",
-        ],
-        list: [
-          "Role: Who is the model acting as? (e.g., 'Act as a seasoned technical editor specializing in concise systems architecture essays.')",
-          "Context: What background does the model need to know? (e.g., 'We are writing for senior founders who already understand cloud computing basics.')",
-          "Task: What specific deliverable is required? (e.g., 'Draft an introductory section highlighting common database scaling bottlenecks.')",
-          "Constraints: What must the model avoid? (e.g., 'No buzzwords like delve, revolutionize, or game-changer; limit sentences to under 25 words.')",
-          "Format: How should the final output be delivered? (e.g., 'Three punchy paragraphs followed by bullet points.')"
-        ],
-        callout: {
-          title: "Prompting Pro-Tip",
-          text: "Never write negative constraints alone. Instead of just saying 'do not sound salesy', state the positive alternative: 'use a calm, analytical tone backed by practical examples'."
-        }
-      },
-      {
-        id: "iterative-refinement",
-        heading: "Prompting as Collaborative Editing",
-        body: [
-          "The biggest mistake is treating a prompt as a one-shot query. In human collaboration, you rarely accept the very first draft without feedback. Treat the AI identically.",
-          "After receiving the initial output, identify the specific friction point. Tell the model: 'Paragraph 2 feels too abstract. Replace the theoretical sentence with a concrete example from mobile web design.'",
-          "By approaching prompting as a two-stage editing conversation, your final output will consistently reflect your human taste, editorial voice, and standards."
-        ]
-      }
-    ]
-  },
-  {
-    slug: "future-of-ai-agents-productivity",
-    title: "Autonomous AI Agents in 2026: Beyond Chatbots to Action Execution",
-    subtitle: "Why the shift from conversational AI to goal-driven agentic loops is reshaping developer and business productivity.",
-    excerpt: "Chatbots answer questions, but AI agents execute multi-step tool calls, verify their own work, and interface with real-world APIs.",
-    category: "AI & Tech",
-    categorySlug: "ai-tech",
-    readTime: "7 min read",
-    publishedDate: "November 2026",
-    featured: false,
-    trending: true,
-    coverAlt: "Abstract digital neural network diagram depicting agentic tool execution",
-    author: {
-      name: "Design The Thought",
-      role: "AI & Tech Desk",
-    },
-    relatedSlugs: ["how-to-write-better-ai-prompts", "building-your-first-ai-workflow", "micro-saas-startup-playbook"],
-    sections: [
-      {
-        id: "chat-vs-agency",
-        heading: "From Reactive Chat to Proactive Agency",
-        body: [
-          "For the past three years, generative AI has been largely defined by the chat window: you send a message, the model returns a response, and the loop terminates.",
-          "Agentic architectures fundamentally alter this relationship. Instead of simply generating text, an agent operates inside an autonomous evaluation loop: planning, executing actions via tool calls, inspecting tool outputs, and self-correcting until an overarching goal is satisfied."
-        ]
-      },
-      {
-        id: "three-core-primitives",
-        heading: "The 3 Primitives of Autonomous Systems",
-        body: [
-          "Every modern AI agent relies on three fundamental capabilities:",
-        ],
-        list: [
-          "1. Grounded Context (RAG): Equipping the model with dynamic retrieval mechanisms to access real-time codebase states, documentation, and database schemas.",
-          "2. Deterministic Tool Execution: Allowing probabilistic models to invoke strictly typed functions (like querying a SQL database, creating git commits, or triggering webhooks).",
-          "3. Reflexion & Verification: The ability for an agent to inspect the result of its own action—such as running automated test suites—and re-prompting itself to resolve discovered regressions."
-        ],
-        callout: {
-          title: "Architecture Insight",
-          text: "The most dependable agents are not those with the largest context windows; they are those with the strictest error-recovery boundaries and cleanest tool definitions."
-        }
-      }
-    ]
-  },
-  {
-    slug: "building-your-first-ai-workflow",
-    title: "Building Your First AI Workflow: From Ideas to Automation",
-    subtitle: "Stop using AI as a one-off question machine. Here is how to chain tools together into repeatable, high-leverage workflows.",
-    excerpt: "The true productivity leap occurs when you move from isolated chat prompts to structured, multi-step pipelines.",
-    category: "AI & Tech",
-    categorySlug: "ai-tech",
-    readTime: "8 min read",
-    publishedDate: "October 2026",
-    featured: false,
-    trending: false,
-    coverAlt: "Clean workflow diagram showing multi-step digital processes",
-    author: {
-      name: "Design The Thought",
-      role: "Workflow & Systems Desk",
-    },
-    relatedSlugs: ["how-to-write-better-ai-prompts", "future-of-ai-agents-productivity", "freelance-digital-toolkit"],
-    sections: [
-      {
-        id: "beyond-the-chatbox",
-        heading: "Moving Beyond the Chat Box",
-        body: [
-          "Most digital workers engage with artificial intelligence exclusively through an open chat input. While great for brainstorming, chat boxes invite inconsistency.",
-          "When you do the same task weekly—such as summarizing customer interviews, preparing social outlines, or turning rough meeting notes into action items—relying on impromptu prompting wastes cognitive energy.",
-          "An AI workflow replaces randomness with a defined sequence of inputs, transformations, and human verification checkpoints."
-        ]
-      },
-      {
-        id: "step-by-step-architecture",
-        heading: "The 4-Step Workflow Architecture",
-        body: [
-          "A reliable workflow consists of four distinct stages:",
-        ],
-        list: [
-          "1. Ingestion: Standardizing the raw material (audio transcript, Markdown draft, or bullet list).",
-          "2. Structural Parsing: Directing the model to organize raw data into a strictly typed schema or structured template.",
-          "3. Synthesis & Tone Matching: Applying brand guidelines and editorial voice to the structured information.",
-          "4. Human Quality Gate: The indispensable editorial pass where a human reviews, prunes, and approves the result."
-        ]
-      }
-    ]
-  },
-  {
-    slug: "building-in-public-with-ai",
-    title: "Engineering with Modern AI APIs: Latency, UX, and Practical Lessons",
-    subtitle: "Real lessons, technical hurdles, and unexpected discoveries from architecting AI-powered web applications.",
-    excerpt: "Building software with modern AI APIs looks deceptively simple until latency, hallucinations, and prompt drift enter the picture.",
-    category: "AI & Tech",
-    categorySlug: "ai-tech",
-    readTime: "8 min read",
-    publishedDate: "September 2026",
-    featured: false,
-    trending: false,
-    coverAlt: "Code editor and minimalist web interface mockups",
-    author: {
-      name: "Design The Thought",
-      role: "Engineering Desk",
-    },
-    relatedSlugs: ["how-to-write-better-ai-prompts", "building-your-first-ai-workflow", "micro-saas-startup-playbook"],
-    sections: [
-      {
-        id: "the-prototype-illusion",
-        heading: "The 15-Minute Prototype Illusion",
-        body: [
-          "With modern frameworks like Next.js and high-level LLM client libraries, you can connect an API key and get a functional AI prototype running in fifteen minutes. It feels like magic.",
-          "However, the gap between a 15-minute demo and a dependable production application is wider than in traditional software engineering. In traditional software, functions are deterministic. In generative software, functions are probabilistic."
-        ]
-      },
-      {
-        id: "handling-latency-and-ux",
-        heading: "Designing for Latency and Uncertainty",
-        body: [
-          "Users expect web apps to respond in 150 milliseconds. A multimodal vision call or rich text generation run can easily take 2 to 6 seconds. If your interface freezes or leaves the user guessing, the product feels broken.",
-          "We learned that optimistic UI states, progressive skeleton loaders, and micro-copy explaining what the model is currently analyzing make latency feel like considered craft rather than system sluggishness."
-        ]
-      }
-    ]
-  },
+  // AI & TECH - High-Depth Editorial Publications
+  ...aiTechArticles,
 
   // STARTUPS & BIZ
   {

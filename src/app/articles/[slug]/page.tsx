@@ -7,7 +7,7 @@ import Footer from "@/components/layout/Footer";
 import ArticleCard from "@/components/editorial/ArticleCard";
 import NewsletterSignup from "@/components/editorial/NewsletterSignup";
 import AdSlot from "@/components/ads/AdSlot";
-import JsonLd, { buildArticleSchema, buildBreadcrumbSchema } from "@/components/seo/JsonLd";
+import JsonLd, { buildArticleSchema, buildBreadcrumbSchema, buildFaqSchema } from "@/components/seo/JsonLd";
 import { 
   editorialArticles, 
   getArticleBySlug 
@@ -65,6 +65,80 @@ export async function generateMetadata({
   };
 }
 
+function parseBoldText(text: string, keyPrefix: string): React.ReactNode {
+  const boldRegex = /\*\*([^*]+)\*\*/g;
+  const parts: React.ReactNode[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = boldRegex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+    parts.push(
+      <strong key={`${keyPrefix}-b-${match.index}`} className="font-bold text-gray-900 dark:text-white">
+        {match[1]}
+      </strong>
+    );
+    lastIndex = match.index + match[0].length;
+  }
+
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+
+  return parts.length === 1 ? parts[0] : parts;
+}
+
+function renderFormattedText(text: string): React.ReactNode {
+  if (!text) return null;
+
+  const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  const parts: React.ReactNode[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = linkRegex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(parseBoldText(text.slice(lastIndex, match.index), `txt-${lastIndex}`));
+    }
+    const label = match[1];
+    const href = match[2];
+    const isInternal = href.startsWith("/");
+
+    if (isInternal) {
+      parts.push(
+        <Link
+          key={`link-${match.index}`}
+          href={href}
+          className="text-indigo-600 dark:text-indigo-400 font-semibold underline decoration-indigo-300 dark:decoration-indigo-700 underline-offset-2 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors"
+        >
+          {label}
+        </Link>
+      );
+    } else {
+      parts.push(
+        <a
+          key={`link-${match.index}`}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-indigo-600 dark:text-indigo-400 font-semibold underline decoration-indigo-300 dark:decoration-indigo-700 underline-offset-2 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors"
+        >
+          {label}
+        </a>
+      );
+    }
+    lastIndex = match.index + match[0].length;
+  }
+
+  if (lastIndex < text.length) {
+    parts.push(parseBoldText(text.slice(lastIndex), `txt-${lastIndex}`));
+  }
+
+  return parts.length === 1 ? parts[0] : parts;
+}
+
 export default async function ArticleDetailPage({ 
   params 
 }: { 
@@ -109,6 +183,9 @@ export default async function ArticleDetailPage({
     <div className="min-h-screen flex flex-col bg-[#F9FAFB] dark:bg-[#0B0F19] text-[#111827] dark:text-[#F9FAFB] transition-colors">
       <JsonLd data={articleSchema} />
       <JsonLd data={breadcrumbsSchema} />
+      {article.faqs && article.faqs.length > 0 && (
+        <JsonLd data={buildFaqSchema(article.faqs)} />
+      )}
       
       <Navbar />
 
@@ -212,7 +289,7 @@ export default async function ArticleDetailPage({
 
                 {section.body.map((p, pIdx) => (
                   <p key={pIdx} className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed font-normal mb-6">
-                    {p}
+                    {renderFormattedText(p)}
                   </p>
                 ))}
 
@@ -221,10 +298,67 @@ export default async function ArticleDetailPage({
                     {section.list.map((item, lIdx) => (
                       <li key={lIdx} className="text-gray-700 dark:text-gray-300 text-base leading-relaxed flex items-start gap-3">
                         <span className="text-indigo-600 dark:text-indigo-400 font-bold leading-none mt-1">&bull;</span>
-                        <span>{item}</span>
+                        <span>{renderFormattedText(item)}</span>
                       </li>
                     ))}
                   </ul>
+                )}
+
+                {section.table && (
+                  <div className="my-8 overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-800 shadow-2xs">
+                    {section.table.caption && (
+                      <div className="px-6 py-3 bg-gray-50 dark:bg-gray-800/80 border-b border-gray-200 dark:border-gray-800 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400">
+                        {section.table.caption}
+                      </div>
+                    )}
+                    <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-800 text-left text-sm">
+                      <thead className="bg-gray-100/70 dark:bg-gray-800/50 text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300">
+                        <tr>
+                          {section.table.headers.map((h, i) => (
+                            <th key={i} className="px-6 py-3.5 font-bold">{h}</th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-gray-200 dark:divide-gray-800 bg-white dark:bg-[#111827]">
+                        {section.table.rows.map((row, rIdx) => (
+                          <tr key={rIdx} className={rIdx % 2 === 0 ? "bg-transparent" : "bg-gray-50/50 dark:bg-gray-800/20"}>
+                            {row.map((cell, cIdx) => (
+                              <td key={cIdx} className="px-6 py-4 text-gray-700 dark:text-gray-300 text-sm align-top leading-relaxed">
+                                {renderFormattedText(cell)}
+                              </td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+
+                {section.subsections && (
+                  <div className="space-y-8 my-8">
+                    {section.subsections.map((sub, sIdx) => (
+                      <div key={sIdx} className="space-y-4">
+                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white tracking-tight">
+                          {sub.heading}
+                        </h3>
+                        {sub.body.map((p, pIdx) => (
+                          <p key={pIdx} className="text-gray-700 dark:text-gray-300 text-base leading-relaxed font-normal mb-4">
+                            {renderFormattedText(p)}
+                          </p>
+                        ))}
+                        {sub.list && (
+                          <ul className="my-4 space-y-2.5 bg-gray-50 dark:bg-[#111827] border border-gray-200 dark:border-gray-800 rounded-xl p-5 list-none">
+                            {sub.list.map((item, lIdx) => (
+                              <li key={lIdx} className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed flex items-start gap-2.5">
+                                <span className="text-indigo-600 dark:text-indigo-400 font-bold leading-none mt-1">&bull;</span>
+                                <span>{renderFormattedText(item)}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 )}
 
                 {section.quote && (
@@ -239,7 +373,7 @@ export default async function ArticleDetailPage({
                       {section.callout.title}
                     </h3>
                     <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-0">
-                      {section.callout.text}
+                      {renderFormattedText(section.callout.text)}
                     </p>
                   </div>
                 )}
@@ -252,6 +386,30 @@ export default async function ArticleDetailPage({
               </section>
             ))}
           </article>
+
+          {/* Frequently Asked Questions Section */}
+          {article.faqs && article.faqs.length > 0 && (
+            <section className="mt-14 mb-10 p-8 sm:p-10 rounded-2xl bg-white dark:bg-[#111827] border border-gray-200 dark:border-gray-800 shadow-2xs">
+              <div className="flex items-center gap-2.5 mb-6">
+                <span className="w-2.5 h-2.5 rounded-full bg-indigo-600" />
+                <h2 className="text-xl sm:text-2xl font-black text-gray-900 dark:text-white tracking-tight">
+                  Frequently Asked Questions
+                </h2>
+              </div>
+              <div className="space-y-6">
+                {article.faqs.map((faq, fIdx) => (
+                  <div key={fIdx} className="pb-6 border-b border-gray-100 dark:border-gray-800/80 last:border-0 last:pb-0">
+                    <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-2">
+                      {faq.question}
+                    </h3>
+                    <p className="text-gray-700 dark:text-gray-300 text-base leading-relaxed">
+                      {renderFormattedText(faq.answer)}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
 
           {/* Affiliate Disclosure Notice */}
           <div className="mt-8 p-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-[#111827]/50 text-xs text-gray-500 dark:text-gray-400">
