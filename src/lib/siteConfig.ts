@@ -12,6 +12,7 @@ export const siteConfig = {
   description:
     "A modern digital publication covering AI, future technology, startups, business, design and digital growth.",
   url: process.env.NEXT_PUBLIC_SITE_URL || defaultSiteUrl,
+  gaMeasurementId: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-3C580VTTW3",
   contactEmail: "editor@designthethought.com",
   twitterHandle: "@designthethought",
   author: {

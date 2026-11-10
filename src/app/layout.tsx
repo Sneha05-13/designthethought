@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import ServiceWorkerRegister from "@/components/pwa/ServiceWorkerRegister";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { siteConfig } from "@/lib/siteConfig";
@@ -132,6 +133,7 @@ export default function RootLayout({
           {children}
           <ServiceWorkerRegister />
           <Analytics />
+          <GoogleAnalytics />
         </ThemeProvider>
       </body>
     </html>
