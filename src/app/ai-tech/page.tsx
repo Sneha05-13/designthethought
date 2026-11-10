@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import ArticleCard from "@/components/editorial/ArticleCard";
 import NewsletterSignup from "@/components/editorial/NewsletterSignup";
 import AdSlot from "@/components/ads/AdSlot";
+import JsonLd, { buildBreadcrumbSchema } from "@/components/seo/JsonLd";
 import { getArticlesByCategory } from "@/data/editorialArticles";
 import { siteConfig } from "@/lib/siteConfig";
 
@@ -19,21 +20,37 @@ export const metadata: Metadata = {
     title: `AI & Tech | ${siteConfig.name}`,
     description: "AI tools, machine learning breakthroughs, future tech, tutorials, and practical productivity systems.",
     url: `${siteConfig.url}/ai-tech`,
+    siteName: siteConfig.name,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `AI & Tech | ${siteConfig.name}`,
+    description: "AI tools, machine learning breakthroughs, future tech, tutorials, and practical productivity systems.",
   },
 };
 
 export default function AITechPage() {
   const articles = getArticlesByCategory("ai-tech");
 
+  const breadcrumbsSchema = buildBreadcrumbSchema(
+    [
+      { name: "Home", url: "/" },
+      { name: "AI & Tech", url: "/ai-tech" },
+    ],
+    siteConfig.url
+  );
+
   return (
     <div className="min-h-screen flex flex-col bg-[#F9FAFB] dark:bg-[#0B0F19] text-[#111827] dark:text-[#F9FAFB] transition-colors">
+      <JsonLd data={breadcrumbsSchema} />
       <Navbar />
 
       <main className="flex-1">
         {/* Category Header */}
         <section className="pt-14 pb-12 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-[#0D121F] transition-colors">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-4 font-semibold">
+            <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-4 font-semibold" aria-label="Breadcrumb">
               <Link href="/" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Home</Link>
               <span>/</span>
               <span className="text-indigo-600 dark:text-indigo-400">AI &amp; Tech</span>
@@ -68,7 +85,7 @@ export default function AITechPage() {
           <div className="mt-14 p-8 rounded-2xl bg-white dark:bg-[#111827] border border-gray-200 dark:border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xs">
             <div>
               <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
-                Explore the Contentian AI Hub Directory
+                Explore the Design The Thought AI Hub
               </h3>
               <p className="text-sm text-gray-600 dark:text-gray-400">
                 Looking for structured reviews of Claude, ChatGPT, Cursor, Gamma, Canva, and Gemini? Browse our reference directory.
@@ -90,4 +107,3 @@ export default function AITechPage() {
     </div>
   );
 }
-

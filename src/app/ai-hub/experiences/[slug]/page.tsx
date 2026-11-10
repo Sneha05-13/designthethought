@@ -3,8 +3,10 @@ import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import AIHubSubnav from "@/components/ai-hub/AIHubSubnav";
 import Footer from "@/components/layout/Footer";
+import JsonLd, { buildBreadcrumbSchema } from "@/components/seo/JsonLd";
 import { ChevronRight, ChevronLeft, Clock, Calendar, Wrench, AlertCircle, Lightbulb, TrendingUp, XCircle, Rocket } from "lucide-react";
 import { aiExperiences } from "@/data/aiExperiences";
+import { siteConfig } from "@/lib/siteConfig";
 import { Metadata } from "next";
 
 export async function generateStaticParams() {
@@ -17,9 +19,20 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const experience = aiExperiences.find(e => e.slug === slug);
   if (!experience) return {};
+  const url = `${siteConfig.url}/ai-hub/experiences/${experience.slug}`;
   return {
-    title: `${experience.title} | The Design Tech AI Hub`,
+    title: experience.title,
     description: experience.description,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title: `${experience.title} | ${siteConfig.name} AI Hub`,
+      description: experience.description,
+      url,
+      siteName: siteConfig.name,
+      type: "article",
+    },
   };
 }
 
@@ -33,8 +46,19 @@ export default async function AIExperienceArticlePage({ params }: { params: Prom
 
   const { content } = exp;
 
+  const breadcrumbsSchema = buildBreadcrumbSchema(
+    [
+      { name: "Home", url: "/" },
+      { name: "AI Hub", url: "/ai-hub" },
+      { name: "AI Experiences", url: "/ai-hub/experiences" },
+      { name: exp.title, url: `/ai-hub/experiences/${exp.slug}` },
+    ],
+    siteConfig.url
+  );
+
   return (
     <div className="min-h-screen flex flex-col bg-zinc-50 dark:bg-[#0B0F19] text-[#111827] dark:text-[#F9FAFB] transition-colors">
+      <JsonLd data={breadcrumbsSchema} />
       <Navbar />
       <AIHubSubnav />
       <main className="flex-1">
@@ -45,9 +69,9 @@ export default async function AIExperienceArticlePage({ params }: { params: Prom
             <ChevronLeft className="w-4 h-4" /> Back to Experiences
           </Link>
           
-          <nav className="flex flex-wrap items-center text-sm text-gray-500 dark:text-gray-400 font-medium mb-8">
+          <nav className="flex flex-wrap items-center text-sm text-gray-500 dark:text-gray-400 font-medium mb-8" aria-label="Breadcrumb">
             <Link href="/" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-              The Design Tech
+              Design The Thought
             </Link>
             <ChevronRight className="w-4 h-4 mx-2 text-gray-400" />
             <Link href="/ai-hub" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">

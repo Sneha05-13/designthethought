@@ -34,7 +34,7 @@ export default function AIHubSubnav() {
               href="/"
               className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
-              The Design Tech
+              Design The Thought
             </Link>
             <span className="text-gray-300 dark:text-gray-700">/</span>
             <Link 

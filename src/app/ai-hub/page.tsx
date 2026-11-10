@@ -3,17 +3,43 @@ import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import AIHubSubnav from "@/components/ai-hub/AIHubSubnav";
 import Footer from "@/components/layout/Footer";
+import JsonLd, { buildBreadcrumbSchema } from "@/components/seo/JsonLd";
+import { siteConfig } from "@/lib/siteConfig";
 import { Sparkles, ArrowRight, BookOpen, Wrench, Lightbulb, Beaker } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Hub | The Design Tech",
-  description: "Practical AI guides, useful tools, tutorials and real-world experiences — integrated directly into The Design Tech publication.",
+  title: "AI Hub",
+  description: "Practical AI guides, curated tools, tutorials and real-world experiences — integrated directly into Design The Thought.",
+  alternates: {
+    canonical: `${siteConfig.url}/ai-hub`,
+  },
+  openGraph: {
+    title: `AI Hub | ${siteConfig.name}`,
+    description: "Practical AI guides, curated tools, tutorials and real-world experiences — integrated directly into Design The Thought.",
+    url: `${siteConfig.url}/ai-hub`,
+    siteName: siteConfig.name,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `AI Hub | ${siteConfig.name}`,
+    description: "Practical AI guides, curated tools, tutorials and real-world experiences.",
+  },
 };
 
 export default function AIHubPage() {
+  const breadcrumbsSchema = buildBreadcrumbSchema(
+    [
+      { name: "Home", url: "/" },
+      { name: "AI Hub", url: "/ai-hub" },
+    ],
+    siteConfig.url
+  );
+
   return (
     <div className="min-h-screen flex flex-col bg-zinc-50 dark:bg-[#0B0F19] text-[#111827] dark:text-[#F9FAFB] transition-colors">
+      <JsonLd data={breadcrumbsSchema} />
       <Navbar />
       <AIHubSubnav />
       
@@ -23,7 +49,7 @@ export default function AIHubPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center gap-6">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 text-sm font-semibold shadow-xs">
               <Sparkles className="w-4 h-4 text-indigo-500" />
-              The Design Tech AI Hub
+              Design The Thought AI Hub
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight max-w-3xl">
               Learn AI. Discover Tools. Build Smarter.
@@ -149,14 +175,14 @@ export default function AIHubPage() {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center gap-6">
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">Ready to Master AI?</h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-xl">
-              Browse practical AI tools, beginner concepts, and step-by-step guides inside The Design Tech.
+              Browse practical AI tools, beginner concepts, and step-by-step guides inside Design The Thought.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4 mt-2">
               <Link href="/ai-hub/tools" className="px-8 py-3 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold shadow-md shadow-indigo-500/25 transition-all hover:scale-105 active:scale-95">
                 Discover All AI Tools
               </Link>
               <Link href="/" className="px-8 py-3 rounded-full bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-semibold border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all hover:scale-105 active:scale-95">
-                Back to The Design Tech Home
+                Back to Design The Thought Home
               </Link>
             </div>
           </div>

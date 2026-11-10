@@ -29,11 +29,11 @@ export default function Navbar() {
                 href="/" 
                 className="flex items-center gap-2.5 text-xl sm:text-2xl font-black tracking-tight text-gray-900 dark:text-white group"
               >
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-indigo-600 to-sky-500 flex items-center justify-center text-white font-bold text-sm shadow-xs shadow-indigo-500/30 group-hover:scale-105 transition-transform">
-                  DT
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-indigo-600 to-sky-500 flex items-center justify-center text-white font-bold text-xs tracking-wider shadow-xs shadow-indigo-500/30 group-hover:scale-105 transition-transform">
+                  DTT
                 </div>
                 <span className="font-extrabold tracking-tight">
-                  The Design Tech
+                  Design The Thought
                 </span>
               </Link>
             </div>

@@ -3,23 +3,39 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import JsonLd, { buildBreadcrumbSchema } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
   title: "Terms of Use",
-  description: "Terms of Use for The Design Tech digital publication and related resources.",
+  description: "Terms of Use for Design The Thought digital publication and related resources.",
   alternates: {
     canonical: `${siteConfig.url}/terms`,
+  },
+  openGraph: {
+    title: `Terms of Use | ${siteConfig.name}`,
+    description: "Terms of Use for Design The Thought digital publication and related resources.",
+    url: `${siteConfig.url}/terms`,
+    siteName: siteConfig.name,
+    type: "website",
   },
 };
 
 export default function TermsOfUsePage() {
+  const breadcrumbsSchema = buildBreadcrumbSchema(
+    [
+      { name: "Home", url: "/" },
+      { name: "Terms of Use", url: "/terms" },
+    ],
+    siteConfig.url
+  );
+
   return (
     <div className="min-h-screen flex flex-col bg-[#F9FAFB] dark:bg-[#0B0F19] text-[#111827] dark:text-[#F9FAFB] transition-colors">
+      <JsonLd data={breadcrumbsSchema} />
       <Navbar />
 
       <main className="flex-1">
-        
         <header className="pt-16 pb-12 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-[#0D121F] transition-colors">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <span className="text-xs uppercase tracking-widest font-bold text-indigo-600 dark:text-indigo-400 mb-2 block">
@@ -29,21 +45,20 @@ export default function TermsOfUsePage() {
               Terms of Use
             </h1>
             <p className="text-sm text-gray-500 dark:text-gray-400">
-              Last updated: November 2026 • The Design Tech
+              Last updated: November 2026 • Design The Thought
             </p>
           </div>
         </header>
 
         <section className="py-14 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-gray dark:prose-invert max-w-none space-y-8 text-gray-700 dark:text-gray-300">
-            
             <div>
               <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3">1. Intellectual Property &amp; Content Use</h2>
               <p className="text-base leading-relaxed font-normal mb-3">
-                All original articles, frameworks, software reviews, and essays published on The Design Tech and the Contentian AI Hub are protected under intellectual property and copyright laws.
+                All original articles, frameworks, software reviews, and essays published on Design The Thought and the AI Hub are protected under intellectual property and copyright laws.
               </p>
               <p className="text-base leading-relaxed font-normal">
-                You may quote brief excerpts (up to 150 words) provided explicit attribution and an active do-follow link to the original article URL are provided. Full article scraping or mass unauthorized republishing is prohibited.
+                You may quote brief excerpts (up to 150 words) provided explicit attribution and an active link to the original article URL are provided. Full article scraping or mass unauthorized republishing is prohibited.
               </p>
             </div>
 
@@ -53,7 +68,7 @@ export default function TermsOfUsePage() {
                 The technical and business content provided on this publication is for informational, creative, and educational purposes. While we rigorously test prompts, APIs, and workflows, software and technology evolve rapidly.
               </p>
               <p className="text-base leading-relaxed font-normal">
-                We make no express warranties regarding third-party software uptime or commercial outcome. Readers should evaluate tools independently prior to high-stakes production deployment.
+                We make no express warranties regarding third-party software uptime or commercial outcome. Readers should evaluate tools independently prior to production deployment.
               </p>
             </div>
 
@@ -72,10 +87,8 @@ export default function TermsOfUsePage() {
                 </Link>.
               </p>
             </div>
-
           </div>
         </section>
-
       </main>
 
       <Footer />

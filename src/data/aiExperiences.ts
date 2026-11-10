@@ -21,7 +21,7 @@ export interface AIExperience {
 
 export const aiExperiences: AIExperience[] = [
   {
-    title: "Building The Design Tech With AI",
+    title: "Building Design The Thought With AI",
     slug: "building-contentian",
     description: "A behind-the-scenes look at architecting an AI-powered modern technology publication.",
     category: "Build in Public",

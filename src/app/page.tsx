@@ -35,7 +35,7 @@ export default function Home() {
             <div className="max-w-3xl">
               
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200/60 dark:border-indigo-800/40 text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-6">
-                <span>The Design Tech</span>
+                <span>Design The Thought</span>
                 <span className="text-gray-300 dark:text-gray-700">•</span>
                 <span>Independent Publication</span>
               </div>
@@ -209,7 +209,7 @@ export default function Home() {
             type="affiliate"
             affiliateData={{
               badge: "Curated Resource",
-              title: "Explore The Design Tech AI Hub",
+              title: "Explore Design The Thought AI Hub",
               description: "Access our comprehensive directory of deep tool evaluations including ChatGPT, Claude, Cursor, Gamma, Canva, and Gemini.",
               cta: "Open AI Hub",
               href: "/ai-hub",

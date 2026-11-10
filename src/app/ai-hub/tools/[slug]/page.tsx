@@ -28,12 +28,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: "ChatGPT Review & Guide: Features, Uses, Pros & Cons",
       description: "Explore ChatGPT's features, real-world use cases, pros and cons, pricing, Projects, Deep Research, coding, writing, research, and beginner tips.",
       alternates: {
-        canonical: "https://thedesigntech.com/ai-hub/tools/chatgpt",
+        canonical: "https://designthethought.com/ai-hub/tools/chatgpt",
       },
       openGraph: {
         title: "ChatGPT Review & Guide: Features, Uses, Pros & Cons",
         description: "Explore ChatGPT's features, real-world use cases, pros and cons, pricing, Projects, Deep Research, coding, writing, research, and beginner tips.",
-        url: "https://thedesigntech.com/ai-hub/tools/chatgpt",
+        url: "https://designthethought.com/ai-hub/tools/chatgpt",
         type: "article",
       }
     };
@@ -44,12 +44,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: "Claude Review & Guide: Features, Uses, Pros & Cons",
       description: "Explore Claude's features, writing, coding, research, document analysis, Projects, Artifacts, pros, cons, pricing and beginner tips.",
       alternates: {
-        canonical: "https://thedesigntech.com/ai-hub/tools/claude",
+        canonical: "https://designthethought.com/ai-hub/tools/claude",
       },
       openGraph: {
         title: "Claude Review & Guide: Features, Uses, Pros & Cons",
         description: "Explore Claude's features, writing, coding, research, document analysis, Projects, Artifacts, pros, cons, pricing and beginner tips.",
-        url: "https://thedesigntech.com/ai-hub/tools/claude",
+        url: "https://designthethought.com/ai-hub/tools/claude",
         type: "article",
       }
     };
@@ -60,12 +60,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: "Gemini Review & Guide: Features, Uses, Pros & Cons",
       description: "Explore Google Gemini's features, multimodal capabilities, research, Google integrations, Canvas, Gems, pros, cons and beginner tips.",
       alternates: {
-        canonical: "https://thedesigntech.com/ai-hub/tools/gemini",
+        canonical: "https://designthethought.com/ai-hub/tools/gemini",
       },
       openGraph: {
         title: "Gemini Review & Guide: Features, Uses, Pros & Cons",
         description: "Explore Google Gemini's features, multimodal capabilities, research, Google integrations, Canvas, Gems, pros, cons and beginner tips.",
-        url: "https://thedesigntech.com/ai-hub/tools/gemini",
+        url: "https://designthethought.com/ai-hub/tools/gemini",
         type: "article",
       }
     };
@@ -76,12 +76,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: "Perplexity Review & Guide: AI Search, Research, Features & Pros",
       description: "Learn how Perplexity works, how its AI search and citations work, Deep Research, Pro Search, file analysis, Projects, pricing, use cases, pros and cons.",
       alternates: {
-        canonical: "https://thedesigntech.com/ai-hub/tools/perplexity",
+        canonical: "https://designthethought.com/ai-hub/tools/perplexity",
       },
       openGraph: {
         title: "Perplexity Review & Guide: AI Search, Research, Features & Pros",
         description: "Learn how Perplexity works, how its AI search and citations work, Deep Research, Pro Search, file analysis, Projects, pricing, use cases, pros and cons.",
-        url: "https://thedesigntech.com/ai-hub/tools/perplexity",
+        url: "https://designthethought.com/ai-hub/tools/perplexity",
         type: "article",
       }
     };
@@ -92,12 +92,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: "Canva AI Review & Guide: Features, Magic Studio, Uses & Pros",
       description: "Explore Canva AI, Magic Studio, AI design, image generation, Magic Write, Canva Code, social media workflows, pricing, pros, cons and beginner tips.",
       alternates: {
-        canonical: "https://thedesigntech.com/ai-hub/tools/canva",
+        canonical: "https://designthethought.com/ai-hub/tools/canva",
       },
       openGraph: {
         title: "Canva AI Review & Guide: Features, Magic Studio, Uses & Pros",
         description: "Explore Canva AI, Magic Studio, AI design, image generation, Magic Write, Canva Code, social media workflows, pricing, pros, cons and beginner tips.",
-        url: "https://thedesigntech.com/ai-hub/tools/canva",
+        url: "https://designthethought.com/ai-hub/tools/canva",
         type: "article",
       }
     };
@@ -108,12 +108,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: "Cursor AI Review: Features, Agent Mode, Coding & Beginner Guide",
       description: "Explore Cursor AI, Agent mode, agentic coding, codebase understanding, debugging, Cloud Agents, real use cases, pros, cons and beginner tips.",
       alternates: {
-        canonical: "https://thedesigntech.com/ai-hub/tools/cursor",
+        canonical: "https://designthethought.com/ai-hub/tools/cursor",
       },
       openGraph: {
         title: "Cursor AI Review: Features, Agent Mode, Coding & Beginner Guide",
         description: "Explore Cursor AI, Agent mode, agentic coding, codebase understanding, debugging, Cloud Agents, real use cases, pros, cons and beginner tips.",
-        url: "https://thedesigntech.com/ai-hub/tools/cursor",
+        url: "https://designthethought.com/ai-hub/tools/cursor",
         type: "article",
       }
     };
@@ -124,12 +124,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: "Gamma AI Review: Presentations, Websites, Documents & Features",
       description: "Explore Gamma AI for presentations, documents, websites, social content and visual storytelling. Learn its features, AI Agent, pricing, use cases, pros, cons and beginner tips.",
       alternates: {
-        canonical: "https://thedesigntech.com/ai-hub/tools/gamma",
+        canonical: "https://designthethought.com/ai-hub/tools/gamma",
       },
       openGraph: {
         title: "Gamma AI Review: Presentations, Websites, Documents & Features",
         description: "Explore Gamma AI for presentations, documents, websites, social content and visual storytelling. Learn its features, AI Agent, pricing, use cases, pros, cons and beginner tips.",
-        url: "https://thedesigntech.com/ai-hub/tools/gamma",
+        url: "https://designthethought.com/ai-hub/tools/gamma",
         type: "article",
       }
     };
@@ -138,7 +138,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const tool = aiTools.find(t => t.slug === slug);
   if (!tool) return {};
   return {
-    title: `${tool.name} | The Design Tech AI Hub`,
+    title: `${tool.name} | Design The Thought AI Hub`,
     description: tool.description,
   };
 }
@@ -193,7 +193,7 @@ export default async function AIToolPage({ params }: { params: Promise<{ slug: s
           
           <nav className="flex flex-wrap items-center text-sm text-gray-500 dark:text-gray-400 font-medium mb-8">
             <Link href="/" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-              The Design Tech
+              Design The Thought
             </Link>
             <ChevronRight className="w-4 h-4 mx-2 text-gray-400" />
             <Link href="/ai-hub" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">

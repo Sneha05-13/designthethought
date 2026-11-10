@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import ServiceWorkerRegister from "@/components/pwa/ServiceWorkerRegister";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { siteConfig } from "@/lib/siteConfig";
+import JsonLd, { buildWebSiteSchema } from "@/components/seo/JsonLd";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -34,6 +35,10 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  applicationName: siteConfig.name,
+  authors: [{ name: siteConfig.author.name, url: siteConfig.url }],
+  creator: siteConfig.author.name,
+  publisher: siteConfig.name,
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
@@ -52,6 +57,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
     title: `${siteConfig.name} — ${siteConfig.tagline}`,
     description: siteConfig.description,
@@ -64,6 +80,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${siteConfig.name} — ${siteConfig.tagline}`,
     description: siteConfig.description,
+    creator: siteConfig.twitterHandle,
   },
 };
 
@@ -72,6 +89,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const websiteSchema = buildWebSiteSchema(
+    siteConfig.url,
+    siteConfig.name,
+    siteConfig.description
+  );
+
   return (
     <html
       lang="en"
@@ -96,6 +119,7 @@ export default function RootLayout({
             `,
           }}
         />
+        <JsonLd data={websiteSchema} />
         <link rel="manifest" href="/manifest.json" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />

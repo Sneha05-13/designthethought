@@ -62,7 +62,7 @@ export default function NewsletterSignup() {
             </div>
             <h4 className="text-lg font-bold mb-1">You are subscribed!</h4>
             <p className="text-sm text-gray-600 dark:text-gray-300">
-              Welcome to The Design Tech weekly briefing. Check your inbox every Tuesday morning for fresh analysis.
+              Welcome to the Design The Thought weekly briefing. Check your inbox every Tuesday morning for fresh analysis.
             </p>
           </div>
         ) : (

@@ -318,7 +318,7 @@ export default function GammaReviewPage() {
                     <MessageSquare className="w-6 h-6 text-pink-500" /> Social Media & Graphics
                   </h3>
                   <p className="text-zinc-700 dark:text-zinc-300 mb-4">
-                    Gamma supports creating platform-ready visual content, making it highly synergistic with <Link href="/ai-hub" className="text-pink-600 dark:text-pink-400 hover:underline">The Design Tech AI Hub</Link>. It can generate infographics, visual explainers, and multi-slide social campaigns.
+                    Gamma supports creating platform-ready visual content, making it highly synergistic with <Link href="/ai-hub" className="text-pink-600 dark:text-pink-400 hover:underline">Design The Thought AI Hub</Link>. It can generate infographics, visual explainers, and multi-slide social campaigns.
                   </p>
                   <div className="bg-zinc-100 dark:bg-zinc-800 p-3 rounded-lg text-sm font-mono text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700">
                     &quot;Create a 5-post social campaign announcing a new digital planner.&quot;
@@ -580,7 +580,7 @@ export default function GammaReviewPage() {
                 </div>
               </section>
 
-              {/* THE DESIGN TECH WORKFLOW */}
+              {/* DESIGN THE THOUGHT WORKFLOW */}
               <section className="bg-gradient-to-r from-fuchsia-50 to-indigo-50 dark:from-fuchsia-900/10 dark:to-indigo-900/10 p-6 rounded-2xl border border-fuchsia-100 dark:border-fuchsia-800/30">
                 <h3 className="font-bold text-fuchsia-900 dark:text-fuchsia-300 mb-4">From Content Idea to Visual Presentation</h3>
                 <p className="text-sm text-fuchsia-800 dark:text-fuchsia-300 mb-4">
@@ -588,7 +588,7 @@ export default function GammaReviewPage() {
                 </p>
                 <div className="flex flex-wrap items-center gap-2 text-xs font-mono font-bold text-zinc-600 dark:text-zinc-400 bg-white dark:bg-zinc-900 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 mb-4 shadow-sm">
                   <span>Idea</span> &rarr;
-                  <Link href="/ai-hub/tools" className="text-fuchsia-600 dark:text-fuchsia-400 hover:underline">The Design Tech AI Hub</Link> &rarr;
+                  <Link href="/ai-hub/tools" className="text-fuchsia-600 dark:text-fuchsia-400 hover:underline">Design The Thought AI Hub</Link> &rarr;
                   <span className="text-indigo-600 dark:text-indigo-400">Gamma (Visual Design)</span> &rarr;
                   <span>Publish</span>
                 </div>
@@ -687,7 +687,7 @@ export default function GammaReviewPage() {
                 </div>
 
                 <div className="pt-6 border-t border-zinc-100 dark:border-zinc-800">
-                  <div className="text-xs text-zinc-500 uppercase font-bold tracking-wider mb-2">The Design Tech Editorial Score</div>
+                  <div className="text-xs text-zinc-500 uppercase font-bold tracking-wider mb-2">Design The Thought Editorial Score</div>
                   <div className="flex text-amber-400 mb-1">
                     <Star className="w-6 h-6 fill-current" />
                     <Star className="w-6 h-6 fill-current" />
@@ -701,7 +701,7 @@ export default function GammaReviewPage() {
 
               {/* EDITORIAL TAKE */}
               <div className="bg-zinc-900 text-white p-6 rounded-3xl border border-zinc-800 shadow-2xl">
-                <h3 className="text-lg font-bold mb-4">The Design Tech Take</h3>
+                <h3 className="text-lg font-bold mb-4">Design The Thought Take</h3>
                 <p className="text-sm text-zinc-300 mb-4 italic">
                   &quot;Gamma is particularly useful when the hardest part isn&apos;t having an idea — it&apos;s turning that idea into something structured, visual and presentable.&quot;
                 </p>
@@ -725,7 +725,7 @@ export default function GammaReviewPage() {
                     </ul>
                   </div>
                 </div>
-                <p className="text-xs text-zinc-500 mt-4 text-center">The Design Tech Editorial Take</p>
+                <p className="text-xs text-zinc-500 mt-4 text-center">Design The Thought Editorial Take</p>
               </div>
 
               {/* PROS & CONS */}

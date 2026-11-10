@@ -3,19 +3,41 @@ import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import AIHubSubnav from "@/components/ai-hub/AIHubSubnav";
 import Footer from "@/components/layout/Footer";
+import JsonLd, { buildBreadcrumbSchema } from "@/components/seo/JsonLd";
 import { ChevronRight } from "lucide-react";
 import { aiExperiences } from "@/data/aiExperiences";
 import AIExperienceCard from "@/components/ai-hub/AIExperienceCard";
+import { siteConfig } from "@/lib/siteConfig";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Experiences & Case Studies | The Design Tech AI Hub",
+  title: "AI Experiences & Case Studies",
   description: "Real-world AI experiments, technical case studies, and transparent lessons learned from builders and practitioners.",
+  alternates: {
+    canonical: `${siteConfig.url}/ai-hub/experiences`,
+  },
+  openGraph: {
+    title: `AI Experiences & Case Studies | ${siteConfig.name} AI Hub`,
+    description: "Real-world AI experiments, technical case studies, and transparent lessons learned from builders and practitioners.",
+    url: `${siteConfig.url}/ai-hub/experiences`,
+    siteName: siteConfig.name,
+    type: "website",
+  },
 };
 
 export default function AIExperiencesPage() {
+  const breadcrumbsSchema = buildBreadcrumbSchema(
+    [
+      { name: "Home", url: "/" },
+      { name: "AI Hub", url: "/ai-hub" },
+      { name: "AI Experiences", url: "/ai-hub/experiences" },
+    ],
+    siteConfig.url
+  );
+
   return (
     <div className="min-h-screen flex flex-col bg-zinc-50 dark:bg-[#0B0F19] text-[#111827] dark:text-[#F9FAFB] transition-colors">
+      <JsonLd data={breadcrumbsSchema} />
       <Navbar />
       <AIHubSubnav />
       
@@ -23,9 +45,9 @@ export default function AIExperiencesPage() {
         
         {/* Breadcrumb */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
-          <nav className="flex items-center text-sm text-gray-500 dark:text-gray-400 font-medium">
+          <nav className="flex items-center text-sm text-gray-500 dark:text-gray-400 font-medium" aria-label="Breadcrumb">
             <Link href="/" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-              The Design Tech
+              Design The Thought
             </Link>
             <ChevronRight className="w-4 h-4 mx-2 text-gray-400" />
             <Link href="/ai-hub" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">

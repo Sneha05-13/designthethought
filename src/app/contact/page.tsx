@@ -11,7 +11,7 @@ export default function ContactPage() {
   const [message, setMessage] = useState("");
   const [copied, setCopied] = useState(false);
 
-  const contactEmail = "editor@thedesigntech.com";
+  const contactEmail = "editor@designthethought.com";
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(contactEmail);
@@ -22,7 +22,7 @@ export default function ContactPage() {
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const mailtoUrl = `mailto:${contactEmail}?subject=${encodeURIComponent(
-      `[The Design Tech Inquiry] ${subject || "Editorial Pitch"}`
+      `[Design The Thought Inquiry] ${subject || "Editorial Pitch"}`
     )}&body=${encodeURIComponent(
       `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
     )}`;

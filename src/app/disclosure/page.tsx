@@ -3,23 +3,39 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import JsonLd, { buildBreadcrumbSchema } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
   title: "Affiliate & Advertising Disclosure",
-  description: "Affiliate and editorial independence disclosure for The Design Tech publication.",
+  description: "Affiliate and editorial independence disclosure for Design The Thought publication.",
   alternates: {
     canonical: `${siteConfig.url}/disclosure`,
+  },
+  openGraph: {
+    title: `Affiliate & Advertising Disclosure | ${siteConfig.name}`,
+    description: "Affiliate and editorial independence disclosure for Design The Thought publication.",
+    url: `${siteConfig.url}/disclosure`,
+    siteName: siteConfig.name,
+    type: "website",
   },
 };
 
 export default function DisclosurePage() {
+  const breadcrumbsSchema = buildBreadcrumbSchema(
+    [
+      { name: "Home", url: "/" },
+      { name: "Affiliate Disclosure", url: "/disclosure" },
+    ],
+    siteConfig.url
+  );
+
   return (
     <div className="min-h-screen flex flex-col bg-[#F9FAFB] dark:bg-[#0B0F19] text-[#111827] dark:text-[#F9FAFB] transition-colors">
+      <JsonLd data={breadcrumbsSchema} />
       <Navbar />
 
       <main className="flex-1">
-        
         <header className="pt-16 pb-12 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-[#0D121F] transition-colors">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <span className="text-xs uppercase tracking-widest font-bold text-indigo-600 dark:text-indigo-400 mb-2 block">
@@ -29,14 +45,13 @@ export default function DisclosurePage() {
               Affiliate &amp; Advertising Disclosure
             </h1>
             <p className="text-sm text-gray-500 dark:text-gray-400">
-              Last updated: November 2026 • The Design Tech
+              Last updated: November 2026 • Design The Thought
             </p>
           </div>
         </header>
 
         <section className="py-14 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-gray dark:prose-invert max-w-none space-y-8 text-gray-700 dark:text-gray-300">
-            
             <div className="p-5 rounded-2xl bg-white dark:bg-[#111827] border border-indigo-200 dark:border-indigo-900/60 shadow-2xs">
               <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Our Editorial Commitment</h2>
               <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-0 font-normal">
@@ -50,18 +65,18 @@ export default function DisclosurePage() {
                 In compliance with Federal Trade Commission (FTC) guidelines and international advertising disclosure standards, please note that certain outbound links pointing to software products, services, or developer tools may be affiliate links.
               </p>
               <p className="text-base leading-relaxed font-normal">
-                If you click an affiliate partner link and subsequently sign up or purchase a license, The Design Tech may earn a referral fee at zero additional cost to you. In many instances, partner links unlock special introductory trials or discounted pricing for our readers.
+                If you click an affiliate partner link and subsequently sign up or purchase a license, Design The Thought may earn a referral fee at zero additional cost to you. In many instances, partner links unlock special introductory trials or discounted pricing for our readers.
               </p>
             </div>
 
             <div>
               <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3">2. How We Evaluate Software</h2>
               <p className="text-base leading-relaxed font-normal mb-3">
-                Our inclusion criteria are governed strictly by practical utility and hands-on developer testing:
+                Our inclusion criteria are governed strictly by practical utility and hands-on testing:
               </p>
               <ul className="list-disc pl-5 space-y-2 text-sm leading-relaxed">
                 <li>Demonstrated daily reliability in actual development or design workflows.</li>
-                <li>Transparent pricing models without dark subscription retention tricks.</li>
+                <li>Transparent pricing models without deceptive subscription retention tricks.</li>
                 <li>Genuine speed or creative quality enhancements over standard alternatives.</li>
                 <li>Ethical data security practices and respect for user creative ownership.</li>
               </ul>
@@ -73,7 +88,7 @@ export default function DisclosurePage() {
             <div>
               <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3">3. Advertising Placements</h2>
               <p className="text-base leading-relaxed font-normal">
-                All advertising slots on The Design Tech are clearly demarcated with &ldquo;Advertisement&rdquo; or &ldquo;Sponsored&rdquo; identifiers. We do not engage in deceptive native advertising or unlabelled promotional placements.
+                All advertising slots on Design The Thought are clearly demarcated with &ldquo;Advertisement&rdquo; or &ldquo;Sponsored&rdquo; identifiers. We do not engage in deceptive native advertising or unlabelled promotional placements.
               </p>
             </div>
 
@@ -85,10 +100,8 @@ export default function DisclosurePage() {
                 </Link>.
               </p>
             </div>
-
           </div>
         </section>
-
       </main>
 
       <Footer />

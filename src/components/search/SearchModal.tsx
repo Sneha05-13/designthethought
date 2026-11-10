@@ -112,7 +112,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
           {query.trim() === "" ? (
             <div className="py-10 text-center text-gray-400 dark:text-gray-500 text-sm">
               <p className="font-medium text-gray-700 dark:text-gray-300 mb-1">
-                Search The Design Tech
+                Search Design The Thought
               </p>
               <p className="text-xs">
                 Try searching for &quot;prompting&quot;, &quot;Canva&quot;, &quot;Pinterest&quot;, &quot;micro-saas&quot;, or &quot;agents&quot;.

@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import ArticleCard from "@/components/editorial/ArticleCard";
 import NewsletterSignup from "@/components/editorial/NewsletterSignup";
 import AdSlot from "@/components/ads/AdSlot";
+import JsonLd, { buildBreadcrumbSchema } from "@/components/seo/JsonLd";
 import { getArticlesByCategory } from "@/data/editorialArticles";
 import { siteConfig } from "@/lib/siteConfig";
 
@@ -19,21 +20,37 @@ export const metadata: Metadata = {
     title: `Startups & Biz | ${siteConfig.name}`,
     description: "Startup case studies, solo entrepreneurship, digital business models, side hustles, and growth strategies.",
     url: `${siteConfig.url}/startups-biz`,
+    siteName: siteConfig.name,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Startups & Biz | ${siteConfig.name}`,
+    description: "Startup case studies, solo entrepreneurship, digital business models, side hustles, and growth strategies.",
   },
 };
 
 export default function StartupsBizPage() {
   const articles = getArticlesByCategory("startups-biz");
 
+  const breadcrumbsSchema = buildBreadcrumbSchema(
+    [
+      { name: "Home", url: "/" },
+      { name: "Startups & Biz", url: "/startups-biz" },
+    ],
+    siteConfig.url
+  );
+
   return (
     <div className="min-h-screen flex flex-col bg-[#F9FAFB] dark:bg-[#0B0F19] text-[#111827] dark:text-[#F9FAFB] transition-colors">
+      <JsonLd data={breadcrumbsSchema} />
       <Navbar />
 
       <main className="flex-1">
         {/* Category Header */}
         <section className="pt-14 pb-12 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-[#0D121F] transition-colors">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-4 font-semibold">
+            <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-4 font-semibold" aria-label="Breadcrumb">
               <Link href="/" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Home</Link>
               <span>/</span>
               <span className="text-emerald-600 dark:text-emerald-400">Startups &amp; Biz</span>
@@ -72,4 +89,3 @@ export default function StartupsBizPage() {
     </div>
   );
 }
-

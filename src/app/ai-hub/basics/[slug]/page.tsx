@@ -3,8 +3,10 @@ import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import AIHubSubnav from "@/components/ai-hub/AIHubSubnav";
 import Footer from "@/components/layout/Footer";
+import JsonLd, { buildBreadcrumbSchema } from "@/components/seo/JsonLd";
 import { ChevronRight, ChevronLeft, Clock } from "lucide-react";
 import { aiBasics } from "@/data/aiBasics";
+import { siteConfig } from "@/lib/siteConfig";
 import { Metadata } from "next";
 
 export async function generateStaticParams() {
@@ -22,12 +24,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: "What Is Artificial Intelligence? A Beginner-Friendly Guide",
       description: "Learn what artificial intelligence is, how AI works, machine learning, deep learning, real-world applications, limitations, and how beginners can start learning AI.",
       alternates: {
-        canonical: "https://thedesigntech.com/ai-hub/basics/what-is-artificial-intelligence",
+        canonical: "https://designthethought.com/ai-hub/basics/what-is-artificial-intelligence",
       },
       openGraph: {
         title: "What Is Artificial Intelligence? A Beginner-Friendly Guide",
         description: "Learn what artificial intelligence is, how AI works, machine learning, deep learning, real-world applications, limitations, and how beginners can start learning AI.",
-        url: "https://thedesigntech.com/ai-hub/basics/what-is-artificial-intelligence",
+        url: "https://designthethought.com/ai-hub/basics/what-is-artificial-intelligence",
         type: "article",
       }
     };
@@ -38,12 +40,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: "What Is Generative AI? A Beginner-Friendly Guide",
       description: "Learn what Generative AI is, how it works, what it can create, real-world uses, prompting basics, limitations, and how beginners can start using it.",
       alternates: {
-        canonical: "https://thedesigntech.com/ai-hub/basics/what-is-generative-ai",
+        canonical: "https://designthethought.com/ai-hub/basics/what-is-generative-ai",
       },
       openGraph: {
         title: "What Is Generative AI? A Beginner-Friendly Guide",
         description: "Learn what Generative AI is, how it works, what it can create, real-world uses, prompting basics, limitations, and how beginners can start using it.",
-        url: "https://thedesigntech.com/ai-hub/basics/what-is-generative-ai",
+        url: "https://designthethought.com/ai-hub/basics/what-is-generative-ai",
         type: "article",
       }
     };
@@ -54,12 +56,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: "What Are Large Language Models (LLMs)? A Beginner's Guide",
       description: "Learn what Large Language Models (LLMs) are, how they work, tokens, transformers, context windows, AI hallucinations, real-world uses, and how beginners can start learning LLMs.",
       alternates: {
-        canonical: "https://thedesigntech.com/ai-hub/basics/what-are-large-language-models",
+        canonical: "https://designthethought.com/ai-hub/basics/what-are-large-language-models",
       },
       openGraph: {
         title: "What Are Large Language Models (LLMs)? A Beginner's Guide",
         description: "Learn what Large Language Models (LLMs) are, how they work, tokens, transformers, context windows, AI hallucinations, real-world uses, and how beginners can start learning LLMs.",
-        url: "https://thedesigntech.com/ai-hub/basics/what-are-large-language-models",
+        url: "https://designthethought.com/ai-hub/basics/what-are-large-language-models",
         type: "article",
       }
     };
@@ -70,12 +72,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: "What Is Prompt Engineering? A Practical Beginner's Guide",
       description: "Learn what prompt engineering is, how to write better AI prompts, prompting techniques, examples, templates, common mistakes, and practical tips for beginners.",
       alternates: {
-        canonical: "https://thedesigntech.com/ai-hub/basics/what-is-prompt-engineering",
+        canonical: "https://designthethought.com/ai-hub/basics/what-is-prompt-engineering",
       },
       openGraph: {
         title: "What Is Prompt Engineering? A Practical Beginner's Guide",
         description: "Learn what prompt engineering is, how to write better AI prompts, prompting techniques, examples, templates, common mistakes, and practical tips for beginners.",
-        url: "https://thedesigntech.com/ai-hub/basics/what-is-prompt-engineering",
+        url: "https://designthethought.com/ai-hub/basics/what-is-prompt-engineering",
         type: "article",
       }
     };
@@ -86,12 +88,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: "What Is RAG? Retrieval-Augmented Generation Explained",
       description: "Learn what RAG is, how Retrieval-Augmented Generation works, embeddings, vector databases, retrieval, grounding, RAG vs fine-tuning, use cases, and how to build a simple RAG system.",
       alternates: {
-        canonical: "https://thedesigntech.com/ai-hub/basics/what-is-rag",
+        canonical: "https://designthethought.com/ai-hub/basics/what-is-rag",
       },
       openGraph: {
         title: "What Is RAG? Retrieval-Augmented Generation Explained",
         description: "Learn what RAG is, how Retrieval-Augmented Generation works, embeddings, vector databases, retrieval, grounding, RAG vs fine-tuning, use cases, and how to build a simple RAG system.",
-        url: "https://thedesigntech.com/ai-hub/basics/what-is-rag",
+        url: "https://designthethought.com/ai-hub/basics/what-is-rag",
         type: "article",
       }
     };
@@ -102,12 +104,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: "What Are AI Agents? How They Work, Examples & Use Cases",
       description: "Learn what AI agents are, how they work, agent loops, tools, memory, RAG, real-world examples, limitations, and how beginners can build an AI agent.",
       alternates: {
-        canonical: "https://thedesigntech.com/ai-hub/basics/what-are-ai-agents",
+        canonical: "https://designthethought.com/ai-hub/basics/what-are-ai-agents",
       },
       openGraph: {
         title: "What Are AI Agents? How They Work, Examples & Use Cases",
         description: "Learn what AI agents are, how they work, agent loops, tools, memory, RAG, real-world examples, limitations, and how beginners can build an AI agent.",
-        url: "https://thedesigntech.com/ai-hub/basics/what-are-ai-agents",
+        url: "https://designthethought.com/ai-hub/basics/what-are-ai-agents",
         type: "article",
       }
     };
@@ -118,12 +120,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: "What Is AI Automation? A Beginner-Friendly Guide",
       description: "Learn what AI automation is, how it works, real-world examples, benefits, limitations, and how beginners can start using AI automation.",
       alternates: {
-        canonical: "https://thedesigntech.com/ai-hub/basics/what-is-ai-automation",
+        canonical: "https://designthethought.com/ai-hub/basics/what-is-ai-automation",
       },
       openGraph: {
         title: "What Is AI Automation? A Beginner-Friendly Guide",
         description: "Learn what AI automation is, how it works, real-world examples, benefits, limitations, and how beginners can start using AI automation.",
-        url: "https://thedesigntech.com/ai-hub/basics/what-is-ai-automation",
+        url: "https://designthethought.com/ai-hub/basics/what-is-ai-automation",
         type: "article",
       }
     };
@@ -134,19 +136,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: "What Is AI Vision? A Beginner-Friendly Guide to Computer Vision",
       description: "Learn what AI Vision and computer vision are, how AI understands images, real-world applications, limitations, and how beginners can start learning.",
       alternates: {
-        canonical: "https://thedesigntech.com/ai-hub/basics/what-is-ai-vision",
+        canonical: "https://designthethought.com/ai-hub/basics/what-is-ai-vision",
       },
       openGraph: {
         title: "What Is AI Vision? A Beginner-Friendly Guide to Computer Vision",
         description: "Learn what AI Vision and computer vision are, how AI understands images, real-world applications, limitations, and how beginners can start learning.",
-        url: "https://thedesigntech.com/ai-hub/basics/what-is-ai-vision",
+        url: "https://designthethought.com/ai-hub/basics/what-is-ai-vision",
         type: "article",
       }
     };
   }
 
   return {
-    title: `${topic.title} | The Design Tech AI Hub`,
+    title: `${topic.title} | Design The Thought AI Hub`,
     description: topic.description,
   };
 }
@@ -331,7 +333,7 @@ const TopicContent = ({ slug }: { slug: string }) => {
             <li><strong>Content repurposing:</strong> Taking a long script and automatically turning it into a Twitter thread.</li>
           </ul>
           <p>
-            Tools designed specifically for creators, like <Link href="/ai-hub/tools" className="text-indigo-600 dark:text-indigo-400 hover:underline">The Design Tech AI Hub</Link>, are built around these exact concepts, offering AI-assisted workflows to generate and manage high-quality content faster.
+            Tools designed specifically for creators, like <Link href="/ai-hub/tools" className="text-indigo-600 dark:text-indigo-400 hover:underline">Design The Thought AI Hub</Link>, are built around these exact concepts, offering AI-assisted workflows to generate and manage high-quality content faster.
           </p>
 
           <h2>How AI Can Help Businesses</h2>
@@ -3734,8 +3736,19 @@ export default async function AIBasicsArticlePage({ params }: { params: Promise<
     notFound();
   }
 
+  const breadcrumbsSchema = buildBreadcrumbSchema(
+    [
+      { name: "Home", url: "/" },
+      { name: "AI Hub", url: "/ai-hub" },
+      { name: "AI Basics", url: "/ai-hub/basics" },
+      { name: topic.title, url: `/ai-hub/basics/${topic.slug}` },
+    ],
+    siteConfig.url
+  );
+
   return (
     <div className="min-h-screen flex flex-col bg-zinc-50 dark:bg-[#0B0F19] text-[#111827] dark:text-[#F9FAFB] transition-colors">
+      <JsonLd data={breadcrumbsSchema} />
       <Navbar />
       <AIHubSubnav />
       <main className="flex-1">
@@ -3748,7 +3761,7 @@ export default async function AIBasicsArticlePage({ params }: { params: Promise<
           
           <nav className="flex flex-wrap items-center text-sm text-gray-500 dark:text-gray-400 font-medium mb-8">
             <Link href="/" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-              The Design Tech
+              Design The Thought
             </Link>
             <ChevronRight className="w-4 h-4 mx-2 text-gray-400" />
             <Link href="/ai-hub" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">

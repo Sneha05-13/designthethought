@@ -245,7 +245,7 @@ export default function ChatGPTReviewPage() {
 
                 <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-5 rounded-2xl shadow-sm text-center">
                   <p className="text-zinc-700 dark:text-zinc-300 mb-4">
-                    The Design Tech AI Hub curates focused tools and workflows for creators who want structured prompts without trial and error.
+                    Design The Thought AI Hub curates focused tools and workflows for creators who want structured prompts without trial and error.
                   </p>
                   <Link href="/ai-hub/tools" className="inline-flex items-center text-indigo-600 dark:text-indigo-400 font-bold hover:underline">
                     Explore Curated AI Tools <ChevronRight className="w-4 h-4 ml-1" />
@@ -522,7 +522,7 @@ export default function ChatGPTReviewPage() {
                 </div>
 
                 <div className="pt-6 border-t border-zinc-100 dark:border-zinc-800">
-                  <div className="text-xs text-zinc-500 uppercase font-bold tracking-wider mb-2">The Design Tech Verdict</div>
+                  <div className="text-xs text-zinc-500 uppercase font-bold tracking-wider mb-2">Design The Thought Verdict</div>
                   <div className="flex text-amber-400 mb-1">
                     <Star className="w-6 h-6 fill-current" />
                     <Star className="w-6 h-6 fill-current" />
@@ -530,13 +530,13 @@ export default function ChatGPTReviewPage() {
                     <Star className="w-6 h-6 fill-current" />
                     <Star className="w-6 h-6 fill-current" />
                   </div>
-                  <p className="text-xs text-zinc-500 italic">This is The Design Tech&apos;s editorial assessment, not an official OpenAI rating.</p>
+                  <p className="text-xs text-zinc-500 italic">This is Design The Thought&apos;s editorial assessment, not an official OpenAI rating.</p>
                 </div>
               </div>
 
               {/* 15. EDITORIAL TAKE */}
               <div className="bg-indigo-50 dark:bg-indigo-900/10 p-6 rounded-3xl border border-indigo-100 dark:border-indigo-800/30">
-                <h3 className="text-lg font-bold text-indigo-900 dark:text-indigo-200 mb-4">The Design Tech Take</h3>
+                <h3 className="text-lg font-bold text-indigo-900 dark:text-indigo-200 mb-4">Design The Thought Take</h3>
                 <div className="space-y-4 text-sm text-indigo-800 dark:text-indigo-300">
                   <div>
                     <strong className="block mb-1">What stands out:</strong>

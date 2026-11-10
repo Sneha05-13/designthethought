@@ -297,7 +297,7 @@ export default function ClaudeReviewPage() {
                     Brainstorm content ideas, generate blog outlines, write newsletters, edit drafts, and repurpose long-form videos into written posts.
                   </p>
                   <p className="text-xs text-zinc-500 italic">
-                    The Design Tech AI Hub curates focused tools and workflows for creators looking to combine AI drafting with structured editorial standards. <Link href="/ai-hub/tools" className="text-indigo-600 dark:text-indigo-400 hover:underline">Explore Curated AI Tools.</Link>
+                    Design The Thought AI Hub curates focused tools and workflows for creators looking to combine AI drafting with structured editorial standards. <Link href="/ai-hub/tools" className="text-indigo-600 dark:text-indigo-400 hover:underline">Explore Curated AI Tools.</Link>
                   </p>
                 </div>
               </section>
@@ -516,7 +516,7 @@ export default function ClaudeReviewPage() {
                 </div>
 
                 <div className="pt-6 border-t border-zinc-100 dark:border-zinc-800">
-                  <div className="text-xs text-zinc-500 uppercase font-bold tracking-wider mb-2">The Design Tech Editorial Score</div>
+                  <div className="text-xs text-zinc-500 uppercase font-bold tracking-wider mb-2">Design The Thought Editorial Score</div>
                   <div className="flex text-amber-400 mb-1">
                     <Star className="w-6 h-6 fill-current" />
                     <Star className="w-6 h-6 fill-current" />
@@ -524,13 +524,13 @@ export default function ClaudeReviewPage() {
                     <Star className="w-6 h-6 fill-current" />
                     <Star className="w-6 h-6" />
                   </div>
-                  <p className="text-xs text-zinc-500 italic">This is The Design Tech&apos;s editorial assessment, NOT an official Anthropic rating.</p>
+                  <p className="text-xs text-zinc-500 italic">This is Design The Thought&apos;s editorial assessment, NOT an official Anthropic rating.</p>
                 </div>
               </div>
 
               {/* EDITORIAL TAKE */}
               <div className="bg-indigo-50 dark:bg-indigo-900/10 p-6 rounded-3xl border border-indigo-100 dark:border-indigo-800/30">
-                <h3 className="text-lg font-bold text-indigo-900 dark:text-indigo-200 mb-4">The Design Tech Take</h3>
+                <h3 className="text-lg font-bold text-indigo-900 dark:text-indigo-200 mb-4">Design The Thought Take</h3>
                 <div className="space-y-4 text-sm text-indigo-800 dark:text-indigo-300">
                   <div>
                     <strong className="block mb-1">What stands out:</strong>
@@ -636,7 +636,7 @@ export default function ClaudeReviewPage() {
                     <div className="flex text-amber-400"><Star className="w-4 h-4 fill-current"/><Star className="w-4 h-4 fill-current"/><Star className="w-4 h-4 fill-current"/><Star className="w-4 h-4 fill-current"/><Star className="w-4 h-4"/></div>
                   </div>
                 </div>
-                <p className="text-xs text-zinc-500 mt-4 text-center italic">These are The Design Tech editorial scores.</p>
+                <p className="text-xs text-zinc-500 mt-4 text-center italic">These are Design The Thought editorial scores.</p>
               </div>
 
             </div>

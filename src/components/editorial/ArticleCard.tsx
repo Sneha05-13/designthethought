@@ -57,7 +57,7 @@ export default function ArticleCard({ article, featured = false }: ArticleCardPr
 
             <div className="relative z-10">
               <span className="text-xs uppercase tracking-widest text-indigo-600 dark:text-indigo-400 font-bold block mb-1">
-                The Design Tech Editorial
+                Design The Thought Editorial
               </span>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white line-clamp-2">
                 {article.title}

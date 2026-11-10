@@ -45,7 +45,7 @@ export const editorialArticles: EditorialArticle[] = [
     trending: true,
     coverAlt: "Modern technical interface with structured prompts and AI system diagrams",
     author: {
-      name: "The Design Tech",
+      name: "Design The Thought",
       role: "AI & Tech Desk",
     },
     relatedSlugs: ["building-your-first-ai-workflow", "future-of-ai-agents-productivity", "building-in-public-with-ai"],
@@ -102,7 +102,7 @@ export const editorialArticles: EditorialArticle[] = [
     trending: true,
     coverAlt: "Abstract digital neural network diagram depicting agentic tool execution",
     author: {
-      name: "The Design Tech",
+      name: "Design The Thought",
       role: "AI & Tech Desk",
     },
     relatedSlugs: ["how-to-write-better-ai-prompts", "building-your-first-ai-workflow", "micro-saas-startup-playbook"],
@@ -146,7 +146,7 @@ export const editorialArticles: EditorialArticle[] = [
     trending: false,
     coverAlt: "Clean workflow diagram showing multi-step digital processes",
     author: {
-      name: "The Design Tech",
+      name: "Design The Thought",
       role: "Workflow & Systems Desk",
     },
     relatedSlugs: ["how-to-write-better-ai-prompts", "future-of-ai-agents-productivity", "freelance-digital-toolkit"],
@@ -188,7 +188,7 @@ export const editorialArticles: EditorialArticle[] = [
     trending: false,
     coverAlt: "Code editor and minimalist web interface mockups",
     author: {
-      name: "The Design Tech",
+      name: "Design The Thought",
       role: "Engineering Desk",
     },
     relatedSlugs: ["how-to-write-better-ai-prompts", "building-your-first-ai-workflow", "micro-saas-startup-playbook"],
@@ -226,7 +226,7 @@ export const editorialArticles: EditorialArticle[] = [
     trending: true,
     coverAlt: "Clean business growth metrics, revenue charts, and modern startup workspace",
     author: {
-      name: "The Design Tech",
+      name: "Design The Thought",
       role: "Startups & Biz Desk",
     },
     relatedSlugs: ["freelance-digital-toolkit", "modern-side-hustles-digital-leverage", "future-of-ai-agents-productivity"],
@@ -269,7 +269,7 @@ export const editorialArticles: EditorialArticle[] = [
     trending: false,
     coverAlt: "Minimal coffee cup, leather journal, laptop, and clean workspace",
     author: {
-      name: "The Design Tech",
+      name: "Design The Thought",
       role: "Startups & Biz Desk",
     },
     relatedSlugs: ["micro-saas-startup-playbook", "modern-side-hustles-digital-leverage", "developing-digital-skills-ai-era"],
@@ -309,7 +309,7 @@ export const editorialArticles: EditorialArticle[] = [
     trending: true,
     coverAlt: "Digital creator studio with dual monitor setup, notebook, and minimalist design",
     author: {
-      name: "The Design Tech",
+      name: "Design The Thought",
       role: "Startups & Biz Desk",
     },
     relatedSlugs: ["micro-saas-startup-playbook", "freelance-digital-toolkit", "personal-branding-ui-design-systems"],
@@ -349,7 +349,7 @@ export const editorialArticles: EditorialArticle[] = [
     trending: false,
     coverAlt: "Curated bookshelf, notebook, and quiet reading nook",
     author: {
-      name: "The Design Tech",
+      name: "Design The Thought",
       role: "Startups & Biz Desk",
     },
     relatedSlugs: ["micro-saas-startup-playbook", "how-to-write-better-ai-prompts", "personal-branding-ui-design-systems"],
@@ -391,7 +391,7 @@ export const editorialArticles: EditorialArticle[] = [
     trending: true,
     coverAlt: "Clean graphic design palette, layout rulers, and creative canvas",
     author: {
-      name: "The Design Tech",
+      name: "Design The Thought",
       role: "Design & Growth Desk",
     },
     relatedSlugs: ["pinterest-visual-systems", "creative-workflows-generative-design", "personal-branding-ui-design-systems"],
@@ -439,7 +439,7 @@ export const editorialArticles: EditorialArticle[] = [
     trending: false,
     coverAlt: "Editorial moodboard with warm color samples, typography specimens, and pin layouts",
     author: {
-      name: "The Design Tech",
+      name: "Design The Thought",
       role: "Design & Growth Desk",
     },
     relatedSlugs: ["canva-magic-studio-review", "creative-workflows-generative-design", "personal-branding-ui-design-systems"],
@@ -480,7 +480,7 @@ export const editorialArticles: EditorialArticle[] = [
     trending: false,
     coverAlt: "Minimalist workspace with sketchbook, tablet, and architectural design drawings",
     author: {
-      name: "The Design Tech",
+      name: "Design The Thought",
       role: "Design & Growth Desk",
     },
     relatedSlugs: ["canva-magic-studio-review", "pinterest-visual-systems", "personal-branding-ui-design-systems"],
@@ -522,7 +522,7 @@ export const editorialArticles: EditorialArticle[] = [
     trending: true,
     coverAlt: "UI design system components, typography scales, and visual design tokens",
     author: {
-      name: "The Design Tech",
+      name: "Design The Thought",
       role: "Design & Growth Desk",
     },
     relatedSlugs: ["canva-magic-studio-review", "pinterest-visual-systems", "modern-side-hustles-digital-leverage"],

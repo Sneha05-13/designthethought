@@ -3,23 +3,44 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import JsonLd, { buildBreadcrumbSchema } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
-  title: "About The Design Tech",
-  description: "Learn about The Design Tech, a modern digital publication covering AI, future technology, startups, business, design and digital growth.",
+  title: "About Us",
+  description: "Learn about Design The Thought, an independent publication covering AI, future technology, startups, business, design and digital growth.",
   alternates: {
     canonical: `${siteConfig.url}/about`,
+  },
+  openGraph: {
+    title: `About Us | ${siteConfig.name}`,
+    description: "Learn about Design The Thought, an independent publication covering AI, future technology, startups, business, design and digital growth.",
+    url: `${siteConfig.url}/about`,
+    siteName: siteConfig.name,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `About Us | ${siteConfig.name}`,
+    description: "Learn about Design The Thought, an independent publication covering AI, future technology, startups, business, design and digital growth.",
   },
 };
 
 export default function AboutPage() {
+  const breadcrumbsSchema = buildBreadcrumbSchema(
+    [
+      { name: "Home", url: "/" },
+      { name: "About", url: "/about" },
+    ],
+    siteConfig.url
+  );
+
   return (
     <div className="min-h-screen flex flex-col bg-[#F9FAFB] dark:bg-[#0B0F19] text-[#111827] dark:text-[#F9FAFB] transition-colors">
+      <JsonLd data={breadcrumbsSchema} />
       <Navbar />
 
       <main className="flex-1">
-        
         {/* Header */}
         <section className="pt-16 pb-12 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-[#0D121F] transition-colors">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,7 +51,7 @@ export default function AboutPage() {
               Ideas. Innovation. Growth.
             </h1>
             <p className="text-lg text-gray-600 dark:text-gray-300 font-normal leading-relaxed max-w-2xl">
-              The Design Tech is an independent digital publication exploring frontier artificial intelligence, software architecture, solo entrepreneurship, visual design systems, and digital growth.
+              Design The Thought is an independent digital publication exploring frontier artificial intelligence, software architecture, solo entrepreneurship, visual design systems, and digital growth.
             </p>
           </div>
         </section>
@@ -38,13 +59,12 @@ export default function AboutPage() {
         {/* Narrative Content */}
         <section className="py-14 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-gray dark:prose-invert max-w-none space-y-10">
-            
             <div>
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4">
                 Our Editorial Mission
               </h2>
               <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed font-normal mb-4">
-                Technology is moving faster than ever, yet most technical coverage remains trapped between breathless investor hype and low-effort algorithmic summaries. The Design Tech was founded to provide grounded, practitioner-tested analysis for builders, founders, and designers.
+                Technology is moving faster than ever, yet most coverage remains trapped between breathless investor hype and low-effort algorithmic summaries. Design The Thought was founded to provide grounded, practitioner-tested analysis for builders, founders, and designers.
               </p>
               <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed font-normal">
                 We write for software engineers building agentic workflows, solo founders launching profitable digital businesses, and creative visual designers leveraging modern generative suites without sacrificing craft or taste.
@@ -85,14 +105,14 @@ export default function AboutPage() {
 
             <div className="pt-6 border-t border-gray-200 dark:border-gray-800">
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4">
-                The Contentian AI Hub Archive
+                The Integrated AI Hub
               </h2>
               <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed font-normal mb-4">
-                The Design Tech proudly maintains the original{" "}
+                Design The Thought proudly maintains the{" "}
                 <Link href="/ai-hub" className="text-indigo-600 dark:text-indigo-400 underline underline-offset-4 hover:text-indigo-700 dark:hover:text-indigo-300">
-                  Contentian AI Hub
+                  AI Hub
                 </Link>{" "}
-                as an active, fully functional archive. Inside, you will find extensive beginner guides, deep directory evaluations of major AI tools (Claude, ChatGPT, Cursor, Gamma, Canva, Gemini, Perplexity), and real-world experiments.
+                as an active, fully integrated section. Inside, you will find extensive beginner guides, deep directory evaluations of major AI tools (Claude, ChatGPT, Cursor, Gamma, Canva, Gemini, Perplexity), and real-world experiments.
               </p>
             </div>
 
@@ -112,10 +132,8 @@ export default function AboutPage() {
                 Contact Editorial &rarr;
               </Link>
             </div>
-
           </div>
         </section>
-
       </main>
 
       <Footer />

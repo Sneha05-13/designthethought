@@ -1,18 +1,23 @@
 /**
- * Site Configuration for The Design Tech
- * Modern technology and business publication.
+ * Site Configuration for Design The Thought
+ * High-performance digital publication covering AI, technology, startups, and design.
  */
 
+const defaultSiteUrl = "https://designthethought.com";
+
 export const siteConfig = {
-  name: "The Design Tech",
+  name: "Design The Thought",
+  shortName: "DesignTheThought",
   tagline: "Ideas. Innovation. Growth.",
   description:
     "A modern digital publication covering AI, future technology, startups, business, design and digital growth.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://thedesigntech.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL || defaultSiteUrl,
+  contactEmail: "editor@designthethought.com",
+  twitterHandle: "@designthethought",
   author: {
-    name: "The Design Tech Editorial",
+    name: "Design The Thought Editorial",
     role: "Editorial Staff",
-    bio: "Covering technological breakthroughs, high-growth startups, and modern digital design.",
+    bio: "Practitioner-tested analysis covering frontier artificial intelligence, high-growth startups, and digital product design.",
   },
   categories: [
     {
@@ -48,12 +53,16 @@ export const siteConfig = {
     publication: [
       { label: "About Us", href: "/about" },
       { label: "Contact", href: "/contact" },
-      { label: "Contentian AI Hub", href: "/ai-hub" },
+      { label: "AI Hub", href: "/ai-hub" },
     ],
     legal: [
       { label: "Privacy Policy", href: "/privacy" },
       { label: "Terms of Use", href: "/terms" },
       { label: "Affiliate & Advertising Disclosure", href: "/disclosure" },
     ],
+  },
+  getCanonicalUrl(path: string = ""): string {
+    const cleanPath = path.startsWith("/") ? path : `/${path}`;
+    return `${this.url}${cleanPath === "/" ? "" : cleanPath}`;
   },
 };

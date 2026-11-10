@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 import ArticleCard from "@/components/editorial/ArticleCard";
 import NewsletterSignup from "@/components/editorial/NewsletterSignup";
 import AdSlot from "@/components/ads/AdSlot";
+import JsonLd, { buildArticleSchema, buildBreadcrumbSchema } from "@/components/seo/JsonLd";
 import { 
   editorialArticles, 
   getArticleBySlug 
@@ -29,6 +30,7 @@ export async function generateMetadata({
   if (!article) return {};
 
   const url = `${siteConfig.url}/articles/${article.slug}`;
+  const ogImageUrl = `${siteConfig.url}/opengraph-image`;
 
   return {
     title: article.title,
@@ -43,11 +45,22 @@ export async function generateMetadata({
       type: "article",
       publishedTime: article.publishedDate,
       authors: [article.author.name],
+      siteName: siteConfig.name,
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: article.title,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: article.title,
       description: article.subtitle || article.excerpt,
+      creator: siteConfig.twitterHandle,
+      images: [ogImageUrl],
     },
   };
 }
@@ -68,10 +81,35 @@ export default async function ArticleDetailPage({
     .map((s) => getArticleBySlug(s))
     .filter((a): a is typeof article => Boolean(a));
 
-  const shareUrl = `${siteConfig.url}/articles/${article.slug}`;
+  const canonicalUrl = `${siteConfig.url}/articles/${article.slug}`;
+  const shareUrl = canonicalUrl;
+
+  const articleSchema = buildArticleSchema({
+    title: article.title,
+    description: article.subtitle || article.excerpt,
+    url: canonicalUrl,
+    publishedAt: article.publishedDate,
+    authorName: article.author.name,
+    authorRole: article.author.role,
+    category: article.category,
+    siteName: siteConfig.name,
+    siteUrl: siteConfig.url,
+  });
+
+  const breadcrumbsSchema = buildBreadcrumbSchema(
+    [
+      { name: "Home", url: "/" },
+      { name: article.category, url: `/${article.categorySlug}` },
+      { name: article.title, url: `/articles/${article.slug}` },
+    ],
+    siteConfig.url
+  );
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F9FAFB] dark:bg-[#0B0F19] text-[#111827] dark:text-[#F9FAFB] transition-colors">
+      <JsonLd data={articleSchema} />
+      <JsonLd data={breadcrumbsSchema} />
+      
       <Navbar />
 
       <main className="flex-1">
@@ -81,7 +119,7 @@ export default async function ArticleDetailPage({
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             
             {/* Breadcrumb Navigation */}
-            <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-6 font-semibold">
+            <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-6 font-semibold" aria-label="Breadcrumb">
               <Link href="/" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Home</Link>
               <span>/</span>
               <Link href={`/${article.categorySlug}`} className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">

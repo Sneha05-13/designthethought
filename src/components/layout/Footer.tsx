@@ -15,10 +15,10 @@ export default function Footer() {
               href="/" 
               className="flex items-center gap-2.5 text-2xl font-black tracking-tight text-gray-900 dark:text-white"
             >
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-indigo-600 to-sky-500 flex items-center justify-center text-white font-bold text-sm shadow-xs">
-                DT
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-indigo-600 to-sky-500 flex items-center justify-center text-white font-bold text-xs tracking-wider shadow-xs">
+                DTT
               </div>
-              <span>The Design Tech</span>
+              <span>Design The Thought</span>
             </Link>
             <p className="text-xs uppercase tracking-widest font-bold text-indigo-600 dark:text-indigo-400">
               {siteConfig.tagline}
@@ -147,7 +147,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500 dark:text-gray-400">
           <p>
-            &copy; {new Date().getFullYear()} The Design Tech. Ideas. Innovation. Growth.
+            &copy; {new Date().getFullYear()} Design The Thought. Ideas. Innovation. Growth.
           </p>
           <div className="flex items-center gap-6">
             <span>Independent Technology Publication</span>

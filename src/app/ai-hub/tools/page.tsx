@@ -3,26 +3,48 @@ import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import AIHubSubnav from "@/components/ai-hub/AIHubSubnav";
 import Footer from "@/components/layout/Footer";
+import JsonLd, { buildBreadcrumbSchema } from "@/components/seo/JsonLd";
 import { ChevronRight } from "lucide-react";
 import AIToolGrid from "@/components/ai-hub/AIToolGrid";
+import { siteConfig } from "@/lib/siteConfig";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Tools Directory | The Design Tech AI Hub",
+  title: "AI Tools Directory",
   description: "Discover and compare top AI tools for writing, software development, design, research, and workflows.",
+  alternates: {
+    canonical: `${siteConfig.url}/ai-hub/tools`,
+  },
+  openGraph: {
+    title: `AI Tools Directory | ${siteConfig.name} AI Hub`,
+    description: "Discover and compare top AI tools for writing, software development, design, research, and workflows.",
+    url: `${siteConfig.url}/ai-hub/tools`,
+    siteName: siteConfig.name,
+    type: "website",
+  },
 };
 
 export default function AIToolsPage() {
+  const breadcrumbsSchema = buildBreadcrumbSchema(
+    [
+      { name: "Home", url: "/" },
+      { name: "AI Hub", url: "/ai-hub" },
+      { name: "AI Tools", url: "/ai-hub/tools" },
+    ],
+    siteConfig.url
+  );
+
   return (
     <div className="min-h-screen flex flex-col bg-zinc-50 dark:bg-[#0B0F19] text-[#111827] dark:text-[#F9FAFB] transition-colors">
+      <JsonLd data={breadcrumbsSchema} />
       <Navbar />
       <AIHubSubnav />
       
       <main className="flex-1">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
-          <nav className="flex items-center text-sm text-gray-500 dark:text-gray-400 font-medium">
+          <nav className="flex items-center text-sm text-gray-500 dark:text-gray-400 font-medium" aria-label="Breadcrumb">
             <Link href="/" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-              The Design Tech
+              Design The Thought
             </Link>
             <ChevronRight className="w-4 h-4 mx-2 text-gray-400" />
             <Link href="/ai-hub" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
