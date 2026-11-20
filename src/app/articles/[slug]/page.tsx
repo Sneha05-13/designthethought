@@ -179,7 +179,7 @@ export default async function ArticleDetailPage({
   );
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F9FAFB] dark:bg-[#0B0F19] text-[#111827] dark:text-[#F9FAFB] transition-colors">
+    <div className="min-h-screen flex flex-col bg-[#FAFAFA] dark:bg-[#0B0D13] text-neutral-900 dark:text-neutral-100 transition-colors">
       <JsonLd data={articleSchema} />
       <JsonLd data={breadcrumbsSchema} />
       {article.faqs && article.faqs.length > 0 && (
@@ -191,55 +191,55 @@ export default async function ArticleDetailPage({
       <main className="flex-1">
         
         {/* Article Header */}
-        <header className="pt-14 pb-10 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-[#0D121F] transition-colors">
+        <header className="pt-12 pb-10 border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0e111a] transition-colors">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             
             {/* Breadcrumb Navigation */}
-            <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-6 font-semibold" aria-label="Breadcrumb">
-              <Link href="/" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Home</Link>
-              <span>/</span>
-              <Link href={`/${article.categorySlug}`} className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+            <nav className="flex items-center gap-2 text-xs font-mono tracking-wider uppercase text-neutral-500 dark:text-neutral-400 mb-6" aria-label="Breadcrumb">
+              <Link href="/" className="hover:text-neutral-900 dark:hover:text-white transition-colors">Dispatch</Link>
+              <span className="text-neutral-300 dark:text-neutral-700">/</span>
+              <Link href={`/${article.categorySlug}`} className="hover:text-neutral-900 dark:hover:text-white transition-colors">
                 {article.category}
               </Link>
-              <span>/</span>
-              <span className="text-gray-400 truncate max-w-[200px]">{article.title}</span>
+              <span className="text-neutral-300 dark:text-neutral-700">/</span>
+              <span className="text-neutral-400 dark:text-neutral-500 truncate max-w-[200px]">{article.title}</span>
             </nav>
 
             {/* Category Badge */}
             <div className="mb-4">
               <Link
                 href={`/${article.categorySlug}`}
-                className="inline-block text-xs uppercase tracking-widest font-bold px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200/60 dark:border-indigo-800/40 text-indigo-700 dark:text-indigo-400 hover:border-indigo-500 transition-colors"
+                className="inline-block text-[11px] font-mono uppercase tracking-[0.2em] font-medium px-2.5 py-1 bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-700 hover:border-neutral-900 dark:hover:border-neutral-400 transition-colors"
               >
                 {article.category}
               </Link>
             </div>
 
             {/* Main Title */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white tracking-tight leading-tight mb-5">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-neutral-950 dark:text-neutral-50 leading-[1.16] mb-6">
               {article.title}
             </h1>
 
             {/* Subtitle / Excerpt */}
-            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 leading-relaxed font-normal mb-8 max-w-3xl">
+            <p className="font-serif italic text-lg sm:text-xl text-neutral-600 dark:text-neutral-300 leading-relaxed mb-8 max-w-3xl">
               {article.subtitle}
             </p>
 
             {/* Metadata Bar */}
-            <div className="pt-6 border-t border-gray-100 dark:border-gray-800 flex flex-wrap items-center justify-between gap-4 text-xs text-gray-500 dark:text-gray-400">
+            <div className="pt-6 border-t border-neutral-200 dark:border-neutral-800 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-neutral-500 dark:text-neutral-400">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-indigo-600 text-white font-bold flex items-center justify-center text-sm shadow-xs">
+                <div className="w-9 h-9 rounded-full bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 font-serif font-semibold flex items-center justify-center text-sm shadow-xs">
                   {article.author.name.charAt(0)}
                 </div>
                 <div>
-                  <p className="font-bold text-gray-900 dark:text-white text-sm">{article.author.name}</p>
-                  <p className="text-gray-500 dark:text-gray-400">{article.author.role}</p>
+                  <p className="font-sans font-semibold text-neutral-900 dark:text-white text-sm">{article.author.name}</p>
+                  <p className="text-neutral-500 dark:text-neutral-400 text-xs">{article.author.role}</p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 font-semibold">
-                <span>Published: {article.publishedDate}</span>
-                <span>•</span>
+              <div className="flex items-center gap-4">
+                <span>{article.publishedDate}</span>
+                <span className="text-neutral-300 dark:text-neutral-700">•</span>
                 <span>{article.readTime}</span>
               </div>
             </div>
@@ -248,50 +248,54 @@ export default async function ArticleDetailPage({
         </header>
 
         {/* Content Body */}
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-10">
           
-          {/* Table of Contents for Long Articles */}
+          {/* Table of Contents */}
           {article.sections.length > 1 && (
-            <div className="mb-10 p-6 rounded-2xl bg-white dark:bg-[#111827] border border-gray-200 dark:border-gray-800 shadow-2xs">
-              <h2 className="text-xs uppercase tracking-wider font-bold text-gray-400 dark:text-gray-500 mb-3">
-                Table of Contents
+            <div className="mb-12 p-6 bg-white dark:bg-[#0e111a] border border-neutral-200 dark:border-neutral-800">
+              <h2 className="text-[11px] font-mono uppercase tracking-[0.2em] font-semibold text-neutral-500 dark:text-neutral-400 mb-4 pb-2 border-b border-neutral-200 dark:border-neutral-800">
+                Index of Inquiry
               </h2>
-              <ul className="space-y-2 text-sm font-medium">
-                {article.sections.map((section) => (
+              <ol className="space-y-2.5 text-sm">
+                {article.sections.map((section, idx) => (
                   <li key={section.id}>
                     <a
                       href={`#${section.id}`}
-                      className="text-gray-800 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors flex items-center gap-2"
+                      className="group flex items-start gap-3 text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition-colors"
                     >
-                      <span className="text-indigo-600 dark:text-indigo-400 font-mono text-xs">#</span>
-                      {section.heading}
+                      <span className="font-mono text-xs text-neutral-400 dark:text-neutral-500 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors pt-0.5">
+                        {String(idx + 1).padStart(2, "0")}
+                      </span>
+                      <span className="leading-snug underline-offset-4 group-hover:underline">
+                        {section.heading}
+                      </span>
                     </a>
                   </li>
                 ))}
-              </ul>
+              </ol>
             </div>
           )}
 
           {/* Article Body */}
-          <article className="prose prose-gray dark:prose-invert max-w-none">
+          <article className="prose prose-neutral dark:prose-invert max-w-none">
             {article.sections.map((section) => (
               <section key={section.id} id={section.id} className="mb-12 scroll-mt-24">
                 
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white tracking-tight mb-4 pb-2 border-b border-gray-100 dark:border-gray-800">
+                <h2 className="font-serif text-2xl sm:text-3xl font-normal text-neutral-950 dark:text-neutral-50 tracking-tight mb-5 pb-3 border-b border-neutral-200 dark:border-neutral-800">
                   {section.heading}
                 </h2>
 
                 {section.body.map((p, pIdx) => (
-                  <p key={pIdx} className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed font-normal mb-6">
+                  <p key={pIdx} className="text-neutral-800 dark:text-neutral-200 text-lg leading-[1.8] font-normal mb-6">
                     {renderFormattedText(p)}
                   </p>
                 ))}
 
                 {section.list && (
-                  <ul className="my-6 space-y-3 bg-gray-50 dark:bg-[#111827] border border-gray-200 dark:border-gray-800 rounded-xl p-6 list-none">
+                  <ul className="my-7 space-y-3 bg-white dark:bg-[#0e111a] border border-neutral-200 dark:border-neutral-800 p-6 list-none">
                     {section.list.map((item, lIdx) => (
-                      <li key={lIdx} className="text-gray-700 dark:text-gray-300 text-base leading-relaxed flex items-start gap-3">
-                        <span className="text-indigo-600 dark:text-indigo-400 font-bold leading-none mt-1">&bull;</span>
+                      <li key={lIdx} className="text-neutral-800 dark:text-neutral-200 text-base leading-relaxed flex items-start gap-3">
+                        <span className="text-neutral-400 dark:text-neutral-500 font-mono text-xs mt-1.5">—</span>
                         <span>{renderFormattedText(item)}</span>
                       </li>
                     ))}
@@ -299,25 +303,25 @@ export default async function ArticleDetailPage({
                 )}
 
                 {section.table && (
-                  <div className="my-8 overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-800 shadow-2xs">
+                  <div className="my-8 overflow-x-auto border border-neutral-200 dark:border-neutral-800">
                     {section.table.caption && (
-                      <div className="px-6 py-3 bg-gray-50 dark:bg-gray-800/80 border-b border-gray-200 dark:border-gray-800 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400">
+                      <div className="px-5 py-2.5 bg-neutral-100 dark:bg-neutral-800/60 border-b border-neutral-200 dark:border-neutral-800 text-[11px] font-mono uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
                         {section.table.caption}
                       </div>
                     )}
-                    <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-800 text-left text-sm">
-                      <thead className="bg-gray-100/70 dark:bg-gray-800/50 text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300">
+                    <table className="min-w-full divide-y divide-neutral-200 dark:divide-neutral-800 text-left text-sm">
+                      <thead className="bg-neutral-100/70 dark:bg-neutral-800/50 text-xs font-mono uppercase tracking-wider text-neutral-700 dark:text-neutral-300">
                         <tr>
                           {section.table.headers.map((h, i) => (
-                            <th key={i} className="px-6 py-3.5 font-bold">{h}</th>
+                            <th key={i} className="px-5 py-3 font-semibold">{h}</th>
                           ))}
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-gray-200 dark:divide-gray-800 bg-white dark:bg-[#111827]">
+                      <tbody className="divide-y divide-neutral-200 dark:divide-neutral-800 bg-white dark:bg-[#0e111a]">
                         {section.table.rows.map((row, rIdx) => (
-                          <tr key={rIdx} className={rIdx % 2 === 0 ? "bg-transparent" : "bg-gray-50/50 dark:bg-gray-800/20"}>
+                          <tr key={rIdx} className={rIdx % 2 === 0 ? "bg-transparent" : "bg-neutral-50/50 dark:bg-neutral-900/30"}>
                             {row.map((cell, cIdx) => (
-                              <td key={cIdx} className="px-6 py-4 text-gray-700 dark:text-gray-300 text-sm align-top leading-relaxed">
+                              <td key={cIdx} className="px-5 py-3.5 text-neutral-800 dark:text-neutral-300 text-sm align-top leading-relaxed">
                                 {renderFormattedText(cell)}
                               </td>
                             ))}
@@ -332,19 +336,19 @@ export default async function ArticleDetailPage({
                   <div className="space-y-8 my-8">
                     {section.subsections.map((sub, sIdx) => (
                       <div key={sIdx} className="space-y-4">
-                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white tracking-tight">
+                        <h3 className="font-serif text-xl sm:text-2xl font-normal text-neutral-900 dark:text-neutral-100 tracking-tight">
                           {sub.heading}
                         </h3>
                         {sub.body.map((p, pIdx) => (
-                          <p key={pIdx} className="text-gray-700 dark:text-gray-300 text-base leading-relaxed font-normal mb-4">
+                          <p key={pIdx} className="text-neutral-800 dark:text-neutral-200 text-base leading-relaxed font-normal mb-4">
                             {renderFormattedText(p)}
                           </p>
                         ))}
                         {sub.list && (
-                          <ul className="my-4 space-y-2.5 bg-gray-50 dark:bg-[#111827] border border-gray-200 dark:border-gray-800 rounded-xl p-5 list-none">
+                          <ul className="my-4 space-y-2.5 bg-white dark:bg-[#0e111a] border border-neutral-200 dark:border-neutral-800 p-5 list-none">
                             {sub.list.map((item, lIdx) => (
-                              <li key={lIdx} className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed flex items-start gap-2.5">
-                                <span className="text-indigo-600 dark:text-indigo-400 font-bold leading-none mt-1">&bull;</span>
+                              <li key={lIdx} className="text-neutral-800 dark:text-neutral-200 text-sm leading-relaxed flex items-start gap-2.5">
+                                <span className="text-neutral-400 dark:text-neutral-500 font-mono text-xs mt-1.5">—</span>
                                 <span>{renderFormattedText(item)}</span>
                               </li>
                             ))}
@@ -356,17 +360,17 @@ export default async function ArticleDetailPage({
                 )}
 
                 {section.quote && (
-                  <blockquote className="my-8 py-4 px-6 border-l-4 border-indigo-600 bg-indigo-50/50 dark:bg-indigo-950/20 rounded-r-xl italic text-xl text-gray-900 dark:text-white font-medium">
+                  <blockquote className="my-8 pl-6 border-l-2 border-neutral-900 dark:border-neutral-100 font-serif italic text-xl sm:text-2xl text-neutral-900 dark:text-neutral-100 leading-snug">
                     &ldquo;{section.quote}&rdquo;
                   </blockquote>
                 )}
 
                 {section.callout && (
-                  <div className="my-8 p-6 rounded-xl bg-white dark:bg-[#111827] border border-indigo-200 dark:border-indigo-900/60 shadow-2xs">
-                    <h3 className="text-xs uppercase tracking-widest font-bold text-indigo-600 dark:text-indigo-400 mb-1.5">
+                  <div className="my-8 p-6 bg-white dark:bg-[#0e111a] border-l-2 border-neutral-900 dark:border-neutral-100 border-r border-t border-b border-neutral-200 dark:border-neutral-800">
+                    <h3 className="text-[11px] font-mono uppercase tracking-[0.2em] font-semibold text-neutral-900 dark:text-white mb-2">
                       {section.callout.title}
                     </h3>
-                    <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-0">
+                    <p className="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed mb-0">
                       {renderFormattedText(section.callout.text)}
                     </p>
                   </div>
@@ -378,20 +382,20 @@ export default async function ArticleDetailPage({
 
           {/* Frequently Asked Questions Section */}
           {article.faqs && article.faqs.length > 0 && (
-            <section className="mt-14 mb-10 p-8 sm:p-10 rounded-2xl bg-white dark:bg-[#111827] border border-gray-200 dark:border-gray-800 shadow-2xs">
-              <div className="flex items-center gap-2.5 mb-6">
-                <span className="w-2.5 h-2.5 rounded-full bg-indigo-600" />
-                <h2 className="text-xl sm:text-2xl font-black text-gray-900 dark:text-white tracking-tight">
-                  Frequently Asked Questions
+            <section className="mt-14 mb-10 p-8 bg-white dark:bg-[#0e111a] border border-neutral-200 dark:border-neutral-800">
+              <div className="flex items-center gap-2.5 mb-6 pb-3 border-b border-neutral-200 dark:border-neutral-800">
+                <span className="w-2 h-2 bg-neutral-900 dark:bg-neutral-100" />
+                <h2 className="font-serif text-2xl font-normal text-neutral-950 dark:text-neutral-50 tracking-tight">
+                  Inquiries & Clarifications
                 </h2>
               </div>
               <div className="space-y-6">
                 {article.faqs.map((faq, fIdx) => (
-                  <div key={fIdx} className="pb-6 border-b border-gray-100 dark:border-gray-800/80 last:border-0 last:pb-0">
-                    <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-2">
+                  <div key={fIdx} className="pb-6 border-b border-neutral-200 dark:border-neutral-800/60 last:border-0 last:pb-0">
+                    <h3 className="font-sans text-base font-semibold text-neutral-900 dark:text-white mb-2">
                       {faq.question}
                     </h3>
-                    <p className="text-gray-700 dark:text-gray-300 text-base leading-relaxed">
+                    <p className="text-neutral-700 dark:text-neutral-300 text-base leading-relaxed">
                       {renderFormattedText(faq.answer)}
                     </p>
                   </div>
@@ -400,24 +404,24 @@ export default async function ArticleDetailPage({
             </section>
           )}
 
-          {/* Affiliate Disclosure Notice */}
-          <div className="mt-8 p-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-[#111827]/50 text-xs text-gray-500 dark:text-gray-400">
-            <strong>Disclosure:</strong> Some links in our articles and reviews may be affiliate partner links. If you purchase through our links, we may receive a commission at no additional cost to you. Read our full{" "}
-            <Link href="/disclosure" className="text-indigo-600 dark:text-indigo-400 underline">
+          {/* Editorial & Affiliate Disclosure Notice */}
+          <div className="mt-8 p-4 border border-neutral-200 dark:border-neutral-800 bg-neutral-100/60 dark:bg-[#0e111a] text-xs font-mono text-neutral-500 dark:text-neutral-400">
+            <strong>Colophon / Disclosure:</strong> Some references in our reporting may include independent affiliate partner links. If you acquire software through these links, our publication may receive a commission without cost to you. Read our full{" "}
+            <Link href="/disclosure" className="text-neutral-900 dark:text-white underline underline-offset-2">
               Affiliate Disclosure
             </Link>.
           </div>
 
           {/* Social Sharing & Story Navigation */}
-          <div className="pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-6 text-sm mt-10">
+          <div className="pt-8 border-t border-neutral-200 dark:border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-6 text-sm mt-10">
             
             <div className="flex items-center gap-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-gray-400">Share Story:</span>
+              <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-400">Share Story:</span>
               <a
                 href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(article.title)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 text-xs font-semibold text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                className="px-3 py-1.5 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-xs font-mono text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white hover:border-neutral-900 dark:hover:border-neutral-400 transition-colors"
               >
                 X / Twitter
               </a>
@@ -425,7 +429,7 @@ export default async function ArticleDetailPage({
                 href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 text-xs font-semibold text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                className="px-3 py-1.5 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-xs font-mono text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white hover:border-neutral-900 dark:hover:border-neutral-400 transition-colors"
               >
                 LinkedIn
               </a>
@@ -433,7 +437,7 @@ export default async function ArticleDetailPage({
 
             <Link
               href={`/${article.categorySlug}`}
-              className="font-bold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors flex items-center gap-1.5"
+              className="font-mono text-xs uppercase tracking-wider text-neutral-900 dark:text-neutral-100 hover:text-neutral-600 dark:hover:text-neutral-400 transition-colors flex items-center gap-1.5"
             >
               <span>Back to {article.category} &rarr;</span>
             </Link>
@@ -443,14 +447,17 @@ export default async function ArticleDetailPage({
 
         {/* Related Articles Section */}
         {relatedArticles.length > 0 && (
-          <section className="py-16 bg-white dark:bg-[#0D121F] border-t border-gray-200 dark:border-gray-800 transition-colors">
+          <section className="py-16 bg-white dark:bg-[#0e111a] border-t border-neutral-200 dark:border-neutral-800 transition-colors">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex items-center justify-between mb-8 pb-3 border-b border-gray-200 dark:border-gray-800">
-                <h2 className="text-xl sm:text-2xl font-black text-gray-900 dark:text-white tracking-tight">
-                  Related Dispatches
-                </h2>
-                <span className="text-xs uppercase font-bold tracking-wider text-indigo-600 dark:text-indigo-400">
-                  Recommended
+              <div className="flex items-center justify-between mb-8 pb-3 border-b border-neutral-200 dark:border-neutral-800">
+                <div className="flex items-center gap-2.5">
+                  <span className="w-2 h-2 bg-neutral-950 dark:bg-neutral-50" />
+                  <h2 className="font-serif text-2xl font-normal text-neutral-950 dark:text-neutral-50 tracking-tight">
+                    Related Dispatches
+                  </h2>
+                </div>
+                <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-neutral-400">
+                  Recommended Reading
                 </span>
               </div>
 

@@ -41,27 +41,27 @@ export default function StartupsBizPage() {
   );
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F9FAFB] dark:bg-[#0B0F19] text-[#111827] dark:text-[#F9FAFB] transition-colors">
+    <div className="min-h-screen flex flex-col bg-[#FAFAFA] dark:bg-[#0B0D13] text-neutral-900 dark:text-neutral-100 transition-colors">
       <JsonLd data={breadcrumbsSchema} />
       <Navbar />
 
       <main className="flex-1">
         {/* Category Header */}
-        <section className="pt-14 pb-12 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-[#0D121F] transition-colors">
+        <section className="pt-12 pb-10 border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0e111a] transition-colors">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-4 font-semibold" aria-label="Breadcrumb">
-              <Link href="/" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Home</Link>
-              <span>/</span>
-              <span className="text-emerald-600 dark:text-emerald-400">Startups &amp; Biz</span>
+            <nav className="flex items-center gap-2 text-xs font-mono tracking-wider uppercase text-neutral-500 dark:text-neutral-400 mb-5" aria-label="Breadcrumb">
+              <Link href="/" className="hover:text-neutral-900 dark:hover:text-white transition-colors">Dispatch</Link>
+              <span className="text-neutral-300 dark:text-neutral-700">/</span>
+              <span className="text-neutral-900 dark:text-neutral-100">Startups &amp; Biz</span>
             </nav>
 
-            <span className="text-xs uppercase tracking-widest font-bold text-emerald-600 dark:text-emerald-400 mb-2 block">
+            <span className="text-[11px] font-mono uppercase tracking-[0.2em] font-semibold text-neutral-500 dark:text-neutral-400 mb-2 block">
               Venture &amp; Entrepreneurship Desk
             </span>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white tracking-tight mb-4">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-neutral-950 dark:text-neutral-50 mb-4">
               Startups, Business Models &amp; Venture Strategy
             </h1>
-            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 font-normal max-w-3xl leading-relaxed mb-6">
+            <p className="font-serif italic text-lg text-neutral-600 dark:text-neutral-300 max-w-3xl leading-relaxed mb-6">
               Rigorous, research-driven playbooks and empirical frameworks for founders, operators, and entrepreneurs. Deep-dive into Product-Market Fit, venture financing, unit economics, GTM engines, and sustainable business models.
             </p>
 
@@ -79,7 +79,7 @@ export default function StartupsBizPage() {
               ].map((topic) => (
                 <span
                   key={topic}
-                  className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-800/40"
+                  className="inline-flex items-center px-2.5 py-1 text-xs font-mono uppercase tracking-wider bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-700"
                 >
                   {topic}
                 </span>
@@ -89,37 +89,37 @@ export default function StartupsBizPage() {
         </section>
 
         {/* Research Themes Bar */}
-        <section className="border-b border-gray-200 dark:border-gray-800 bg-[#F3F4F6]/60 dark:bg-[#0E1424] py-6 transition-colors">
+        <section className="border-b border-neutral-200 dark:border-neutral-800 bg-neutral-100/60 dark:bg-[#0e111a] py-6 transition-colors">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="p-4 rounded-xl bg-white dark:bg-[#131B2E] border border-gray-200/80 dark:border-gray-800">
-                <span className="text-xs uppercase tracking-wider font-bold text-emerald-600 dark:text-emerald-400 block mb-1">Pillar 1</span>
-                <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-1">Ideation &amp; Validation</h2>
-                <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+              <div className="p-4 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 block mb-1">Pillar 01</span>
+                <h2 className="font-serif text-sm font-semibold text-neutral-900 dark:text-white mb-1">Ideation &amp; Validation</h2>
+                <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed font-sans">
                   Sean Ellis benchmarks, cohort retention curves, and smoke-testing demand before writing code.
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-white dark:bg-[#131B2E] border border-gray-200/80 dark:border-gray-800">
-                <span className="text-xs uppercase tracking-wider font-bold text-emerald-600 dark:text-emerald-400 block mb-1">Pillar 2</span>
-                <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-1">Financing &amp; Equity</h2>
-                <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+              <div className="p-4 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 block mb-1">Pillar 02</span>
+                <h2 className="font-serif text-sm font-semibold text-neutral-900 dark:text-white mb-1">Financing &amp; Equity</h2>
+                <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed font-sans">
                   SAFEs, convertible notes, dilution math, valuation caps, and bootstrapping economics.
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-white dark:bg-[#131B2E] border border-gray-200/80 dark:border-gray-800">
-                <span className="text-xs uppercase tracking-wider font-bold text-emerald-600 dark:text-emerald-400 block mb-1">Pillar 3</span>
-                <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-1">Unit Economics &amp; Math</h2>
-                <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+              <div className="p-4 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 block mb-1">Pillar 03</span>
+                <h2 className="font-serif text-sm font-semibold text-neutral-900 dark:text-white mb-1">Unit Economics &amp; Math</h2>
+                <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed font-sans">
                   Formulas for fully-loaded CAC, CAC payback, LTV:CAC benchmarks, Gross Burn, and Runway.
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-white dark:bg-[#131B2E] border border-gray-200/80 dark:border-gray-800">
-                <span className="text-xs uppercase tracking-wider font-bold text-emerald-600 dark:text-emerald-400 block mb-1">Pillar 4</span>
-                <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-1">GTM &amp; Scaling</h2>
-                <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+              <div className="p-4 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 block mb-1">Pillar 04</span>
+                <h2 className="font-serif text-sm font-semibold text-neutral-900 dark:text-white mb-1">GTM &amp; Scaling</h2>
+                <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed font-sans">
                   Product-Led Growth (PLG) vs Sales-Led Growth (SLG), B2B buying committees, and avoiding premature scaling.
                 </p>
               </div>

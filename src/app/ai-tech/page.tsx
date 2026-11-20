@@ -10,22 +10,22 @@ import { getArticlesByCategory } from "@/data/editorialArticles";
 import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
-  title: "AI & Tech — Systems Architecture & Frontier Intelligence",
-  description: "In-depth editorial analyses, technical frameworks, prompt engineering blueprints, autonomous agent loops, RAG architectures, and engineering lessons from real-world software deployments.",
+  title: "AI & Tech — Practical Answers, Real-World Questions & Emerging Tech",
+  description: "Curiosity-driven, practical answers to modern technology questions: how LLMs generate responses, why AI hallucinates, when to use agents, which models to pick, and what happens when AI enters the workplace.",
   alternates: {
     canonical: `${siteConfig.url}/ai-tech`,
   },
   openGraph: {
-    title: `AI & Tech | ${siteConfig.name}`,
-    description: "In-depth editorial analyses, technical frameworks, prompt engineering blueprints, autonomous agent loops, RAG architectures, and engineering lessons from real-world software deployments.",
+    title: `AI & Tech — Practical Answers, Real-World Questions & Emerging Tech | ${siteConfig.name}`,
+    description: "Curiosity-driven, practical answers to modern technology questions: how LLMs generate responses, why AI hallucinates, when to use agents, which models to pick, and what happens when AI enters the workplace.",
     url: `${siteConfig.url}/ai-tech`,
     siteName: siteConfig.name,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: `AI & Tech | ${siteConfig.name}`,
-    description: "In-depth editorial analyses, technical frameworks, prompt engineering blueprints, autonomous agent loops, RAG architectures, and engineering lessons from real-world software deployments.",
+    title: `AI & Tech — Practical Answers, Real-World Questions & Emerging Tech | ${siteConfig.name}`,
+    description: "Curiosity-driven, practical answers to modern technology questions: how LLMs generate responses, why AI hallucinates, when to use agents, which models to pick, and what happens when AI enters the workplace.",
   },
 };
 
@@ -41,29 +41,89 @@ export default function AITechPage() {
   );
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F9FAFB] dark:bg-[#0B0F19] text-[#111827] dark:text-[#F9FAFB] transition-colors">
+    <div className="min-h-screen flex flex-col bg-[#FAFAFA] dark:bg-[#0B0D13] text-neutral-900 dark:text-neutral-100 transition-colors">
       <JsonLd data={breadcrumbsSchema} />
       <Navbar />
 
       <main className="flex-1">
         {/* Category Header */}
-        <section className="pt-14 pb-12 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-[#0D121F] transition-colors">
+        <section className="pt-12 pb-10 border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0e111a] transition-colors">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-4 font-semibold" aria-label="Breadcrumb">
-              <Link href="/" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Home</Link>
-              <span>/</span>
-              <span className="text-indigo-600 dark:text-indigo-400">AI &amp; Tech</span>
+            <nav className="flex items-center gap-2 text-xs font-mono tracking-wider uppercase text-neutral-500 dark:text-neutral-400 mb-5" aria-label="Breadcrumb">
+              <Link href="/" className="hover:text-neutral-900 dark:hover:text-white transition-colors">Dispatch</Link>
+              <span className="text-neutral-300 dark:text-neutral-700">/</span>
+              <span className="text-neutral-900 dark:text-neutral-100">AI &amp; Tech</span>
             </nav>
 
-            <span className="text-xs uppercase tracking-widest font-bold text-indigo-600 dark:text-indigo-400 mb-2 block">
-              Editorial Desk
+            <span className="text-[11px] font-mono uppercase tracking-[0.2em] font-semibold text-neutral-500 dark:text-neutral-400 mb-2 block">
+              Frontier Technology Desk
             </span>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white tracking-tight mb-4">
-              AI &amp; Future Technology
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-neutral-950 dark:text-neutral-50 mb-4">
+              AI &amp; Future Technology: Questions Answered
             </h1>
-            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 font-normal max-w-3xl leading-relaxed">
-              Simple, beginner-friendly guides and practical deep dives on artificial intelligence, machine learning, cloud computing, voice recognition, and everyday digital technology.
+            <p className="font-serif italic text-lg text-neutral-600 dark:text-neutral-300 max-w-3xl leading-relaxed mb-6">
+              Practical, curiosity-driven editorial guides exploring how artificial intelligence works in real situations, why technical developments matter, when to deploy new tools, and what emerging tech means for work and daily life.
             </p>
+
+            {/* Question Format Badges */}
+            <div className="flex flex-wrap gap-2 pt-2">
+              {[
+                "How It Works",
+                "Why It Matters",
+                "When to Use",
+                "Which Model Wins",
+                "What Happens When",
+                "Can AI Reason",
+                "Should You Automate",
+                "Privacy & Safety",
+              ].map((pill) => (
+                <span
+                  key={pill}
+                  className="inline-flex items-center px-2.5 py-1 text-xs font-mono uppercase tracking-wider bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-700"
+                >
+                  {pill}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Core Editorial Themes Bar */}
+        <section className="border-b border-neutral-200 dark:border-neutral-800 bg-neutral-100/60 dark:bg-[#0e111a] py-6 transition-colors">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="p-4 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 block mb-1">Focus 01</span>
+                <h2 className="font-serif text-sm font-semibold text-neutral-900 dark:text-white mb-1">How LLMs Work</h2>
+                <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed font-sans">
+                  Next-word prediction, probability math, temperature sampling, and transformer attention mechanisms.
+                </p>
+              </div>
+
+              <div className="p-4 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 block mb-1">Focus 02</span>
+                <h2 className="font-serif text-sm font-semibold text-neutral-900 dark:text-white mb-1">Why Models Hallucinate</h2>
+                <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed font-sans">
+                  Understanding why AI invents fake facts, sycophancy, training cutoffs, and how RAG anchors ground truth.
+                </p>
+              </div>
+
+              <div className="p-4 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 block mb-1">Focus 03</span>
+                <h2 className="font-serif text-sm font-semibold text-neutral-900 dark:text-white mb-1">When to Use Agents</h2>
+                <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed font-sans">
+                  Deciding between single prompts, deterministic workflows, and multi-step autonomous loops.
+                </p>
+              </div>
+
+              <div className="p-4 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 block mb-1">Focus 04</span>
+                <h2 className="font-serif text-sm font-semibold text-neutral-900 dark:text-white mb-1">Real Workplace Shifts</h2>
+                <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed font-sans">
+                  The centaur worker divide, junior training challenges, deskilling risks, and protecting career value.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -75,21 +135,24 @@ export default function AITechPage() {
             ))}
           </div>
 
-          {/* Connection to AI Hub */}
-          <div className="mt-14 p-8 rounded-2xl bg-white dark:bg-[#111827] border border-gray-200 dark:border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xs">
-            <div>
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
-                Explore the Design The Thought AI Hub
+          {/* Connection to AI Hub: Concept vs Question Distinction */}
+          <div className="mt-14 p-8 bg-white dark:bg-[#0e111a] border border-neutral-200 dark:border-neutral-800 flex flex-col lg:flex-row items-center justify-between gap-6">
+            <div className="max-w-3xl">
+              <span className="inline-block px-2 py-0.5 text-[10px] font-mono uppercase tracking-widest text-neutral-500 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 mb-2">
+                Curriculum &amp; Benchmarks
+              </span>
+              <h3 className="font-serif text-xl sm:text-2xl font-normal text-neutral-900 dark:text-white mb-2">
+                Looking for Foundational AI Concepts or In-Depth Tool Reviews?
               </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
-                Looking for structured reviews of Claude, ChatGPT, Cursor, Gamma, Canva, and Gemini? Browse our reference directory.
+              <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed font-sans">
+                While this <strong>AI &amp; Tech</strong> section answers curiosity-driven questions and practical workplace comparisons, our dedicated <strong>AI Hub</strong> offers structured beginner-friendly education (such as <em>What Is AI?</em>, <em>What Is Generative AI?</em>, <em>What Are LLMs?</em>, and <em>What Is RAG?</em>) alongside full-suite tool reviews for ChatGPT, Claude, Gemini, Cursor, and Gamma.
               </p>
             </div>
             <Link
               href="/ai-hub"
-              className="shrink-0 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold uppercase tracking-wider transition-colors"
+              className="shrink-0 px-6 py-3 bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 text-xs font-mono uppercase tracking-wider hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-colors"
             >
-              Open AI Hub &rarr;
+              Explore AI Hub &rarr;
             </Link>
           </div>
         </section>

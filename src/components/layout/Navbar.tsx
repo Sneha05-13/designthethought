@@ -19,27 +19,54 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 w-full bg-white/90 dark:bg-[#0B0F19]/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800/80 transition-colors">
+      {/* Top Editorial Utility Strip (Desktop) */}
+      <div className="hidden lg:block border-b border-neutral-200/80 dark:border-neutral-800/80 bg-neutral-50/80 dark:bg-[#080A0F] text-[11px] text-neutral-500 dark:text-neutral-400 font-medium py-1.5 transition-colors">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <span className="font-mono uppercase tracking-widest text-neutral-600 dark:text-neutral-300 font-semibold">
+              Volume 2026
+            </span>
+            <span className="text-neutral-300 dark:text-neutral-700">•</span>
+            <span>Independent Technology, Venture &amp; Design Publication</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <Link 
+              href="/ai-hub" 
+              className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors flex items-center gap-1 font-semibold text-neutral-700 dark:text-neutral-300"
+            >
+              <span>Explore AI Hub Directory</span>
+              <span className="text-xs">&rarr;</span>
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      <header className="sticky top-0 z-40 w-full bg-white/95 dark:bg-[#0B0D13]/95 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex h-18 items-center justify-between">
+          <div className="flex h-17 items-center justify-between">
             
-            {/* Brand Logo */}
+            {/* Brand Logo - Editorial Masthead */}
             <div className="flex items-center gap-3">
               <Link 
                 href="/" 
-                className="flex items-center gap-2.5 text-xl sm:text-2xl font-black tracking-tight text-gray-900 dark:text-white group"
+                className="flex items-center gap-3 group"
               >
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-indigo-600 to-sky-500 flex items-center justify-center text-white font-bold text-xs tracking-wider shadow-xs shadow-indigo-500/30 group-hover:scale-105 transition-transform">
-                  DTT
+                <div className="w-7 h-7 rounded-xs bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 font-black text-xs flex items-center justify-center tracking-tighter transition-transform group-hover:scale-105">
+                  DT
                 </div>
-                <span className="font-extrabold tracking-tight">
-                  Design The Thought
-                </span>
+                <div className="flex flex-col">
+                  <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 leading-none">
+                    Design The Thought
+                  </span>
+                  <span className="text-[10px] uppercase font-mono tracking-widest text-neutral-600 dark:text-neutral-300 font-semibold mt-1">
+                    Editorial Magazine
+                  </span>
+                </div>
               </Link>
             </div>
 
-            {/* Desktop Navigation - Exact order specified */}
-            <nav className="hidden md:flex items-center gap-6 lg:gap-7 text-sm font-semibold text-gray-600 dark:text-gray-300">
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-[13px] uppercase tracking-wider font-semibold text-neutral-600 dark:text-neutral-300">
               {siteConfig.navLinks.map((link) => {
                 const active = isActive(link.href);
                 return (
@@ -48,13 +75,13 @@ export default function Navbar() {
                     href={link.href}
                     className={`transition-colors py-1 relative ${
                       active 
-                        ? "text-indigo-600 dark:text-indigo-400 font-bold" 
-                        : "hover:text-gray-900 dark:hover:text-white"
+                        ? "text-neutral-950 dark:text-white font-bold" 
+                        : "hover:text-neutral-950 dark:hover:text-white"
                     }`}
                   >
                     {link.label}
                     {active && (
-                      <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-indigo-600 dark:bg-indigo-400 rounded-full" />
+                      <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-neutral-900 dark:bg-neutral-100" />
                     )}
                   </Link>
                 );
@@ -66,15 +93,17 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() => setIsSearchOpen(true)}
-                className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-50/80 dark:bg-gray-800/50 text-xs font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:border-gray-300 dark:hover:border-gray-700 transition-colors cursor-pointer"
+                className="flex items-center gap-2 px-3 py-1.5 rounded-sm border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/60 text-xs font-medium text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors cursor-pointer"
                 aria-label="Search articles"
               >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
-                <span className="hidden lg:inline">Search...</span>
-                <kbd className="hidden lg:inline text-[10px] font-mono px-1.5 py-0.5 rounded-sm bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-300">⌘K</kbd>
+                <span className="hidden lg:inline text-neutral-600 dark:text-neutral-400">Search articles...</span>
+                <kbd className="hidden lg:inline text-[10px] font-mono px-1.5 py-0.5 rounded-xs bg-neutral-200/70 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300">⌘K</kbd>
               </button>
+
+              <div className="h-4 w-px bg-neutral-200 dark:border-neutral-800" />
 
               <ThemeToggle />
             </div>
@@ -84,7 +113,7 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() => setIsSearchOpen(true)}
-                className="p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+                className="p-2 rounded-sm text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white"
                 aria-label="Search articles"
               >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -97,7 +126,7 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white focus:outline-hidden"
+                className="p-2 rounded-sm text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white focus:outline-hidden"
                 aria-label="Toggle navigation menu"
                 aria-expanded={isMobileMenuOpen}
               >
@@ -118,32 +147,32 @@ export default function Navbar() {
 
         {/* Mobile Navigation Drawer */}
         {isMobileMenuOpen && (
-          <div className="md:hidden border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-[#0B0F19] px-4 pt-3 pb-6 space-y-2">
-            <p className="text-[11px] uppercase tracking-wider text-gray-400 dark:text-gray-500 font-bold px-3 pb-1">
-              Navigation
+          <div className="md:hidden border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0B0D13] px-4 pt-4 pb-6 space-y-2">
+            <p className="text-[10px] uppercase font-mono tracking-widest text-neutral-400 dark:text-neutral-500 font-bold px-3 pb-1">
+              Publication Navigation
             </p>
             {siteConfig.navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`block px-3 py-2 rounded-lg text-sm font-semibold ${
+                className={`block px-3 py-2.5 rounded-sm text-sm font-semibold tracking-wide ${
                   isActive(link.href)
-                    ? "bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 font-bold"
-                    : "text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800/60"
+                    ? "bg-neutral-100 dark:bg-neutral-900 text-neutral-950 dark:text-white font-bold"
+                    : "text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-900/60"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
 
-            <div className="pt-3 border-t border-gray-100 dark:border-gray-800">
+            <div className="pt-3 border-t border-neutral-200 dark:border-neutral-800">
               <button
                 onClick={() => {
                   setIsMobileMenuOpen(false);
                   setIsSearchOpen(true);
                 }}
-                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-gray-100 dark:bg-gray-800 text-xs font-semibold text-gray-700 dark:text-gray-200"
+                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-sm bg-neutral-100 dark:bg-neutral-900 text-xs font-semibold text-neutral-800 dark:text-neutral-200"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />

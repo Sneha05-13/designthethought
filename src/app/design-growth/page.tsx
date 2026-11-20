@@ -41,27 +41,27 @@ export default function DesignGrowthPage() {
   );
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F9FAFB] dark:bg-[#0B0F19] text-[#111827] dark:text-[#F9FAFB] transition-colors">
+    <div className="min-h-screen flex flex-col bg-[#FAFAFA] dark:bg-[#0B0D13] text-neutral-900 dark:text-neutral-100 transition-colors">
       <JsonLd data={breadcrumbsSchema} />
       <Navbar />
 
       <main className="flex-1">
         {/* Category Header */}
-        <section className="pt-14 pb-12 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-[#0D121F] transition-colors">
+        <section className="pt-12 pb-10 border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0e111a] transition-colors">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-4 font-semibold" aria-label="Breadcrumb">
-              <Link href="/" className="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">Home</Link>
-              <span>/</span>
-              <span className="text-sky-600 dark:text-sky-400">Design &amp; Growth</span>
+            <nav className="flex items-center gap-2 text-xs font-mono tracking-wider uppercase text-neutral-500 dark:text-neutral-400 mb-5" aria-label="Breadcrumb">
+              <Link href="/" className="hover:text-neutral-900 dark:hover:text-white transition-colors">Dispatch</Link>
+              <span className="text-neutral-300 dark:text-neutral-700">/</span>
+              <span className="text-neutral-900 dark:text-neutral-100">Design &amp; Growth</span>
             </nav>
 
-            <span className="text-xs uppercase tracking-widest font-bold text-sky-600 dark:text-sky-400 mb-2 block">
-              Editorial Desk
+            <span className="text-[11px] font-mono uppercase tracking-[0.2em] font-semibold text-neutral-500 dark:text-neutral-400 mb-2 block">
+              Aesthetics &amp; Systems Desk
             </span>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white tracking-tight mb-4">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-neutral-950 dark:text-neutral-50 mb-4">
               Design Systems &amp; Digital Growth
             </h1>
-            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 font-normal max-w-2xl leading-relaxed">
+            <p className="font-serif italic text-lg text-neutral-600 dark:text-neutral-300 max-w-2xl leading-relaxed">
               Explore visual composition, Canva Magic Studio, Pinterest discovery feeds, personal UI design systems, and art-directed generative imagery.
             </p>
           </div>

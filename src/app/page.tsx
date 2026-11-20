@@ -15,248 +15,244 @@ import {
 export default function Home() {
   const featuredArticles = getFeaturedArticles();
   const leadArticle = featuredArticles[0] || editorialArticles[0];
-  const recentArticles = getRecentArticles(6);
+  const briefingArticles = editorialArticles.filter(a => a.slug !== leadArticle.slug).slice(0, 3);
+  
+  const aiTechArticles = getArticlesByCategory("ai-tech");
+  const startupsBizArticles = getArticlesByCategory("startups-biz");
+  const designGrowthArticles = getArticlesByCategory("design-growth");
   const trendingArticles = getTrendingArticles(4);
 
-  const aiTechArticles = getArticlesByCategory("ai-tech").slice(0, 3);
-  const startupsBizArticles = getArticlesByCategory("startups-biz").slice(0, 3);
-  const designGrowthArticles = getArticlesByCategory("design-growth").slice(0, 3);
-
   return (
-    <div className="min-h-screen flex flex-col bg-[#F9FAFB] dark:bg-[#0B0F19] text-[#111827] dark:text-[#F9FAFB] transition-colors">
+    <div className="min-h-screen flex flex-col bg-[#FAFAFA] dark:bg-[#0B0D13] text-[#12141A] dark:text-[#F3F4F6] transition-colors">
       <Navbar />
 
       <main className="flex-1">
         
-        {/* Section A: Hero / Publication Introduction */}
-        <section className="pt-16 pb-14 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-[#0D121F] transition-colors">
+        {/* Section 1: Editorial Masthead Hero Intro */}
+        <section className="pt-12 sm:pt-16 pb-12 border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0E111A] transition-colors">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
-              
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200/60 dark:border-indigo-800/40 text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-6">
-                <span>Design The Thought</span>
-                <span className="text-gray-300 dark:text-gray-700">•</span>
-                <span>Independent Publication</span>
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-10 border-b border-neutral-200/80 dark:border-neutral-800/80">
+              <div className="max-w-3xl">
+                <span className="text-2xs font-mono uppercase tracking-widest font-bold text-neutral-500 dark:text-neutral-400 block mb-3">
+                  Vol. 2026 • Curated Technology &amp; Venture Publication
+                </span>
+                <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-950 dark:text-white leading-[1.1] mb-5">
+                  Ideas. Innovation. Growth.
+                </h1>
+                <p className="text-base sm:text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed font-normal max-w-2xl">
+                  A high-depth digital publication exploring frontier artificial intelligence, lean startup architecture, unit economics, and digital product craft.
+                </p>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 dark:text-white tracking-tight leading-[1.1] mb-5">
-                Ideas. Innovation. Growth.
-              </h1>
-
-              <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 leading-relaxed font-normal mb-8 max-w-2xl">
-                A modern digital publication exploring frontier artificial intelligence, lean startup architecture, visual design systems, and digital leverage.
-              </p>
-
-              {/* CTAs and Category Quick Links */}
-              <div className="flex flex-wrap items-center gap-3">
-                <a
-                  href="#latest-articles"
-                  className="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition-colors shadow-xs"
-                >
-                  Explore Latest Stories &rarr;
-                </a>
+              {/* Fast Category Access Pills */}
+              <div className="flex flex-wrap items-center gap-2 lg:justify-end shrink-0">
                 <Link
                   href="/ai-tech"
-                  className="px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200 font-semibold text-sm transition-colors"
+                  className="px-3.5 py-2 border border-neutral-300 dark:border-neutral-700 hover:border-neutral-900 dark:hover:border-neutral-100 bg-neutral-50 dark:bg-neutral-900 text-xs font-mono uppercase tracking-wider font-semibold text-neutral-800 dark:text-neutral-200 transition-colors"
                 >
-                  AI &amp; Tech
+                  AI &amp; Tech &rarr;
                 </Link>
                 <Link
                   href="/startups-biz"
-                  className="px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200 font-semibold text-sm transition-colors"
+                  className="px-3.5 py-2 border border-neutral-300 dark:border-neutral-700 hover:border-neutral-900 dark:hover:border-neutral-100 bg-neutral-50 dark:bg-neutral-900 text-xs font-mono uppercase tracking-wider font-semibold text-neutral-800 dark:text-neutral-200 transition-colors"
                 >
-                  Startups &amp; Biz
+                  Startups &amp; Biz &rarr;
                 </Link>
                 <Link
                   href="/design-growth"
-                  className="px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200 font-semibold text-sm transition-colors"
+                  className="px-3.5 py-2 border border-neutral-300 dark:border-neutral-700 hover:border-neutral-900 dark:hover:border-neutral-100 bg-neutral-50 dark:bg-neutral-900 text-xs font-mono uppercase tracking-wider font-semibold text-neutral-800 dark:text-neutral-200 transition-colors"
                 >
-                  Design &amp; Growth
+                  Design &amp; Growth &rarr;
+                </Link>
+                <Link
+                  href="/ai-hub"
+                  className="px-3.5 py-2 border border-neutral-300 dark:border-neutral-700 hover:border-neutral-900 dark:hover:border-neutral-100 bg-neutral-900 dark:bg-neutral-100 text-xs font-mono uppercase tracking-wider font-semibold text-white dark:text-neutral-950 transition-colors"
+                >
+                  AI Hub Directory &rarr;
                 </Link>
               </div>
-
             </div>
-          </div>
-        </section>
 
-        {/* Section B: Featured Story */}
-        {leadArticle && (
-          <section className="py-12 sm:py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between mb-6 pb-3 border-b border-gray-200 dark:border-gray-800">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-indigo-600 animate-pulse" />
-                <h2 className="text-xl sm:text-2xl font-black text-gray-900 dark:text-white tracking-tight">
-                  Featured Story
-                </h2>
+            {/* Section 2: Top Magazine Spread (Lead Story + The Briefing) */}
+            <div className="pt-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+              
+              {/* Left Column: Lead Feature (8 Cols) */}
+              <div className="lg:col-span-8">
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="w-1.5 h-1.5 bg-neutral-900 dark:bg-neutral-100" />
+                  <span className="text-2xs font-mono uppercase tracking-widest font-bold text-neutral-900 dark:text-white">
+                    Lead Editorial Story
+                  </span>
+                </div>
+                {leadArticle && (
+                  <ArticleCard article={leadArticle} variant="featured" />
+                )}
               </div>
-              <span className="text-xs uppercase font-bold tracking-wider text-indigo-600 dark:text-indigo-400">
-                Editor&apos;s Pick
-              </span>
-            </div>
-            
-            <ArticleCard article={leadArticle} featured={true} />
-          </section>
-        )}
 
-        {/* Section C: Latest Articles + Trending Stories Sidebar */}
-        <section id="latest-articles" className="py-12 sm:py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
-            
-            {/* Main Column: Latest Articles (Desktop 2-col inside 8 cols, or 3-col below) */}
-            <div className="lg:col-span-8">
-              <div className="flex items-center justify-between mb-6 pb-3 border-b border-gray-200 dark:border-gray-800">
+              {/* Right Column: The Daily Briefing (4 Cols) */}
+              <aside className="lg:col-span-4 flex flex-col justify-between">
                 <div>
-                  <h2 className="text-xl sm:text-2xl font-black text-gray-900 dark:text-white tracking-tight">
-                    Latest Dispatches
-                  </h2>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                    Grounded engineering essays, digital growth frameworks, and startup reviews
-                  </p>
-                </div>
-              </div>
+                  <div className="flex items-center justify-between pb-3 mb-6 border-b border-neutral-200 dark:border-neutral-800">
+                    <span className="text-2xs font-mono uppercase tracking-widest font-bold text-neutral-900 dark:text-white">
+                      The Editor&apos;s Briefing
+                    </span>
+                    <span className="text-[11px] font-mono text-neutral-400">
+                      Top Reads
+                    </span>
+                  </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {recentArticles.slice(0, 4).map((article) => (
-                  <ArticleCard key={article.slug} article={article} />
-                ))}
-              </div>
-            </div>
-
-            {/* Section E: Trending Stories Sidebar */}
-            <aside className="lg:col-span-4 space-y-6">
-              <div className="p-6 rounded-2xl border border-gray-200 dark:border-gray-800/80 bg-white dark:bg-[#111827] shadow-2xs">
-                <div className="flex items-center gap-2 mb-4 pb-3 border-b border-gray-100 dark:border-gray-800">
-                  <svg className="w-5 h-5 text-indigo-600 dark:text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                  </svg>
-                  <h3 className="text-base font-bold text-gray-900 dark:text-white uppercase tracking-wider text-xs">
-                    Trending Stories
-                  </h3>
+                  <div className="space-y-6">
+                    {briefingArticles.map((article, idx) => (
+                      <ArticleCard 
+                        key={article.slug} 
+                        article={article} 
+                        variant="horizontal" 
+                        index={idx}
+                      />
+                    ))}
+                  </div>
                 </div>
 
-                <div className="space-y-4">
-                  {trendingArticles.map((article, idx) => (
-                    <div key={article.slug} className="group flex items-start gap-3.5 pb-4 border-b border-gray-100 dark:border-gray-800/60 last:border-0 last:pb-0">
-                      <span className="font-mono text-2xl font-black text-gray-300 dark:text-gray-700 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors leading-none shrink-0 pt-0.5">
-                        0{idx + 1}
-                      </span>
-                      <div className="space-y-1">
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
-                          {article.category}
-                        </span>
-                        <h4 className="text-sm font-bold text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-2 leading-snug">
-                          <Link href={`/articles/${article.slug}`}>
-                            {article.title}
-                          </Link>
-                        </h4>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">
-                          {article.readTime}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
+                <div className="mt-8 pt-6 border-t border-neutral-200 dark:border-neutral-800">
+                  <Link
+                    href="/ai-hub"
+                    className="block p-4 border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-[#11141E] hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors"
+                  >
+                    <span className="text-2xs font-mono uppercase tracking-widest text-blue-600 dark:text-blue-400 font-bold block mb-1">
+                      Directory Highlight
+                    </span>
+                    <h4 className="font-serif text-sm font-bold text-neutral-900 dark:text-white mb-1">
+                      Browse the AI Hub Tool Directory
+                    </h4>
+                    <p className="text-xs text-neutral-500 dark:text-neutral-400">
+                      Structured reviews of Claude, ChatGPT, Cursor, and Gemini &rarr;
+                    </p>
+                  </Link>
                 </div>
-              </div>
-            </aside>
+              </aside>
 
-          </div>
-        </section>
-
-        {/* Section D1: AI & Tech Section */}
-        <section className="py-16 bg-white dark:bg-[#0D121F] border-t border-gray-200 dark:border-gray-800 transition-colors">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-4 border-b border-gray-200 dark:border-gray-800">
-              <div>
-                <span className="text-xs uppercase tracking-widest font-bold text-indigo-600 dark:text-indigo-400 mb-1 block">
-                  Category Focus
-                </span>
-                <h2 className="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white tracking-tight">
-                  AI &amp; Tech
-                </h2>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mt-1 font-normal max-w-xl">
-                  Machine learning architectures, prompt engineering frameworks, software tools, and autonomous agent systems.
-                </p>
-              </div>
-              <Link
-                href="/ai-tech"
-                className="mt-4 sm:mt-0 text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 flex items-center gap-1.5 transition-colors"
-              >
-                <span>View All AI &amp; Tech</span>
-                <span>&rarr;</span>
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-              {aiTechArticles.map((article) => (
-                <ArticleCard key={article.slug} article={article} />
-              ))}
             </div>
           </div>
         </section>
 
-        {/* Section D2: Startups & Biz Section */}
-        <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-4 border-b border-gray-200 dark:border-gray-800">
+        {/* Section 3: The Critical Questions (AI & Frontier Technology) */}
+        <section className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between pb-4 mb-8 border-b border-neutral-200 dark:border-neutral-800">
             <div>
-              <span className="text-xs uppercase tracking-widest font-bold text-emerald-600 dark:text-emerald-400 mb-1 block">
-                Category Focus
+              <span className="text-2xs font-mono uppercase tracking-widest font-bold text-blue-600 dark:text-blue-400 block mb-1">
+                Question-Based Inquiries
               </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white tracking-tight">
-                Startups &amp; Biz
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-neutral-950 dark:text-white tracking-tight">
+                AI &amp; Frontier Technology
               </h2>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1 font-normal max-w-xl">
-                Bootstrapped software playbooks, solo founder economics, digital assets, and high-margin online business models.
+              <p className="text-xs sm:text-sm text-neutral-500 dark:text-neutral-400 mt-1 max-w-xl font-normal">
+                How LLMs generate responses, why models hallucinate, when to use agents, and how AI impacts real workplaces.
               </p>
             </div>
             <Link
-              href="/startups-biz"
-              className="mt-4 sm:mt-0 text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 flex items-center gap-1.5 transition-colors"
+              href="/ai-tech"
+              className="mt-4 sm:mt-0 text-xs font-mono uppercase tracking-wider font-bold text-neutral-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1.5"
             >
-              <span>View All Startups &amp; Biz</span>
+              <span>Explore All 20 Questions</span>
               <span>&rarr;</span>
             </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {startupsBizArticles.map((article) => (
-              <ArticleCard key={article.slug} article={article} />
+            {aiTechArticles.slice(0, 6).map((article) => (
+              <ArticleCard key={article.slug} article={article} variant="standard" />
             ))}
           </div>
         </section>
 
-        {/* Section D3: Design & Growth Section */}
-        <section className="py-16 bg-white dark:bg-[#0D121F] border-t border-gray-200 dark:border-gray-800 transition-colors">
+        {/* Section 4: The Founder & Venture Desk (Startups & Biz) */}
+        <section className="py-16 sm:py-20 bg-white dark:bg-[#0E111A] border-t border-neutral-200 dark:border-neutral-800 transition-colors">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-4 border-b border-gray-200 dark:border-gray-800">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between pb-4 mb-8 border-b border-neutral-200 dark:border-neutral-800">
               <div>
-                <span className="text-xs uppercase tracking-widest font-bold text-sky-600 dark:text-sky-400 mb-1 block">
-                  Category Focus
+                <span className="text-2xs font-mono uppercase tracking-widest font-bold text-emerald-600 dark:text-emerald-400 block mb-1">
+                  Venture Architecture &amp; Playbooks
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white tracking-tight">
-                  Design &amp; Growth
+                <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-neutral-950 dark:text-white tracking-tight">
+                  Startups, Business Models &amp; Scaling
                 </h2>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mt-1 font-normal max-w-xl">
-                  Canva Magic Studio, Pinterest traffic engines, UI design systems, visual branding, and audience growth.
+                <p className="text-xs sm:text-sm text-neutral-500 dark:text-neutral-400 mt-1 max-w-xl font-normal">
+                  Product-Market Fit benchmarks, unit economics mathematics (CAC &amp; LTV), SAFE note dilution, and why startups fail.
                 </p>
               </div>
               <Link
-                href="/design-growth"
-                className="mt-4 sm:mt-0 text-xs font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400 hover:text-sky-700 dark:hover:text-sky-300 flex items-center gap-1.5 transition-colors"
+                href="/startups-biz"
+                className="mt-4 sm:mt-0 text-xs font-mono uppercase tracking-wider font-bold text-neutral-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1.5"
               >
-                <span>View All Design &amp; Growth</span>
+                <span>View Founder Desk</span>
                 <span>&rarr;</span>
               </Link>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-              {designGrowthArticles.map((article) => (
-                <ArticleCard key={article.slug} article={article} />
+              {startupsBizArticles.slice(0, 6).map((article) => (
+                <ArticleCard key={article.slug} article={article} variant="standard" />
               ))}
             </div>
           </div>
         </section>
 
-        {/* Section F: Newsletter Signup */}
+        {/* Section 5: The Craft (Design Systems & Digital Growth) */}
+        <section className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between pb-4 mb-8 border-b border-neutral-200 dark:border-neutral-800">
+            <div>
+              <span className="text-2xs font-mono uppercase tracking-widest font-bold text-amber-600 dark:text-amber-400 block mb-1">
+                Visual Identity &amp; Leverage
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-neutral-950 dark:text-white tracking-tight">
+                Design &amp; Growth
+              </h2>
+              <p className="text-xs sm:text-sm text-neutral-500 dark:text-neutral-400 mt-1 max-w-xl font-normal">
+                Canva Magic Studio evaluations, Pinterest algorithmic traffic engines, and personal branding design tokens.
+              </p>
+            </div>
+            <Link
+              href="/design-growth"
+              className="mt-4 sm:mt-0 text-xs font-mono uppercase tracking-wider font-bold text-neutral-900 dark:text-white hover:text-amber-600 dark:hover:text-amber-400 transition-colors flex items-center gap-1.5"
+            >
+              <span>View All Design &amp; Growth</span>
+              <span>&rarr;</span>
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {designGrowthArticles.map((article) => (
+              <ArticleCard key={article.slug} article={article} variant="standard" />
+            ))}
+          </div>
+        </section>
+
+        {/* Section 6: Most Read & Trending Stories (Numbered Row) */}
+        <section className="py-16 sm:py-20 bg-neutral-100/70 dark:bg-[#0B0D13] border-t border-neutral-200 dark:border-neutral-800 transition-colors">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between pb-4 mb-8 border-b border-neutral-200 dark:border-neutral-800">
+              <span className="text-2xs font-mono uppercase tracking-widest font-bold text-neutral-900 dark:text-white">
+                Most Read Across All Desks
+              </span>
+              <span className="text-[11px] font-mono text-neutral-400">
+                Weekly Engagement
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+              {trendingArticles.map((article, idx) => (
+                <ArticleCard 
+                  key={article.slug} 
+                  article={article} 
+                  variant="minimal" 
+                  index={idx} 
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Section 7: Editorial Newsletter */}
         <NewsletterSignup />
 
       </main>

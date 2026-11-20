@@ -122,13 +122,16 @@ export default function RootLayout({
         />
         <JsonLd data={websiteSchema} />
         <link rel="manifest" href="/manifest.json" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&display=swap" rel="stylesheet" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content={siteConfig.name} />
         <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
       </head>
-      <body className="min-h-full flex flex-col bg-[#F9FAFB] dark:bg-[#0B0F19] text-[#111827] dark:text-[#F9FAFB] selection:bg-indigo-500/20 selection:text-indigo-600 dark:selection:text-indigo-400">
+      <body className={`${plusJakartaSans.variable} ${geistMono.variable} min-h-full flex flex-col bg-[#FAFAFA] dark:bg-[#0B0D13] text-[#111827] dark:text-[#F3F4F6] selection:bg-neutral-900 selection:text-white dark:selection:bg-white dark:selection:text-black font-sans antialiased`}>
         <ThemeProvider>
           {children}
           <ServiceWorkerRegister />
